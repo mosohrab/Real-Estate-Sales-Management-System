@@ -1,0 +1,110 @@
+
+
+
+<kendo-dialog [width]="400" 
+[width]="700" 
+[height]="500" 
+[title]="Status" 
+(close)="onClose()"
+(open)="onOpen()"
+ *ngIf="isOpenedDialog"
+  style="text-align:right;">
+    
+      <kendo-dialog-titlebar>
+        <div style="font-size: 18px; line-height: 1.3em;">
+          <span class="k-icon k-i-warning"></span> مشخصات
+        </div>
+      </kendo-dialog-titlebar>
+
+      <p style="margin-right: 10px;">
+        انتخاب ویژگی برای واحد: <b>{{model.unitName}}</b>
+      </p>
+
+      <div class="au-panel">
+        <div class="au-panel-header au-bg-gray">
+          <app-toolbar-button
+          [buttons]="buttons"
+          [showAddButton]="true"
+          [showEditButton]="true"           
+          [showDeleteButton]="true"
+          [showDeletAlleButton]="true"
+          (addClicked)="onAddClicked()"
+          (editClicked)="onEditClicked()"
+          (deleteClicked)="onDeleteClicked()"
+          (deleteAllClicked)="onDeleteAllClicked()"
+          
+          >
+              
+              </app-toolbar-button>
+            </div>
+      
+    
+      <kendo-grid
+      [data]="gridDataResult | async"
+      [pageSize]="state.take"
+      [skip]="state.skip"
+      [sort]="state.sort"
+      [sortable]="true"
+      [pageable]="true"
+      [selectable]="true"
+      (dataStateChange)="onDataStateChange($event)"
+      (pageChange)="onPageChange($event)"
+      [filter]="state.filter" 
+       filterable="menu" 
+      [resizable]="true"
+          
+           
+      [selectable]="selectableSettings" 
+      [kendoGridSelectBy]="'unitFeatureAssignedId'"
+      [selectedKeys]="dataItemSelected"
+      (selectedKeysChange)="onSelectedKeysChange($event)"
+      [ngBusy]="busyConfig" 
+      [height]="350"
+      >
+      <kendo-grid-checkbox-column
+       width="40"
+      >
+              <ng-template kendoGridHeaderTemplate>
+                  <input class="k-checkbox" 
+                  id="selectAllCheckboxId"
+                   kendoGridSelectAllCheckbox
+                   [state]="selectAllState"
+                  (selectAllChange)="onSelectAllChange($event)">
+                  <label class="k-checkbox-label"
+                   for="selectAllCheckboxId"></label>
+              </ng-template>
+          </kendo-grid-checkbox-column>
+        
+      
+      <kendo-grid-column 
+      field="featureTitleName"
+      title="ویژگی">  
+      </kendo-grid-column>
+    
+      <kendo-grid-column 
+      field="featureValueName"
+      title="مقدار">  
+      </kendo-grid-column>
+       
+      </kendo-grid>
+      </div>
+      
+
+
+
+
+<!-- <kendo-dialog-actions> 
+        <button kendoButton class="k-button "
+         (click)="onClose()">انصراف</button>
+      </kendo-dialog-actions>
+    
+    </kendo-dialog> -->
+
+    
+    <app-unit-feature-assigned-upsert
+    #dialogUpsert
+    (closedDialog)="closedDialog($event)"
+    >
+      </app-unit-feature-assigned-upsert>
+  
+  

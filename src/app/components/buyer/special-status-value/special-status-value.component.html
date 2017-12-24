@@ -1,0 +1,15 @@
+
+
+<div>
+<app-special-status-value-upsert #valueUpsert
+[dataItem]="dataItemValue" 
+[(ngModel)]="dataItemValue"
+(closedDialog)="closedDialog($event)"
+>
+</app-special-status-value-upsert>
+</div>
+<div>
+<app-special-status-value-grid #valueGrid
+[dataItem]="dataItemValue" > 
+</app-special-status-value-grid>
+</div>ّ

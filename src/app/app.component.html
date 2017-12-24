@@ -1,0 +1,186 @@
+<!-- 
+The content below is only a placeholder and can be replaced.
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+  <button kendoButton >My Kendo UI Button</button>
+ 
+<img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div> -->
+
+
+
+
+<header id="aa-header">
+  <div id="aa-logo-group">
+    <a id="aa-logo" href="##" [routerLink]="['/']">
+      <img src="assets/img/logo.png" alt="SmartAdmin">
+    </a>
+    <span id="aa-activity" class="activity-dropdown">
+      <i class="fa fa-user"></i>
+      <b class="badge bg-color-red bounceIn animated"> 21 </b>
+    </span>
+  </div>
+</header>
+<section id="aa-body">
+  <aside id="aa-right-panel">
+
+    <div id="aa-login-info">
+      <span>
+        <!-- User image size is adjusted inside CSS, it should stay as is -->
+
+        <a href="javascript:void(0);" id="show-shortcut" datan-action="toggleShortcut">
+          <img src="assets/img/avatar.png" alt="me" class="aa-online">
+          <span>
+            کاربر تست
+          </span>
+          <i class="fa fa-angle-down"></i>
+        </a>
+
+      </span>
+    </div>
+
+
+    <nav class="aa-tree-menu">
+      <ul>
+
+        <li>
+
+          <a href="##" [routerLink]="['/']">
+            <span>داشبورد</span>
+          </a>
+        </li>
+
+
+
+        <li>
+          <a href="#" class="aa-collapse">
+            <span>اطلاعات پایه</span>
+            <b class="aa-collapse-sign">
+              <em class="fa fa-minus-square-o"></em>
+            </b>
+          </a>
+          <ul>
+            <li>
+              <a href="##" [routerLink]="['country']">
+                <span>کشور</span>
+              </a>
+            </li>
+            <li>
+
+              <a href="##" [routerLink]="['province']">
+                <span>استان</span>
+              </a>
+            </li>
+            <li>
+
+              <a [routerLink]="['city']">
+                <span>شهرها</span>
+              </a>
+            </li>
+
+            <li>
+              <a [routerLink]="['scale']">
+                <span>مقیاس</span>
+              </a>
+            </li>
+
+
+          </ul>
+        </li>
+
+        <li>
+          <a href="#" class="aa-collapse">
+            <span>خریداران</span>
+            <b class="aa-collapse-sign">
+              <em class="fa fa-minus-square-o"></em>
+            </b>
+          </a>
+          <ul>
+            <li>
+              <a [routerLink]="['special']">
+                <span>ویژگی ها</span>
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['person']">
+                <span>اشخاص حقیقی</span>
+              </a>
+            </li>
+            <li>
+              <a [routerLink]="['company']">
+                <span>اشخاص حقوقی</span>
+              </a>
+            </li>
+
+          </ul>
+
+        </li>
+
+          
+        <li>
+          <a href="#" class="aa-collapse">
+            <span>ساختار شکست</span>
+            <b class="aa-collapse-sign">
+              <em class="fa fa-minus-square-o"></em>
+            </b>
+          </a>
+          <ul>
+            <li>
+              <a href="##" [routerLink]="['wbs']">
+                <span>ساختار شکست</span>
+              </a>
+            </li>
+         
+          </ul>
+
+        </li>
+
+
+        <li>
+          <a href="#" class="aa-collapse">
+            <span> واحد ها</span>
+            <b class="aa-collapse-sign">
+              <em class="fa fa-minus-square-o"></em>
+            </b>
+          </a>
+          <ul>
+            <li>
+              <a href="##" [routerLink]="['unitfeature']">
+                <span>ویژگیهای عمومی و انتخابی</span>
+              </a>
+            </li>
+            <!-- <li>
+              <a href="##" [routerLink]="['measuringunit']">
+                <span>واحد سنجش</span>
+              </a>
+            </li> -->
+            <li>
+              <a href="##" [routerLink]="['unit']">
+                <span>تعریف واحدها</span>
+              </a>
+            </li>
+          <!--  <li>
+              <a href="##" [routerLink]="['unitusage']">
+                <span>کاربری واحدها</span>
+              </a>
+            </li> -->
+          </ul>
+
+        </li>
+
+
+
+      </ul>
+    </nav>
+  </aside>
+
+  <article id="aa-main">
+    <router-outlet></router-outlet>
+  </article>
+</section>
+<!-- <app-spinner [threshold]="2000" [template]="template" [loadingText]="''"> </app-spinner> -->
+<ng-snotify></ng-snotify>
+<!-- <app-delete-confirm></app-delete-confirm> -->
+

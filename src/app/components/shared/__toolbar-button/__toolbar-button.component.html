@@ -1,0 +1,65 @@
+
+
+
+<nav class="au-bg-gray">
+
+  <ul class="au-toolbar ">
+    <li class="au-toolbar-item " 
+    *ngIf="showAddButton" >
+          <a class="au-button-icon" 
+          href="javascript:void(0);"
+          tooltip="افزودن"
+          title="افزودن"
+        (click)="onAddClicked()" 
+         >
+        <i class="fa fa-lg fa-plus"></i>
+    </a>
+        
+    </li>
+    <li class="au-toolbar-item "
+    *ngIf="showEditButton">
+        <a class="au-button-icon"
+        href="javascript:void(0);"  
+         tooltip="ویرایش"
+        title="ویرایش"
+         (click)="onEditClicked()" 
+        >
+        <i class="fa fa-pencil fa-lg"></i>
+    </a>
+        
+    </li>
+    <li class="au-toolbar-item "
+    *ngIf="showDeleteButton">
+        <a class="au-button-icon"
+        href="javascript:void(0);"
+        tooltip="حذف"
+        title="حذف"
+         (click)="onDeleteClicked()" 
+        >
+        <i class="fa fa-trash-o fa-lg"></i>
+        </a>
+        
+    </li>
+    <li class="au-toolbar-item "
+    *ngIf="showDeletAlleButton"
+    >
+        <a class="au-button-icon"
+        href="javascript:void(0);"
+        tooltip="حذف همه"
+        title="حذف همه"
+         (click)="onDeleteAllClicked()" 
+        >
+        <i class="fa fa-remove fa-lg"></i>
+        </a>
+        
+    </li>
+    <!-- <li class="au-toolbar-item ">
+        <span class="au-button-icon"
+         (click)="detailDialog.openDialog()"
+          >
+        <i class="fa fa-check"></i>
+        </span>
+        
+    </li> -->
+  </ul>
+</nav>

@@ -1,0 +1,39 @@
+// .#{$prefix-css}-row{
+//     padding: 0;
+//     direction: rtl;
+
+
+
+// }
+
+// .#{$prefix-css}-col-2 > .#{$prefix-css}-col{
+//     width: 50%;
+// }
+// .#{$prefix-css}-col-3 > .#{$prefix-css}-col{
+//     width: 33.333333%;
+// }
+
+
+// @media (min-width: 1200px)
+// {
+// .au-container {
+//     max-width: 1140px;
+// }
+
+// }
+
+
+
+.#{$prefix-css}row {
+    @include make-row();
+  }
+
+// @if $enable-grid-classes {
+     @include make-grid-columns();
+//   }
+
+  
+
+
+
+

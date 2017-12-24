@@ -1,0 +1,125 @@
+
+
+
+<kendo-dialog [width]="400" 
+[width]="500" 
+[height]="500" 
+[title]="Status" 
+(close)="onClose()"
+(open)="onOpen()"
+ *ngIf="isOpenedDialog"
+  style="text-align:right;">
+    
+      <kendo-dialog-titlebar>
+        <div style="font-size: 18px; line-height: 1.3em;">
+          <span class="k-icon k-i-warning"></span> مشخصات
+        </div>
+      </kendo-dialog-titlebar>
+
+      
+
+<form class="k-form" 
+#detailValueForm="ngForm" 
+(ngSubmit)="onSaveDetail(detailValueForm.form)" 
+ style="text-align:right;">
+
+
+<div class="au-margin-top-10">
+   <label class="k-form-field">
+    <span>عنوان واحد
+        <span class="k-required">*</span>
+    </span>
+    <input class="k-textbox"
+     name="unitTitle"
+    [(ngModel)]="model.unitTitle" 
+    placeholder="عنوان واحد" 
+    required />
+  </label>
+</div>
+
+
+<div class="au-margin-top-10">
+   <label class="k-form-field">
+    <span>شماره واحد 
+        <span class="k-required">*</span>
+  </span>
+    <input class="k-textbox"
+     name="unitNumber"
+    [(ngModel)]="model.unitNumber" 
+    placeholder="شماره واحد" 
+    required />
+  </label>
+</div>
+
+
+<div class="au-margin-top-10">
+   <label class="k-form-field">
+    <span>متراژ اسمی واحد
+      <span class="k-required">*</span>
+    </span>
+    <input class="k-textbox"
+     name="nominalArea"
+    [(ngModel)]="model.nominalArea" 
+    placeholder="متراژ اسمی واحد" 
+    required />
+  </label>
+</div>
+
+
+<div class="au-margin-top-10">
+  <label class="k-form-field">
+      <span>کاربری
+          <span class="k-required">*</span>
+        </span>
+  <app-usage-combo
+    #usageCombo
+     name="usageId" 
+     [(ngModel)]="model.usageId"
+     (valueChanged)="onUsageChange($event)"
+     
+    ></app-usage-combo>
+  </label>
+
+
+  <app-usage-item-combo-single
+  #usageItemCombo
+   name="usageItemId" 
+  [(ngModel)]="model.usageItemId"
+  [autoBound]="false"
+  ></app-usage-item-combo-single>
+
+
+
+  </div>
+
+
+<div class="au-margin-top-10">
+  <label class="k-form-field">
+    <!-- <span>جنسیت</span> -->
+    <input 
+    type="checkbox"
+     id="isEnable" 
+     name="isEnable" 
+     [(ngModel)]="model.isEnable"
+     class="k-checkbox">
+    <label class="k-checkbox-label"
+     name="isEnable"
+     for="isEnable" >فعال</label>
+
+  </label>
+</div>
+
+
+</form>
+
+<kendo-dialog-actions>
+    <!-- [disabled]="!detailForm.valid" -->
+        <button kendoButton class="k-button " 
+        (click)="onOk()" 
+                primary="true" type="submit">تایید</button>    
+        <button kendoButton class="k-button "
+         (click)="onClose()">انصراف</button>
+      </kendo-dialog-actions>
+    
+    </kendo-dialog>
+

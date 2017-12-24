@@ -1,0 +1,251 @@
+<div class="row example-wrapper au padding-100">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-block">
+        <form class="k-form">
+
+          <fieldset>
+            <legend>مشخصات بلوک</legend>
+
+            <div class="row  au margin-top-10">
+                <div class="col-md-4">
+                    <label class="k-form-field">
+                      <span>نوع سازه
+                        <span class="k-required">*</span>
+                      </span>
+                   <app-building-structure-type-combo
+                          required 
+                          name="buildingStructureType" 
+                          [(ngModel)]="model.buildingStructureType" 
+                          >
+                        </app-building-structure-type-combo>
+                    </label>
+                  </div>
+                  <div class="col-md-4">
+                      <label class="k-form-field">
+                          <span>کاربری
+                              <span class="k-required">*</span>
+                            </span>
+                      <app-usage-combo
+                        #usageCombo
+                         name="usageId" 
+                         [(ngModel)]="model.usageId" 
+                         (valueChanged)="onUsageChange($event)"
+                         
+                        ></app-usage-combo>
+                      </label>
+                    </div>
+      
+                    <div class="col-md-4">
+                        <label class="k-form-field">
+                            <span>کاربری
+                                <span class="k-required">*</span>
+                              </span>
+                          <app-usage-item-combo-single
+                          #usageItemCombo
+                           name="usageItemId" 
+                          [(ngModel)]="model.usageItemId"
+                          [autoBound]="false"
+                          ></app-usage-item-combo-single>
+                        </label>
+                      </div>
+                    </div>
+          <div class="row  au margin-top-10">
+                 <div class="col-md-4">
+                    <label class="k-form-field">
+                      <span>تاریخ شروع ساخت
+                          <span class="k-required">*</span>
+                      </span>                      
+                       <dp-date-picker 
+                         name="buildDate" 
+                         [(ngModel)]="buildDate"
+                         placeholder="تاریخ شروع ساخت"
+                         theme="dp-material"
+                         class="k-textbox"
+                         style="width:100%;"
+                         [config]="datePickerConfig" 
+                         realonly
+                       >                       
+                     </dp-date-picker>
+                    </label>
+                  </div>
+
+                  <div class="col-md-4">
+                    <label class="k-form-field">
+                      <span>نام بلوک
+                        <span class="k-required">*</span>
+                      </span>
+                      <input class="k-textbox" 
+                          required 
+                          name="fullBlockName" 
+                          [(ngModel)]="model.fullBlockName" 
+                          placeholder="نام بلوک" />
+                    </label>
+                  </div>
+    
+                  <div class="col-md-4">
+                    <label class="k-form-field">
+                      <span>
+                        موقعیت بلوک
+                        <span class="k-required">*</span>
+                      </span>
+                      <input class="k-textbox" 
+                            required name="blockPosition" 
+                            [(ngModel)]="model.blockPosition"
+                            placeholder="موقعیت بلوک"
+                      />
+                    </label>
+                 </div>
+                  
+              </div>
+
+            <div class="row  au-margin-top-10">
+              <div class="col-md-4">
+                  <label class="k-form-field">
+                    <span> مساحت زمین تخصیص یافته
+                      <span class="k-required">*</span>
+                    </span>
+                    <input class="k-textbox"
+                       name="landAreaAllocated"
+                       [(ngModel)]="model.landAreaAllocated"
+                       placeholder="مساحت زمین تخصیص یافته" 
+                       required
+                     />
+                  </label>
+                </div>
+                <div class="col-md-4">
+                  <label class="k-form-field">
+                    <span>زیربنا
+                      <span class="k-required">*</span>
+                    </span>
+                    <input class="k-textbox"
+                     name="blockFoundation" 
+                     [(ngModel)]="model.blockFoundation"
+                      placeholder="زیربنا" />
+                  </label>
+              </div>
+
+              <div class="col-md-4">
+                <label class="k-form-field">
+                  <span> مساحت مفید 
+                <span class="k-required">*</span>
+                  </span>
+                  <input class="k-textbox" 
+                      name="useFulAreaBlock"
+                      [(ngModel)]="model.useFulAreaBlock" 
+                      placeholder="مساحت مفید" 
+                      required
+                    />
+                </label>
+             </div>
+            </div>        
+        
+
+            <div class="row  au-margin-top-10">
+                <div class="col-md-4">
+                    <label class="k-form-field">
+                      <span> تعداد طبقات
+                        <span class="k-required">*</span>
+                      </span>
+                      <input class="k-textbox"
+                         name="floorsNumber"
+                         [(ngModel)]="model.floorsNumber"
+                         placeholder="تعداد طبقات" 
+                         required
+                       />
+                    </label>
+                  </div>
+                  <div class="col-md-4">
+                    <label class="k-form-field">
+                      <span>تعداد واحد
+                        <span class="k-required">*</span>
+                      </span>
+                      <input class="k-textbox"
+                       name="unitCount" 
+                       [(ngModel)]="model.unitCount"
+                        placeholder="تعداد واحد" />
+                    </label>
+                </div>
+  
+                <div class="col-md-4">
+                  <label class="k-form-field">
+                    <span> تعداد پارکینگ
+                  <span class="k-required">*</span>
+                    </span>
+                    <input class="k-textbox" 
+                        name="parkingNumber"
+                        [(ngModel)]="model.parkingNumber" 
+                        placeholder=" تعداد پارکینگ" 
+                        required
+                      />
+                  </label>
+               </div>
+              </div>        
+        
+              <div class="row  au-margin-top-10">
+                  <div class="col-md-4">
+                      <label class="k-form-field">
+                        <span> تعداد انباری
+                          <span class="k-required">*</span>
+                        </span>
+                        <input class="k-textbox"
+                           name="warehouseCount"
+                           [(ngModel)]="model.warehouseCount"
+                           placeholder="تعداد انباری" 
+                           required
+                         />
+                      </label>
+                    </div>
+                    <div class="col-md-4">
+                      <label class="k-form-field">
+                        <span>تعداد آسانسو
+                          <span class="k-required">*</span>
+                        </span>
+                        <input class="k-textbox"
+                         name="elevatorCount" 
+                         [(ngModel)]="model.elevatorCount"
+                          placeholder="تعداد آسانسو" />
+                      </label>
+                  </div>
+    
+                  <div class="col-md-4">
+                    <label class="k-form-field">
+                      <span> تعداد پله برقی
+                    <span class="k-required">*</span>
+                      </span>
+                      <input class="k-textbox" 
+                          name="escalatorCount"
+                          [(ngModel)]="model.escalatorCount" 
+                          placeholder=" تعداد پله برقی" 
+                          required
+                        />
+                    </label>
+                 </div>
+                </div>        
+          
+              
+            <div class="row  au margin-top-10">
+                <div class="col-md-12">
+              <label class="k-form-field">
+                  <span>توضیحات
+                  </span>
+                  <textarea class="k-textbox"
+                   name="description" 
+                   [(ngModel)]="model.description"
+                    required style="width: 100%;height: 50px;">
+                    </textarea>
+               </label>
+            </div>
+            </div>
+          </fieldset>
+
+          <div class=" au margin-top-10">
+            <div class="text-right">
+              <button type="button" class="k-button k-primary" (click)="saveAndNext()">ذخیره</button>
+               </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+<p>
+  wbs works!
+</p>
+
+<div class="row ">
+  <div class="col-md-4">
+    <section class="au-panel " style="min-height: 600px;">
+    
+  <tree
+  #treeControl
+  [tree]="tree"
+  [settings]="treeSettings"
+  (nodeRemoved)="onRemoved($event)"
+  (nodeRenamed)="onRenamed($event)"
+  (nodeSelected)="onSelected($event)"
+  (nodeMoved)="onMoved($event)"
+  (nodeCreated)="onCreated($event)"
+  (nodeExpanded)="onExpanded($event)"
+  (nodeCollapsed)="onCollapsed($event)"
+  (loadNextLevel)="onNextLevel($event)"
+  >
+  </tree>
+
+  <!-- <app-wbs-tree
+  (nodeRemovedHandler)="onRemoved($event)"
+  (nodeRenamedHandler)="onRenamed($event)"
+  (nodeSelectedHandler)="onSelected($event)"
+  (nodeCreatedHandler)="onCreated($event)"
+  
+  >
+
+  </app-wbs-tree> -->
+  
+  
+  
+  </section>
+  </div>
+  <div class="col-md-8">
+
+
+<section class="au-panel " style="min-height: 600px;">
+          
+<app-wbs-company-detail
+#companyDetail
+*ngIf="currentLevel == 1"
+[wbsHid]="currentId"
+>
+</app-wbs-company-detail>
+          
+<app-wbs-project-detail
+#projectDetail
+*ngIf="currentLevel == 2"
+[wbsHid]="currentId"
+>
+</app-wbs-project-detail>
+
+<app-wbs-phase-detail
+#phaseDetail
+*ngIf="currentLevel == 3"
+[wbsHid]="currentId"
+>
+</app-wbs-phase-detail>
+
+
+<app-wbs-block-detail
+#phaseDetail
+*ngIf="currentLevel == 4"
+[wbsHid]="currentId"
+>
+</app-wbs-block-detail>
+
+<app-wbs-floor-detail
+#phaseDetail
+*ngIf="currentLevel == 5"
+[wbsHid]="currentId"
+>
+</app-wbs-floor-detail>
+
+
+
+
+</section>
+  </div>
+</div>
+
+<app-wbs-upsert
+ #wbsUpsert >
+
+</app-wbs-upsert>

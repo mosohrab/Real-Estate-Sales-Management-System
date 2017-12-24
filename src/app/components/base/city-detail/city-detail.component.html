@@ -1,0 +1,70 @@
+
+<kendo-dialog [width]="400" [height]="400" [title]="Status" (close)="onClose()" *ngIf="opened" style="text-align:right;">
+
+  <kendo-dialog-titlebar>
+    <div style="font-size: 18px; line-height: 1.3em;">
+      <span class="k-icon k-i-warning"></span> مشخصات
+    </div>
+  </kendo-dialog-titlebar>
+
+
+  <form class="k-form k-rtl" 
+  #detailForm="ngForm" 
+  (ngSubmit)="onSubmit(detailForm.form)" 
+  style="text-align:right;">
+
+
+    <app-province-combo 
+   
+     ([selectedId])="model.provinceId" 
+     ([ngModel])="model.provinceId" 
+     (valueChanged)="onProvinceChange($event)"
+      name="model.provinceId"
+      #provinceCombo>
+
+    
+    </app-province-combo>
+    <!-- [(ngModel)]="model.provinceId" -->
+    <!-- (valueChanged)="onProvinceChange($event)"
+
+-->
+    <!--   
+      <label class="k-form-field">
+          <span>کشور</span>
+      <app-country-combo
+       name="countryId"
+        [selectedCountryId]="6"
+        (valueChanged)="onCountryChange($event)"
+         [(ngModel)]="model.countryId"
+         ngDefaultControl
+         >
+      </app-country-combo>
+    </label>
+
+    <label class="k-form-field">
+        <span>استان</span>
+      <app-country-combo 
+      name="provinceId"
+      [selectedCountryId]="1"
+       [(ngModel)]="model.provinceId"
+       ngDefaultControl
+      >
+      </app-country-combo>
+    </label> -->
+
+    <label class="k-form-field">
+      <span>نام شهر</span>
+      <input class="k-textbox" [(ngModel)]="model.cityName" name="cityName" placeholder="Your Name" required />
+    </label>
+
+
+  </form>
+
+  <kendo-dialog-actions>
+
+    <button kendoButton class="k-button " (click)="onOk()" [disabled]="!detailForm.valid" primary="true" type="submit">تایید</button>
+
+    <button kendoButton class="k-button " (click)="onClose()">انصراف</button>
+  </kendo-dialog-actions>
+
+</kendo-dialog>

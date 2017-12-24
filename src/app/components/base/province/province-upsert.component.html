@@ -1,0 +1,61 @@
+
+
+<kendo-dialog [width]="400" 
+[height]="300" 
+[title]="Status" 
+(close)="onClose()"
+ *ngIf="isOpenedDialog"
+  style="text-align:right;">
+    
+      <kendo-dialog-titlebar>
+        <div style="font-size: 18px; line-height: 1.3em;">
+          <span class="k-icon k-i-warning"></span> مشخصات
+        </div>
+      </kendo-dialog-titlebar>
+
+      
+
+<form class="k-form" 
+#detailValueForm="ngForm" 
+(ngSubmit)="onSaveDetail(detailValueForm.form)" 
+ style="text-align:right;">
+
+
+<div class="au-margin-top-10">
+
+  
+   <label class="k-form-field">
+    <span>عنوان</span>
+    
+ <app-country-combo
+ name="countryId" 
+ [(ngModel)]="model.countryId" 
+ required 
+
+ >
+
+  </app-country-combo>
+  </label>
+  
+   <label class="k-form-field">
+    <span>عنوان</span>
+    <input class="k-textbox"
+     name="provinceName"
+    [(ngModel)]="model.provinceName" 
+    placeholder="عنوان" 
+    required />
+  </label>
+</div>
+
+</form>
+
+<kendo-dialog-actions>
+    <!-- [disabled]="!detailForm.valid" -->
+        <button kendoButton class="k-button " 
+        (click)="onOk()" 
+                primary="true" type="submit">تایید</button>    
+        <button kendoButton class="k-button "
+         (click)="onClose()">انصراف</button>
+      </kendo-dialog-actions>
+    
+    </kendo-dialog>

@@ -1,0 +1,142 @@
+<div class="au-margin-top-10"
+
+>
+  
+  <form novalidate #myForm="ngForm">
+
+    <div class="au-panel" style="min-height: 350px;">
+      <div class="au-panel-header au-bg-gray">
+        <app-toolbar-button [showAddButton]="true" [showEditButton]="true" [showDeleteButton]="true" [showDeletAlleButton]="true"
+          (addClicked)="onAddClicked()" (editClicked)="onEditClicked()" (deleteClicked)="onDeleteClicked()" (deleteAllClicked)="onDeleteAllClicked()">
+
+        </app-toolbar-button>
+      </div>
+
+      <kendo-grid 
+      [data]="gridDataResult | async" [pageSize]="state.take" [skip]="state.skip" [sort]="state.sort" [sortable]="true"
+        [pageable]="true" 
+        [selectable]="true" 
+        (dataStateChange)="onDataStateChange($event)"
+        (pageChange)="onPageChange($event)"
+        [filter]="state.filter" 
+         filterable="menu" 
+        [resizable]="true"
+            
+        [selectable]="selectableSettings"
+        [kendoGridSelectBy]="'specialStatusId'" 
+        [selectedKeys]="dataItemSelected" 
+        (selectedKeysChange)="onSelectedKeysChange($event)"
+        (selectionChange)="valueGrid.setStatusItem($event)"
+         [height]="300"
+      
+         >
+        <!-- 
+
+            
+
+
+             [rowHeight]="35"
+            [scrollable]="'virtual'"  
+          -->
+        <!--
+              (selectionChange) ="onSelectionChange($event)"
+              [rowSelected]="isRowSelected" 
+            [selectedKeys]="mySelection"
+           (selectedKeysChange)="onSelectedKeysChange($event)"
+            -->
+        <!-- <ng-template kendoGridToolbarTemplate>
+            <button class="k-button " (click)="detailDialog.openDialog()" type="button">Add new</button>
+          </ng-template> -->
+        <!-- <kendo-grid-checkbox-column>
+              <ng-template kendoGridHeaderTemplate>
+                  <input class="k-checkbox" id="selectAllCheckboxId" kendoGridSelectAllCheckbox
+                      [state]="selectAllState"
+                      (selectAllChange)="onSelectAllChange($event)">
+                  <label class="k-checkbox-label" for="selectAllCheckboxId"></label>
+              </ng-template>
+          </kendo-grid-checkbox-column>
+         -->
+
+        <kendo-grid-checkbox-column [width]="40">
+          <ng-template kendoGridHeaderTemplate>
+            <input class="k-checkbox" id="selectAllStatus" kendoGridSelectAllCheckbox [state]="selectAllState" (selectAllChange)="onSelectAllChange($event)">
+            <label class="k-checkbox-label" for="selectAllStatus"></label>
+          </ng-template>
+        </kendo-grid-checkbox-column>
+
+
+        <kendo-grid-column
+         field="specialStatusId" [hidden]="true" [filterable]="false" [sortable]="false"></kendo-grid-column>
+
+
+        <kendo-grid-column field="name" title="نام گروه" [filterable]="true">
+          <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+            <input [(ngModel)]="dataItem.name" name="name" class="k-textbox" required/>
+          </ng-template>
+        </kendo-grid-column>
+
+        <kendo-grid-column
+         field="canMoreSelect" 
+        [width]="150" 
+        [filterable]="false"
+        title="امکان انتخاب بیشتر">
+          <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+            <p *ngIf="dataItem.canMoreSelect" class="text-center">
+              <span class="fa fa-check text-success"></span>
+            </p>
+            <p *ngIf="!dataItem.canMoreSelect" class="text-center">
+              <span class="fa fa-close  text-danger"></span>
+            </p>
+
+          </ng-template>
+        </kendo-grid-column>
+
+
+        <kendo-grid-column field="statusType"
+        [filterable]="false"
+         [width]="200" title="نوع وضعیت خاص ">
+          <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+            <!-- <input [(ngModel)]="dataItem.statusType" 
+              name="statusType"
+               class="k-check-box" disabled/> -->
+
+            <p *ngIf="dataItem.statusType === true " class="text-center">
+              <span>اشخاص حقیقی</span>
+            </p>
+            <p *ngIf="dataItem.statusType === false " class="text-center">
+              <span>اشخاص حقوقی</span>
+            </p>
+            <p *ngIf="dataItem.statusType===null" class="text-center">
+              <span>کلیه اشخاص</span>
+            </p>
+
+          </ng-template>
+        </kendo-grid-column>
+
+      </kendo-grid>
+    </div>
+  </form>
+ 
+  <!-- </fieldset> -->
+</div>
+
+<!-- <app-special-status-upsert
+ #statusDialogUpsert 
+>
+</app-special-status-upsert> -->
+
+<app-special-status-dialog
+ #statusDialog
+(closedDialog)="closedDialog($event)"
+>
+</app-special-status-dialog>
+
+
+
+<div class="au-margin-top-10">
+
+  <app-special-status-value-grid
+   #valueGrid>
+  </app-special-status-value-grid>
+
+</div>

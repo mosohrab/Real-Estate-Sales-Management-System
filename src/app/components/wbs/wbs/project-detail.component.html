@@ -1,0 +1,322 @@
+<div class="row example-wrapper au padding-100">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-block">
+        <form class="k-form">
+
+          <fieldset>
+            <legend>مشخصات پروژه</legend>
+
+            <div class="row  au margin-top-10">
+                  <div class="col-md-3">
+                    <label class="k-form-field">
+                      <span>تاریخ پروژه 
+                          <span class="k-required">*</span>
+                      </span>                      
+                       <dp-date-picker 
+                         name="buildDate" 
+                         [(ngModel)]="buildDate"
+                         placeholder="تاریخ"
+                         theme="dp-material"
+                         class="k-textbox"
+                         style="width:100%;"
+                         [config]="datePickerConfig" 
+                         realonly
+                       >                       
+                     </dp-date-picker>
+                    </label>
+                  </div>
+
+                <div class="col-md-3">
+                    <label class="k-form-field">
+                      <span>کشور
+                        <span class="k-required">*</span>
+                      </span>
+                      <app-country-combo
+                      #countryCombo
+                       name="countryId" 
+                      [(ngModel)]="model.countryId"
+                      (valueChanged)="onCountryChange($event)"
+                      ></app-country-combo>
+                    </label>
+                  </div>
+
+                  <div class="col-md-3">
+                    <label class="k-form-field">
+                      <span>استان
+                        <span class="k-required">*</span>
+                      </span>                  
+                      <app-province-combo-single
+                      #provinceCombo 
+                       name="provinceId" 
+                       [(ngModel)]="model.provinceId"
+                       (valueChanged)="onProvinceChange($event)"
+                       [autoBound]="false"
+                       >
+                      </app-province-combo-single>
+         
+                   </label>    
+                  </div>
+
+                  <div class="col-md-3">
+                    <label class="k-form-field">
+                      <span>شهر
+                        <span class="k-required">*</span>
+                      </span>
+
+                      <app-city-combo-single
+                      #cityCombo 
+                       name="cityId" 
+                       [(ngModel)]="model.cityId"
+                       [autoBound]="false"
+                       >
+                      </app-city-combo-single>
+
+                    </label>    
+                  </div>
+                  
+              </div>
+
+            <div class="row  au-margin-top-10">
+
+              <div class="col-md-3">
+                <label class="k-form-field">
+                  <span>نام پروژه
+                    <span class="k-required">*</span>
+                  </span>
+                  <input class="k-textbox" 
+                      required 
+                      name="projectName" 
+                      [(ngModel)]="model.projectName" 
+                      placeholder="نام  پروژه" />
+                </label>
+              </div>
+
+              <div class="col-md-3">
+                <label class="k-form-field">
+                  <span>
+                    شماره پلاک ثبتی
+                    <span class="k-required">*</span>
+                  </span>
+                  <input class="k-textbox" 
+                        required name="registrationPlaqueNumber" 
+                        [(ngModel)]="model.registrationPlaqueNumber"
+                        placeholder="شماره پلاک ثبتی"
+                  />
+                </label>
+             </div>
+
+              <div class="col-md-3">
+                  <label class="k-form-field">
+                    <span> مساحت زمین
+                      <span class="k-required">*</span>
+                    </span>
+                    <input class="k-textbox"
+                       name="landArea"
+                       [(ngModel)]="model.landArea"
+                       placeholder="مساحت زمین" 
+                       required
+                     />
+                  </label>
+                </div>
+                <div class="col-md-3">
+                  <label class="k-form-field">
+                    <span>وب سایت</span>
+                    <input class="k-textbox"
+                     name="webSite" 
+                     [(ngModel)]="model.webSite"
+                      placeholder="ایمیل" />
+                  </label>
+              </div>
+            </div>
+
+            <div class="row  au margin-top-10">
+
+                <div class="col-md-3">
+                    <label class="k-form-field">
+                      <span> زیربنای پروژه
+                    <span class="k-required">*</span>
+                      </span>
+                      <input class="k-textbox" 
+                          name="foundationArea"
+                          [(ngModel)]="model.foundationArea" 
+                          placeholder="زیربنای پروژه" 
+                          required
+                        />
+                    </label>
+                 </div>
+
+                <div class="col-md-3">
+                    <label class="k-form-field">
+                      <span> مساحت مفید پروژه
+                          <span class="k-required">*</span>
+                      </span>
+                      <input class="k-textbox" 
+                          name="usefulArea"
+                          [(ngModel)]="model.usefulArea" 
+                          placeholder="مساحت مفید پروژه" 
+                          required/>
+                    </label>
+                 </div>
+
+                <div class="col-md-3">
+                    <label class="k-form-field">
+                      <span> شماره پروانه
+                          <span class="k-required">*</span>
+                      </span>
+                      <input class="k-textbox" 
+                          name="licenseNumber"
+                          [(ngModel)]="model.licenseNumber" 
+                          placeholder="شماره پروانه" 
+                          required/>
+                    </label>
+                 </div>
+               
+                 
+             </div>
+
+
+            <div class="row  au margin-top-10">
+              
+               
+             <!-- <fieldset>
+              <legend>کاربری
+                <span class="k-required">*</span>
+              </legend> -->
+              <div class="col-md-4">
+                  <label class="k-form-field">
+                      <span>نوع سازه
+                          <span class="k-required">*</span>
+                        </span>
+                 <app-building-structure-type-combo
+                        required 
+                        name="buildingStructureType" 
+                        [(ngModel)]="model.buildingStructureType" 
+                        >
+                      </app-building-structure-type-combo>
+                  </label>
+                </div>
+              <div class="col-md-4">
+                <label class="k-form-field">
+                    <span>کاربری
+                        <span class="k-required">*</span>
+                      </span>
+                <app-usage-combo
+                  #usageCombo
+                   name="usageId" 
+                   (valueChanged)="onUsageChange($event)"
+                   
+                  ></app-usage-combo>
+                </label>
+              </div>
+
+              <div class="col-md-4">
+                  <label class="k-form-field">
+                      <span>کاربری
+                          <span class="k-required">*</span>
+                        </span>
+                    <app-usage-item-combo-single
+                    #usageItemCombo
+                     name="usageItemId" 
+                    [(ngModel)]="model.usageItemId"
+                    [autoBound]="false"
+                    ></app-usage-item-combo-single>
+                  </label>
+                </div>
+            <!-- </fieldset> -->
+                      
+            </div>
+
+
+          
+
+            <div class="row  au margin-top-10">
+                <div class="col-md-12">
+              <label class="k-form-field">
+                  <span>توضیحات
+                  </span>
+                  <textarea class="k-textbox"
+                   name="description" 
+                   [(ngModel)]="model.description"
+                    required style="width: 100%;height: 50px;">
+                    </textarea>
+               </label>
+            </div>
+            </div>
+          </fieldset>
+
+          <div class="row au margin-top-10">
+            <div class="col-md-12">
+              <fieldset>
+                <legend>آدرس</legend>
+
+              <div class="row  au margin-top-10">
+                <div class="col-md-4">
+                  <label class="k-form-field">
+                    <span>شماره تماس
+                      <span class="k-required">*</span>
+                    </span>
+                    <input class="k-textbox" 
+                    required name="phoneNumber1"
+                     [(ngModel)]="model.phoneNumber1" 
+                     placeholder="شماره تماس" />
+                  </label>
+                </div>
+                <div class="col-md-4">
+                  <label class="k-form-field">
+                    <span>شماره تماس
+                    <span class="k-required">*</span>
+                    </span>
+                    <input class="k-textbox" 
+                      name="phoneNumber2"
+                      [(ngModel)]="model.phoneNumber2"
+                       placeholder="شماره تماس" />
+                  </label>
+                </div>
+                <div class="col-md-4">
+                  <label class="k-form-field">
+                    <span>شماره فکس
+                      <span class="k-required">*</span>
+                    </span>
+                    <input class="k-textbox" 
+                    required
+                    name="faxNumber" 
+                     [(ngModel)]="model.faxNumber"
+                      placeholder="شماره تماس" />
+                  </label>
+                </div>
+
+                </div>
+
+
+                <div class="au margin-top-10">
+                  <label class="k-form-field">
+                    <span>آدرس
+                      <span class="k-required">*</span>
+                    </span>
+                    <textarea class="k-textbox" 
+                     name="projectAddress"
+                     [(ngModel)]="model.projectAddress"
+                      required 
+                      style="width: 100%;height: 50px;" >
+                      </textarea>
+                  </label>
+                </div>
+                
+              </fieldset>
+
+            </div>
+
+
+
+          </div>
+          <div class=" au margin-top-10">
+            <div class="text-right">
+              <button type="button" class="k-button k-primary" (click)="saveAndNext()">ذخیره</button>
+               </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

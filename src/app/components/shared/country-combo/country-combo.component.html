@@ -1,0 +1,24 @@
+<kendo-dropdownlist 
+[data]="view | async"
+[valuePrimitive]="true" 
+[textField]="'countryName'"
+[valueField]="'countryId'"
+[(ngModel)]="selectedId"
+[filterable]="true"
+(valueChange)="onValueChange($event)"
+(selectionChange)="onSelectionChange($event)"
+(filterChange)="onFilterChange($event)" 
+(open)="onOpen()"
+(close)="onClose()"
+(focus)="onFocus()"
+(blur)="onBlur()"
+ style="width: 100%;"
+
+>
+ </kendo-dropdownlist>
+
+
+ <!--  -->
+ <!-- -->
+<!-- formControlName="countryId" -->
+<!-- ngDefaultControl -->

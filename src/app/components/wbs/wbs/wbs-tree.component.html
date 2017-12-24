@@ -1,0 +1,18 @@
+
+  <tree
+  #treeControl
+  [tree]="tree"
+  [settings]="treeSettings"
+  (nodeRemoved)="onRemoved($event)"
+  (nodeRenamed)="onRenamed($event)"
+  (nodeSelected)="onSelected($event)"
+  (nodeMoved)="onMoved($event)"
+  (nodeCreated)="onCreated($event)"
+  (nodeExpanded)="onExpanded($event)"
+  (nodeCollapsed)="onCollapsed($event)"
+  (loadNextLevel)="onNextLevel($event)"
+  >
+  
+  </tree>
+  
+  

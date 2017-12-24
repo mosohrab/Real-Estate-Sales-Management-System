@@ -1,0 +1,18 @@
+
+<!-- 
+    [(ngModel)]="selectedItem"
+    [value]="selectedId"
+    [defaultItem]="'نوع شرکت را انتخاب کنید...'"
+ -->
+<kendo-dropdownlist 
+[data]="view | async"
+[(ngModel)]="selectedId"
+[valuePrimitive]="true" 
+[textField]="'companyTypeName'"
+[valueField]="'companyTypeId'"
+[filterable]="true"
+(valueChange)="onValueChange($event)"
+ style="width: 100%;"
+>
+ </kendo-dropdownlist>
+

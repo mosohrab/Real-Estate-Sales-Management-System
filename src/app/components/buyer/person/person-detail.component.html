@@ -1,0 +1,271 @@
+
+        <form class="k-form">
+
+          <!-- <fieldset>
+            <legend>مشخصات </legend> -->
+
+            <div class="row ">
+
+              <div class="col-md-3">
+                <label class="k-form-field">
+                  <!-- <span>جنسیت</span> -->
+                  <input type="radio" name="gender" id="female" class="k-radio">
+                  <label class="k-radio-label" name="sex" for="female">زن</label>
+
+                  <input type="radio" name="gender" id="male" name="sex" 
+                  [(ngModel)]="personModel.sex" class="k-radio" checked="checked">
+                  <label class="k-radio-label" for="male">مرد</label>
+                </label>
+              </div>
+              <div class="col-md-3">
+                <label class="k-form-field">
+                  <!-- <span>جنسیت</span> -->
+                  <input type="radio" name="isMarried" [(ngModel)]="personModel.isMarried" id="isMarried" class="k-radio">
+                  <label class="k-radio-label" for="isMarried">متاهل</label>
+
+                  <input type="radio" name="isMarried" id="notMarried" class="k-radio" checked="checked">
+                  <label class="k-radio-label" for="notMarried">مجرد</label>
+                </label>
+              </div>
+            </div>
+
+
+            <div class="row  au margin-top-10">
+              <div class="col-md-3">
+                <label class="k-form-field">
+                  <span>نام
+                      <span class="k-required">*</span>
+                  </span>
+                  <input class="k-textbox"  required
+                  name="firstName" [(ngModel)]="personModel.firstName" placeholder="نام" />
+                </label>
+              </div>
+              <div class="col-md-3">
+                <label class="k-form-field">
+                  <span>نام خانوادگی
+                      <span class="k-required">*</span>
+                  </span>
+                  <input class="k-textbox"
+                  required
+                  name="lastName" 
+                  [(ngModel)]="personModel.lastName" 
+                  placeholder="نام خانوادگی" />
+                </label>
+              </div>
+              <div class="col-md-3">
+                  <label class="k-form-field">
+                    <span>نام مستعار</span>
+                    <input class="k-textbox" 
+                    name="aliasName" 
+                    [(ngModel)]="personModel.aliasName" 
+                    placeholder="نام مستعار" />
+                  </label>
+                </div>
+              <div class="col-md-3">
+                <label class="k-form-field">
+                  <span>نام پدر
+                      <span class="k-required">*</span>
+                  </span>
+                  <input class="k-textbox"
+                  required
+                   name="fatherName" [(ngModel)]="personModel.fatherName" placeholder="نام پدر" />
+                </label>
+              </div>
+            </div>
+
+            <div class="row  au margin-top-10">
+              
+              <div class="col-md-3">
+                <label class="k-form-field">
+                  <span>شماره شناسنامه
+                      <span class="k-required">*</span>
+                  </span>
+                  <input class="k-textbox"
+                   name="birthCertificateId" 
+                   [(ngModel)]="personModel.birthCertificateId"
+                    placeholder="شماره شناسنامه" 
+                    required/>
+                </label>
+              </div>
+
+              <div class="col-md-3">
+                  <label class="k-form-field">
+                    <span>تاریخ تولد
+                        <span class="k-required">*</span>
+                    </span>  
+                    <dp-date-picker 
+                    name="birthDate" 
+                    [(ngModel)]="birthDate "
+                    placeholder="تاریخ"
+                    theme="dp-material"
+                    class="k-textbox"
+                    style="width:100%;"
+                    [config]="datePickerConfig" 
+                    realonly
+                    >
+                  </dp-date-picker>
+  
+                  
+                  </label>
+                </div>
+
+              <div class="col-md-3">
+                <label class="k-form-field">
+                  <span>کد ملی</span>
+                  <input class="k-textbox" 
+                  name="nationalCode" 
+                  [(ngModel)]="personModel.nationalCode"
+                   placeholder="کد ملی" />
+                </label>
+              </div>
+              <div class="col-md-3">
+                <label class="k-form-field">
+                  <span>موبایل
+                      <span class="k-required">*</span>
+                  </span>
+                  <input class="k-textbox" 
+                  required
+                  name="mobile"
+                   [(ngModel)]="personModel.mobile" placeholder="موبایل" />
+                </label>
+              </div>
+           
+            </div>
+
+
+            <div class="row  au margin-top-10">
+              <div class="col-md-3">
+                <label class="k-form-field">
+                  <span>تابعیت
+                      <span class="k-required">*</span>
+                  </span>
+                  <app-country-combo 
+                  name ="citizenCountryId"
+                  [(ngModel)]="personModel.citizenCountryId"
+                  ></app-country-combo>
+                </label>
+              </div>
+              <div class="col-md-3">
+                <label class="k-form-field">
+                  <span>ملیت
+                      <span class="k-required">*</span>
+                  </span>
+                  <app-country-combo
+                  name ="nationalityCountryId"
+                  [(ngModel)]="personModel.nationalityCountryId"
+                  ></app-country-combo>
+                </label>
+
+              </div>
+              <div class="col-md-3">
+                <label class="k-form-field">
+                  <span>محل تولد
+                      <span class="k-required">*</span>
+                  </span>
+                  <app-province-combo-single
+                  name ="birthProvinceId"
+                  [(ngModel)]="personModel.birthProvinceId"
+                  ></app-province-combo-single>
+                </label>
+              </div>
+              <div class="col-md-3">
+                <label class="k-form-field">
+                  <span>محل صدور شناسنامه
+                      <span class="k-required">*</span>
+                  </span>
+                  <app-city-combo-single
+                  name ="birthCertificateCityId"
+                  [(ngModel)]="personModel.birthCertificateCityId"                  
+                  ></app-city-combo-single>
+                </label>
+              </div>
+            </div>
+
+
+
+
+          <!-- </fieldset> -->
+
+          <div class="row au margin-top-10">
+            <div class="col-md-6">
+              <fieldset>
+                <legend>منزل</legend>
+                <div class="row1">
+                  <label class="k-form-field">
+                    <span>منطقه
+                        <span class="k-required">*</span>
+                    </span>
+                    <input class="k-textbox" 
+                    required
+                    name="urbanAreaHome"
+                     [(ngModel)]="personModel.urbanAreaHome" placeholder="منطقه منزل" />
+                  </label>
+
+                  <label class="k-form-field">
+                    <span>تلفن
+                        <span class="k-required">*</span>
+                    </span>
+                    <input class="k-textbox"
+                     name="homePhone"
+                      [(ngModel)]="personModel.homePhone"
+                      required
+                       placeholder="تلفن منزل " />
+                  </label>
+
+                  <label class="k-form-field">
+                    <span>آدرس
+                        <span class="k-required">*</span>
+                    </span>
+                    <textarea class="k-textbox"
+                     name="homeAddress" 
+                     [(ngModel)]="personModel.homeAddress" 
+                     required
+                     style="width: 100%;height: 100px;">
+
+                      </textarea>
+                  </label>
+                </div>
+              </fieldset>
+
+            </div>
+
+            <div class="col-md-6">
+
+              <fieldset>
+                <legend>محل کار</legend>
+                <div class="row1 ">
+                  <label class="k-form-field">
+                    <span>منطقه</span>
+                    <input class="k-textbox" placeholder="منطقه محل کار" />
+                  </label>
+
+                  <label class="k-form-field">
+                    <span>تلفن</span>
+                    <input class="k-textbox" placeholder="تلفن محل کار" />
+                  </label>
+
+                  <label class="k-form-field">
+                    <span>آدرس</span>
+                    <textarea class="k-textbox" style="width: 100%;height: 100px;">
+
+                        </textarea>
+                  </label>
+
+
+                </div>
+              </fieldset>
+
+            </div>
+          </div>
+          <div class=" au margin-top-10">
+              <div class="text-right">
+                <button type="button" class="k-button"
+                 (click)="return()">بازگشت</button>
+                <!-- <button type="button" class="k-button k-primary"
+                 (click)="onSave(true)">ذخیره و بازگشت</button> -->
+                <button type="button" class="k-button k-primary" 
+                (click)="onSave(false)">ذخیره </button>
+              </div>
+            </div>
+        </form>
+      

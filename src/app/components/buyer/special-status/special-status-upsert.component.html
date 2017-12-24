@@ -1,0 +1,74 @@
+
+
+
+<kendo-dialog [width]="400" 
+[height]="300" 
+[title]="Status" 
+(close)="onClose()"
+ *ngIf="isOpenedDialog"
+  style="text-align:right;">
+    
+      <kendo-dialog-titlebar>
+        <div style="font-size: 18px; line-height: 1.3em;">
+          <span class="k-icon k-i-warning"></span> مشخصات
+        </div>
+      </kendo-dialog-titlebar>
+
+      
+      <form class="k-form k-rtl" 
+      #detailStatusForm="ngForm" 
+       style="text-align:right;">
+
+        <!-- <label class="k-form-field">
+          <span>نام گروه</span>
+          <input class="k-textbox"
+           name="name" 
+           [(ngModel)]="model.name" 
+           placeholder="نام گروه" required />
+        </label>
+
+        <div class="row ">
+          <div class="col-md-6">
+            <label class="k-form-field">
+              <span>نوع وضعیت خاص</span>
+              <kendo-dropdownlist [data]="statusTypeItems" name="statusTypeItem" [(ngModel)]="statusTypeItem" style="width:100%;">
+              </kendo-dropdownlist>
+
+            </label>
+          </div>
+          <div class="col-md-6">
+            <label class="k-form-field" style="margin-top:40px;">
+              <input type="checkbox" id="canMoreSelect" name="canMoreSelect" [(ngModel)]="model.canMoreSelect" class="k-checkbox" checked="checked">
+              <label class="k-checkbox-label" for="canMoreSelect">
+                امکان انتخاب بیشتر</label>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <button class="k-button k-primary" 
+          [disabled]="!(detailStatusForm.valid)" 
+          (click)="onSaveStatus(detailStatusForm.form)"
+           type="button">ذخیره</button>
+
+          <button class="k-button k-default" 
+          (click)="newItem()"
+           type="button">جدید</button>
+
+           
+        </div> -->
+
+
+      </form>
+
+      <!-- <kendo-dialog-actions>
+            <button kendoButton class="k-button " 
+            (click)="onOk()" 
+           
+             primary="true" type="submit">تایید</button>    
+            <button kendoButton class="k-button "
+             (click)="onClose()">انصراف</button>
+          </kendo-dialog-actions> -->
+        
+        </kendo-dialog>
+

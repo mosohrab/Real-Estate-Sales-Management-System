@@ -1,0 +1,60 @@
+<p>
+  wbs works!
+</p>
+
+<div class="row ">
+  <div class="col-md-4">
+    <section class="au-panel "
+     style="min-height: 600px;"
+     [ngBusy]="busyConfig" 
+     >
+<!--     
+  <tree
+  #treeControl
+  [tree]="tree"
+  [settings]="treeSettings"
+  (nodeRemoved)="onRemoved($event)"
+  (nodeRenamed)="onRenamed($event)"
+  (nodeSelected)="onSelected($event)"
+  (nodeMoved)="onMoved($event)"
+  (nodeCreated)="onCreated($event)"
+  (nodeExpanded)="onExpanded($event)"
+  (nodeCollapsed)="onCollapsed($event)"
+  (loadNextLevel)="onNextLevel($event)"
+  >
+  
+  </tree> -->
+
+  
+   <app-wbs-tree
+   [enableNodeSetting]="false"
+  (nodeRemovedHandler)="onRemoved($event)"
+  (nodeRenamedHandler)="onRenamed($event)"
+  (nodeSelectedHandler)="onSelectedNode($event)"
+  (nodeCreatedHandler)="onCreatedNode($event)"
+  
+  >
+
+  </app-wbs-tree> 
+  
+  
+  
+  </section>
+  </div>
+  <div class="col-md-8">
+
+
+<section class="au-panel " style="min-height: 600px;">
+          
+<app-unit-list
+#unitList
+[wbsHid]="currentId"
+>
+</app-unit-list>
+          
+
+
+</section>
+  </div>
+</div>
+

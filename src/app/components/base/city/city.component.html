@@ -1,0 +1,111 @@
+
+<app-city-detail #dialogUpsert ></app-city-detail>
+
+<form novalidate #myForm="ngForm" style="margin-bottom: 100px;">
+  
+
+<div class="au-panel">
+    <div class="au-panel-header au-bg-gray">
+      <app-toolbar-button
+      [showAddButton]="true"
+      [showEditButton]="true"           
+      [showDeleteButton]="true"
+      [showDeletAlleButton]="true"
+      (addClicked)="onAddClicked()"
+      (editClicked)="onEditClicked()"
+      (deleteClicked)="onDeleteClicked()"
+      (deleteAllClicked)="onDeleteAllClicked()"
+      
+      >
+          
+          </app-toolbar-button>
+        </div>
+  
+  <kendo-grid
+  [data]="gridDataResult | async"
+  [pageSize]="state.take"
+  [skip]="state.skip"
+  [sort]="state.sort"
+  [sortable]="true"
+  [pageable]="true"
+  [selectable]="true"      
+  (dataStateChange)="onDataStateChange($event)"
+  (pageChange)="onPageChange($event)"
+  [filter]="state.filter"
+   filterable="menu"
+   [resizable]="true"
+[selectable]="selectableSettings" 
+[kendoGridSelectBy]="'cityId'"
+[selectedKeys]="dataItemSelected"
+(selectedKeysChange)="onSelectedKeysChange($event)"
+
+
+[height]="500"
+[ngBusy]="busyConfig" 
+  >
+
+
+  <kendo-grid-checkbox-column
+  width="40"
+ >
+         <ng-template kendoGridHeaderTemplate>
+             <input class="k-checkbox" 
+             id="selectAllCheckboxId"
+              kendoGridSelectAllCheckbox
+              [state]="selectAllState"
+             (selectAllChange)="onSelectAllChange($event)">
+             <label class="k-checkbox-label"
+              for="selectAllCheckboxId"></label>
+         </ng-template>
+     </kendo-grid-checkbox-column>
+
+
+  
+  <kendo-grid-column 
+  field="countryName"
+   title="کشور"
+   [filterable]="false"
+   [minResizableWidth]="100"
+   >
+      <!-- <ng-template kendoGridEditTemplate let-dataItem="dataItem" >
+       </ng-template> -->
+  </kendo-grid-column>
+
+  <kendo-grid-column field="provinceName"
+   title="استان">
+  
+  <ng-template kendoGridEditTemplate let-dataItem="dataItem"  >
+      <input [(ngModel)]="dataItem.provinceName" name="provinceName" class="k-textbox" required/>
+  </ng-template>
+  
+  </kendo-grid-column>
+
+  <kendo-grid-column field="cityName" title="شهر" >
+<!--   
+  <ng-template kendoGridEditTemplate let-dataItem="dataItem"  >
+      <input [(ngModel)]="dataItem.cityName" name="cityName" 
+      class="k-textbox" required/>
+  </ng-template>
+   -->
+  </kendo-grid-column>
+  
+<!--   
+  <kendo-grid-command-column title="" width="60">
+    <ng-template kendoGridCellTemplate let-isNew="isNew" let-dataItem="dataItem">
+  
+        <button kendoGridEditCommand1 type="button"         
+        class="k-button k-grid-edit-command"
+        (click)="detailDialog.openDialogById(dataItem.cityId)" >ویرایش</button>
+        <button kendoGridRemoveCommand type="button">حذف</button>
+        <button kendoGridSaveCommand type="button" [disabled]="myForm.invalid">{{ isNew ? 'افزودن' : 'ویرایش' }}</button>
+        <button kendoGridCancelCommand type="button">{{ isNew ? 'عدم ذخیره' : 'انصراف' }}</button>
+    </ng-template>
+  </kendo-grid-command-column>
+   -->
+  </kendo-grid>
+
+</div>
+</form>
+
+
+

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>N2</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+
+
+  <!-- <link href="assets/lib/font-awesome/font-awesome.css" rel="stylesheet" /> -->
+  <!-- <link href="lib/arya-ui/css/arya-ui.css" rel="stylesheet" /> -->
+  <!-- <link href="lib/arya-admin/css/arya-admin.css" rel="stylesheet" /> -->
+  <!-- <link href="assets/lib/bootstrap/css/bootstrap-rtl.min.css" rel="stylesheet" /> -->
+
+  <!-- <link href="css/site.css" rel="stylesheet" /> -->
+
+
+
+
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.common.min.css" rel="stylesheet" type="text/css" />
+  <link href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.default.min.css" rel="stylesheet" type="text/css" />
+  <link href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.mobile.all.min.css" rel="stylesheet" type="text/css" /> -->
+  <!-- 
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+   <script src="http://cdn.kendostatic.com/2014.1.318/js/kendo.all.min.js"></script>
+   <script src="http://localhost:8301/Scripts/kendo.aspnetmvc.min.js"></script>
+    -->
+
+
+
+
+
+
+  <!-- <link href="styles.css" rel="stylesheet" type="text/css" /> -->
+  <!-- <link href="lib/kendo/2017.3.913/css/kendo.common.min.css" rel="stylesheet" type="text/css" />
+  <link href="lib/kendo/2017.3.913/css/kendo.rtl.min.css" rel="stylesheet">
+  <link href="lib/kendo/2017.3.913/css/kendo.default.min.css" rel="stylesheet" type="text/css" />
+  <link href="lib/kendo/2017.3.913/css/kendo.default.mobile.min.css" rel="stylesheet" type="text/css" /> -->
+
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <!-- <script src "lib/kendo/2017.3.913/js/jquery.min.js"></script>
+  <script src="lib/kendo/2017.3.913/js/angular.min.js"></script>
+  <script src="lib/kendo/2017.3.913/js/jszip.min.js"></script>
+  <script src="lib/kendo/2017.3.913/js/kendo.all.min.js"></script> -->
+
+
+
+
+
+  <!-- 1. Load libraries -->
+  <!-- IE required polyfills, in this exact order -->
+  <!-- <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+   <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="node_modules/angular2/bundles/http.dev.js"></script>
+    <script src="node_modules/angular2/bundles/router.dev.js"></script> -->
+
+
+  <!-- <script src="../../tmp/kendo/dist/js/jquery.min.js"></script> -->
+  <!-- <script src="../../tmp/kendo/dist/js/kendo.all.js"></script> -->
+
+  <!-- <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <script src="lib/angular.js"></script>
+  <script src="lib/angular-route.js"></script>
+  <script src="../../angular-kendo.js"></script>
+  <script src="sushi.js"></script>
+ -->
+
+
+  <!-- <script src="lib/jquery/modernizr-2.6.2.js"></script>
+ <script src="lib/jquery/jquery-1.10.2.min.js"></script> -->
+  <script src="assets/lib/arya-ui/js/arya-ui.js"></script>
+  <script src="assets/lib/bootstrap/js/bootstrap-rtl.js"></script>
+
+</head>
+
+<body class="k-rtl">
+
+
+
+  <app-root>
+  </app-root>
+
+  <script>
+
+    $(function () {
+
+      $('.aa-collapse').click(function (e) {
+
+        e.preventDefault();
+        $('.aa-collapse').parent().removeClass('active');
+        var $li = $(this).parent();
+        $li.addClass('aa-link-active');
+        var $sing = $li.find(".aa-collapse-sign").find('em');
+
+        if ($li.hasClass('aa-link-open')) {
+          $li.removeClass('aa-link-open');
+          $li.find('ul').hide();
+          $sing.removeClass('fa-minus-square-o').addClass('fa-plus-square-o');
+        }
+        else {
+          $li.addClass('aa-link-open');
+          $li.find('ul').show()
+          $sing.removeClass('fa-plus-square-o').addClass('fa-minus-square-o');
+        }
+      });
+
+
+    });
+
+  </script>
+</body>
+
+</html>

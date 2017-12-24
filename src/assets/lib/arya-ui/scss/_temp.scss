@@ -1,0 +1,78 @@
+
+// arya ui
+
+
+.au.margin-top-10 {
+    margin-top: 10px !important;
+}
+
+.au.padding-10 {
+    padding: 10px !important;
+}
+.au-margin-top-10 {
+    margin-top: 10px !important;
+}
+
+.au-padding-10 {
+    padding: 10px !important;
+}
+
+// bg-color
+.au-bg-dark {
+    background-color: #343a40 !important;
+}
+
+.au-bg-blue {
+    background-color: #007bff !important;
+}
+
+.au-bg-gray {
+    background-color: #3a3633;
+    background: linear-gradient(to left, #3a3633 93%, #2a2725 100%);
+    color: #fff !important;
+}
+
+//
+.au-toolbar {
+    padding: 3px;
+    height: 30px;
+    padding-top: 7px;
+
+    .au-toolbar-item {
+        float: right;
+        width: 24px;
+        height: 16px;
+        border-left: none;
+        border-right: 1px solid rgba(0, 0, 0, 0.09);
+    }
+
+    li {
+        list-style-type: none;
+    }
+}
+
+.au-button-icon {
+    color: inherit;
+    width: 16px;
+    height: 16px;
+    float: left;
+    position: relative;
+
+    :hover {
+        color: inherit;
+    }
+}
+
+.au-panel {
+    border: 1px #d6d6d6 solid;
+    padding: 5px;
+    background: #fff;
+
+    .au-panel-header {
+        border-bottom: 2px #525151 solid;
+        margin: -5px;
+        margin-bottom: 5px;
+    }
+}
+
+

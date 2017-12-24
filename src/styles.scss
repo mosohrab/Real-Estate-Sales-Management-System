@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@progress/kendo-theme-default/scss/all";
+
+@import "app/ng2-tree/src/styles.css";
+ // @import '~bootstrap/dist/css/bootstrap.min.css';
+
+ @import "~ng-snotify/styles/material.css";
+@import "~ng2-slim-loading-bar/style.css";
+@import "~angular2-busy/build/style/busy.css";
+
+
+
+@import "assets/lib/font-awesome/font-awesome.css";
+@import "assets/lib/arya-ui/scss/arya-ui";
+@import "assets/lib/arya-admin/css/arya-admin";
+@import "assets/lib/bootstrap/css/bootstrap-rtl.min.css";
+
+@import "assets/scss/site";
+@import "assets/scss/style";
+@import "assets/scss/kendo-fix";
+@import "assets/scss/bootstrap-fix";

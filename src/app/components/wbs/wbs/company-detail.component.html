@@ -1,0 +1,234 @@
+<div class="row example-wrapper au padding-100">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-block">
+        <form class="k-form">
+
+          <fieldset>
+            <legend>مشخصات شرکت
+              <b>{{model.wbsName}}</b>
+            </legend>
+
+            <div class="row  au margin-top-10">
+              <div class="col-md-4">
+                <label class="k-form-field">
+                  <span>نوع شرکت
+                    <span class="k-required">*</span>
+                  </span>
+                  <app-company-type-combo
+                   name="companyTypeId" 
+                   [(ngModel)]="model.companyTypeId"></app-company-type-combo>
+
+                </label>
+              </div>
+
+              <div class="col-md-4">
+                  <label class="k-form-field">
+                    <span>نام شرکت
+                      <span class="k-required">*</span>
+                    </span>
+                    <input class="k-textbox" required name="companyName" [(ngModel)]="model.companyName" placeholder="نام  شرکت" />
+                  </label>
+                </div>
+                <div class="col-md-4">
+                  <label class="k-form-field">
+                    <span>نام اختصاری
+                    </span>
+                    <input class="k-textbox" required name="companyAbbreviation" [(ngModel)]="model.companyAbbreviation" placeholder="نام اختصاری"
+                    />
+                  </label>
+                </div>
+            </div>
+
+            <div class="row  au margin-top-10">
+
+          
+                <div class="col-md-4">
+                    <label class="k-form-field">
+                      <span>زمینه فعالیت
+                        <span class="k-required">*</span>
+                      </span>
+                      <input class="k-textbox"
+                       name="subjectActivity"
+                        [(ngModel)]="model.subjectActivity" placeholder="کد اقتصادی" required/>
+                    </label>
+                  </div>
+              <div class="col-md-4">
+                <label class="k-form-field">
+                  <span>کد اقتصادی
+                    <span class="k-required">*</span>
+                  </span>
+                  <input class="k-textbox" name="economicCode" [(ngModel)]="model.economicCode" placeholder="کد اقتصادی" required/>
+                </label>
+              </div>
+              <div class="col-md-4">
+                <label class="k-form-field">
+                  <span>شناسه ملی
+                  </span>
+                  <input class="k-textbox" name="nationalIdCode" [(ngModel)]="model.nationalIdCode" placeholder="شناسه ملی" required/>
+                </label>
+              </div>
+            </div>
+
+
+            <div class="row  au margin-top-10">
+                <div class="col-md-4">
+                  <label class="k-form-field">
+                                        <span>کشور
+                                          <span class="k-required">*</span>
+                                        </span>
+                                        <app-country-combo #countryCombo name="countryId" [(ngModel)]="model.countryId" (valueChanged)="onCountryChange($event)"></app-country-combo>
+                                      </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <label class="k-form-field">
+                                        <span>استان
+                                          <span class="k-required">*</span>
+                                        </span>
+                                        <app-province-combo-single #provinceCombo name="provinceId" [(ngModel)]="model.provinceId" (valueChanged)="onProvinceChange($event)"
+                                          [autoBound]="false">
+                                        </app-province-combo-single>
+                      
+                                      </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <label class="k-form-field">
+                                        <span>شهر
+                                          <span class="k-required">*</span>
+                                        </span>
+                                        <app-city-combo-single
+                                         #cityCombo
+                                          name="cityId"
+                                           [(ngModel)]="model.cityId" 
+                                           [autoBound]="false">
+                                        </app-city-combo-single>
+                      
+                                      </label>
+                                    </div>
+                                    </div>
+  
+            <div class="row  au margin-top-10">
+
+              <div class="col-md-3">
+                <label class="k-form-field">
+                  <span>شماره ثبت
+                    <span class="k-required">*</span>
+                  </span>
+                  <input class="k-textbox" required name="registrationNumber" [(ngModel)]="model.registrationNumber" placeholder="شماره ثبت"
+                  />
+                </label>
+              </div>
+              <div class="col-md-3">
+                <label class="k-form-field">
+                  <span>تاریخ ثبت
+                    <span class="k-required">*</span>
+                  </span>
+                  <!-- <kendo-datepicker name="registrationDate" 
+                      [(ngModel)]="model.registrationDate "
+                       style="width:100%;"></kendo-datepicker> -->
+
+
+                  <dp-date-picker name="registerDate" [(ngModel)]="registerDate " placeholder="تاریخ" theme="dp-material" class="k-textbox"
+                    style="width:100%;" [config]="datePickerConfig" realonly>
+
+                    <!-- 
+                        
+                        [format]= 'YY/M/D' 
+                      -->
+                  </dp-date-picker>
+
+
+                </label>
+              </div>
+
+              <div class="col-md-3">
+                <label class="k-form-field">
+                  <span>شناسه ارزش افزوده
+                    <span class="k-required">*</span>
+                  </span>
+                  <input class="k-textbox" name="valueAddedId" [(ngModel)]="model.valueAddedId" placeholder="شناسه ارزش افزوده" required/>
+                </label>
+              </div>
+              <div class="col-md-3">
+                <label class="k-form-field">
+                  <span>وب سایت</span>
+                  <input class="k-textbox" name="webSite" [(ngModel)]="model.webSite" placeholder="ایمیل" />
+                </label>
+              </div>
+            </div>
+
+
+            <div class="row  au margin-top-10">
+              <div class="col-md-12">
+                <label class="k-form-field">
+                  <span>توضیحات
+                  </span>
+                  <textarea class="k-textbox" name="description" [(ngModel)]="model.description" required style="width: 100%;height: 50px;">
+
+                    </textarea>
+                </label>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="row au margin-top-10">
+            <div class="col-md-12">
+              <fieldset>
+                <legend>آدرس</legend>
+
+                <div class="row  au margin-top-10">
+                  <div class="col-md-4">
+                    <label class="k-form-field">
+                      <span>شماره تماس
+                        <span class="k-required">*</span>
+                      </span>
+                      <input class="k-textbox" required name="phoneNumber1" [(ngModel)]="model.phoneNumber1" placeholder="شماره تماس" />
+                    </label>
+                  </div>
+                  <div class="col-md-4">
+                    <label class="k-form-field">
+                      <span>شماره تماس
+                      </span>
+                      <input class="k-textbox" name="phoneNumber2" [(ngModel)]="model.phoneNumber2" placeholder="شماره تماس" />
+                    </label>
+                  </div>
+                  <div class="col-md-4">
+                    <label class="k-form-field">
+                      <span>شماره فکس
+                        <span class="k-required">*</span>
+                      </span>
+                      <input class="k-textbox" required name="faxNumber" [(ngModel)]="model.faxNumber" placeholder="شماره تماس" />
+                    </label>
+                  </div>
+
+                </div>
+
+
+                <div class="au margin-top-10">
+                  <label class="k-form-field">
+                    <span>آدرس
+                      <span class="k-required">*</span>
+                    </span>
+                    <textarea class="k-textbox" name="centralOfficeAddress" [(ngModel)]="model.centralOfficeAddress" required style="width: 100%;height: 50px;">
+
+                      </textarea>
+                  </label>
+                </div>
+
+              </fieldset>
+
+            </div>
+
+
+
+          </div>
+          <div class=" au margin-top-10">
+            <div class="text-right">
+              <button type="button" class="k-button k-primary" (click)="saveAndNext()">ذخیره</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

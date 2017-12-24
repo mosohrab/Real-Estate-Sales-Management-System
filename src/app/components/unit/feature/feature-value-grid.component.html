@@ -1,0 +1,95 @@
+
+<form novalidate #myForm="ngForm" 
+>
+
+
+<div class="au-panel"  style="height: 400px;">
+    <div class="au-panel-header au-bg-gray">
+      <app-toolbar-button
+      [showAddButton]="true"
+      [showEditButton]="true"           
+      [showDeleteButton]="true"
+      [showDeletAlleButton]="true"
+      (addClicked)="onAddClicked()"
+      (editClicked)="onEditClicked()"
+      (deleteClicked)="onDeleteClicked()"
+      (deleteAllClicked)="onDeleteAllClicked()"
+            >
+          
+          </app-toolbar-button>
+        </div>
+        
+          <kendo-grid 
+          [data]="gridDataResult | async"
+           [pageSize]="state.take" 
+           [skip]="state.skip" 
+           [sort]="state.sort" 
+           [sortable]="true"
+           [filter]="state.filter"
+            filterable="'menu'"
+           [pageable]="{
+            buttonCount: buttonCount,
+            info: info,
+            type: type,
+            pageSizes: pageSizes,
+            previousNext: previousNext
+          }"           
+          
+            [scrollable]="'none'" 
+            (dataStateChange)="onDataStateChange($event)"
+            (pageChange)="onPageChange($event)"
+            [filter]="state.filter" 
+             filterable="menu" 
+            [resizable]="true"
+                
+            [selectable]="selectableSettings" 
+            [kendoGridSelectBy]="'unitFeatureValueId'"
+            [selectedKeys]="dataItemSelected"
+            (selectedKeysChange)="onSelectedKeysChange($event)"
+
+
+           
+            [height]="250"
+            >
+
+            <!-- (edit)="editHandler($event)"
+            (cancel)="cancelHandler($event)" 
+            (save)="saveHandler($event)" 
+            (remove)="removeHandler($event.dataItem.unitFeatureValueId)" 
+            (add)="addHandler($event)"
+             -->
+            <kendo-grid-checkbox-column
+            width="20"
+            >
+                    <ng-template kendoGridHeaderTemplate>
+                        <input class="k-checkbox" 
+                        id="selectAllValue"
+                         kendoGridSelectAllCheckbox
+                         [state]="selectAllState"
+                        (selectAllChange)="onSelectAllChange($event)">
+                        <label class="k-checkbox-label"
+                         for="selectAllValue"></label>
+                    </ng-template>
+                </kendo-grid-checkbox-column>
+              
+            <kendo-grid-column field="unitFeatureValueId" width="130" 
+            [hidden]="true" [filterable]="false" 
+            [sortable]="false"></kendo-grid-column>
+        
+        
+            <kendo-grid-column field="featureValue" title="عنوان" >
+              <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+                <input [(ngModel)]="dataItem.featureValue" name="name" class="k-textbox" required/>
+              </ng-template>
+            </kendo-grid-column>
+        
+          </kendo-grid>
+        
+          </div>
+        </form>
+        
+        
+        <app-feature-value-upsert 
+        #dialogUpsert>
+
+        </app-feature-value-upsert>

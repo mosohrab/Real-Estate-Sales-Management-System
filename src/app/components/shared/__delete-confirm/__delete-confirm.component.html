@@ -1,0 +1,20 @@
+<button kendoButton
+(click)="open()"
+>Do not click this button</button>
+
+<kendo-dialog
+id="deleteConfirm"
+#deleteConfirm
+*ngIf="openedConfirmDelete">
+<kendo-dialog-titlebar>
+ <div style="font-size: 18px; line-height: 1.3em;">
+   <span class="k-icon k-i-warning"></span>حذف
+ </div>
+</kendo-dialog-titlebar>
+<p style="margin: 30px; text-align: right;">آیا از حذف رکورد(ها) انتخابی اطمینان دارید؟</p>
+
+<kendo-dialog-actions>
+ <button kendoButton (click)="onDeleteData()" primary="true">حذف</button>
+ <button kendoButton (click)="onDialogClose()">انصراف</button>
+</kendo-dialog-actions>
+</kendo-dialog>

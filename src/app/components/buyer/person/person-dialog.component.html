@@ -1,0 +1,74 @@
+
+
+<kendo-dialog  
+[width]="800"
+[title]="Status" 
+(close)="onClose()"
+ *ngIf="isOpenedDialog"
+  style="text-align:right;">
+    
+      <kendo-dialog-titlebar>
+        <div style="font-size: 18px; line-height: 1.3em;">
+          <span class="k-icon k-i-warning"></span> مشخصات
+        </div>
+      </kendo-dialog-titlebar>
+
+
+
+ <kendo-tabstrip>
+    <kendo-tabstrip-tab 
+    [title]="'مشخصات'" 
+    [selected]=" wizardStep == 1 ">
+    <ng-template kendoTabContent>
+      
+ <app-person-detail
+ [personModel]="model"
+ [birthDate]="birthDate"
+ (saveAndNext)="onSaveDetailAndNext()"
+ (saveAndClose)="onSaveDetailAndClose()"
+ (closeDialog)="onClose()"
+ >
+
+ <!-- *ngIf="wizardStep==1" -->
+ </app-person-detail>
+
+    </ng-template>
+    </kendo-tabstrip-tab>
+
+
+    <kendo-tabstrip-tab 
+    [title]="'ویژگیها'"
+    [disabled]="model.personId == 0 " 
+    [selected]=" wizardStep == 2 "
+    >
+    <ng-template kendoTabContent>
+     
+ <app-person-special-status
+ [personModel]="model"
+ (afterSave)="onStatusSaved()"
+ (closeDialog)="onClose()"
+ >
+ <!-- *ngIf="wizardStep==2" -->
+</app-person-special-status>
+
+    </ng-template>
+    </kendo-tabstrip-tab>
+   
+</kendo-tabstrip>
+
+
+
+
+
+
+
+<!-- 
+      <kendo-dialog-actions>
+            <button kendoButton class="k-button " 
+            (click)="onOk()" 
+                    primary="true" type="submit">تایید</button>    
+            <button kendoButton class="k-button "
+             (click)="onClose()">انصراف</button>
+          </kendo-dialog-actions> -->
+        
+  </kendo-dialog>

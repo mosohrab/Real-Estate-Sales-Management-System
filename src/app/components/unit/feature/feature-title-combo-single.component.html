@@ -1,0 +1,14 @@
+
+      <kendo-dropdownlist 
+      [data]="view | async"
+      [valuePrimitive]="true" 
+      [textField]="'featureTitleName'"
+      [valueField]="'unitFeatureTitleId'"
+      [(ngModel)]="selectedId"
+      [filterable]="true"
+      (valueChange)="onValueChange($event)"
+      style="width: 100%;"
+      >
+       </kendo-dropdownlist>
+      
+   

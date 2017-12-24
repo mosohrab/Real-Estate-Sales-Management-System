@@ -1,0 +1,99 @@
+
+
+
+<section  style="width: 100%;">
+
+    <form class="k-form k-rtl"
+     #detailStatusForm="ngForm"
+    (ngSubmit)="statusSubmit(detailStatusForm.form)"
+  style="text-align:right;">
+  <label class="k-form-field">
+    <span> گروه وضعیت</span>
+   <app-special-status-combo  
+   #statusCombo
+   name="statusId"
+   (valueChanged)="onStatusChange($event)"
+    [(ngModel)]="model.statusId"
+    ngDefaultControl
+    style="width:100%;"
+    >
+
+   </app-special-status-combo>
+  </label>
+  <label class="k-form-field">
+    <span>نام وضعیت</span>
+   <app-special-status-value-combo  
+   #statusValueCombo
+   name="statusValueId"
+    [(ngModel)]="model.statusValueId"
+    ngDefaultControl
+    style="width:100%;"
+    >
+
+   </app-special-status-value-combo>
+  </label>
+
+  <div>
+      <button class="k-button k-primary" 
+      [disabled]="!(detailStatusForm.valid)" 
+      (click)="onSaveStatus(detailStatusForm.form)"
+       type="button">ذخیره</button>
+      <button class="k-button k-default" 
+      (click)="onCloseDialog()"
+       type="button">بازگشت</button>
+       
+    </div>
+</form>
+<br>
+
+<form novalidate #myForm="ngForm" >
+
+  <kendo-grid 
+  [data]="gridDataResult | async"
+   [pageSize]="state.take" 
+   [skip]="state.skip" 
+   [sort]="state.sort"
+    [sortable]="true"
+    [pageable]="true" 
+    [selectable]="true" 
+    [scrollable]="'true'" 
+    (remove)="removeHandler($event.dataItem.personStatusId)"
+    (dataStateChange)="onDataStateChange($event)"
+    (pageChange)="onPageChange($event)"
+    [filter]="state.filter" 
+     filterable="menu" 
+    [resizable]="true"
+          
+    
+
+[selectable]="selectableSettings" 
+[kendoGridSelectBy]="'personStatusId'"
+[selectedKeys]="dataItemSelected"
+(selectedKeysChange)="onSelectedKeysChange($event)"
+
+[ngBusy]="busyConfig" 
+[height]="350"
+    >
+
+    <kendo-grid-column field="personStatusId"
+     width="130" [hidden]="true" 
+     [filterable]="false" [sortable]="false"></kendo-grid-column>
+
+    <kendo-grid-column field="statusName" title="گروه وضعیت خاص ">
+    </kendo-grid-column>
+    <kendo-grid-column field="statusValueName" title=" وضعیت خاص " >
+    </kendo-grid-column>
+    <!-- <kendo-grid-column field="moreStatusValue" title="سایر وضعیت خاص ">
+    </kendo-grid-column> -->
+
+    <kendo-grid-command-column title="" width="200">
+      <ng-template kendoGridCellTemplate  let-dataItem="dataItem">
+        <button kendoGridRemoveCommand type="button">حذف</button>
+       </ng-template>
+    </kendo-grid-command-column>
+
+  </kendo-grid>
+
+</form>
+
+</section>

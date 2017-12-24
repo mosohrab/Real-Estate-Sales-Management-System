@@ -1,0 +1,15 @@
+.section-col {
+    padding: 5px 7px;
+
+    &:first {
+        border-left: 1px solid #cecece;
+    }
+
+    .section-item {
+        //  border: 1px #cecece solid;
+        //  border-radius: 10px;
+        // background: #d9da9e ;
+        padding: 3px;
+    }
+}
+

@@ -1,0 +1,121 @@
+<div class="row example-wrapper au padding-100">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-block">
+        <form class="k-form">
+
+          <fieldset>
+            <legend>مشخصات طبقه</legend>
+
+            <div class="row  au margin-top-10">
+                <div class="col-md-4">
+                    <label class="k-form-field">
+                      <span>نام طبقه
+                        <span class="k-required">*</span>
+                      </span>
+                      <input class="k-textbox" 
+                          required 
+                          name="fullFloorName" 
+                          [(ngModel)]="model.fullFloorName" 
+                          placeholder="نام طبقه" />
+                    </label>
+                  </div>
+
+               <div class="col-md-4">
+                      <label class="k-form-field">
+                          <span>کاربری
+                              <span class="k-required">*</span>
+                            </span>
+                      <app-usage-combo
+                        #usageCombo
+                         name="usageId" 
+                         (valueChanged)="onUsageChange($event)"
+                         
+                        ></app-usage-combo>
+                      </label>
+                    </div>
+      
+                    <div class="col-md-4">
+                        <label class="k-form-field">
+                            <span>کاربری
+                                <span class="k-required">*</span>
+                              </span>
+                          <app-usage-item-combo-single
+                          #usageItemCombo
+                           name="usageItemId" 
+                          [(ngModel)]="model.usageItemId"
+                          [autoBound]="false"
+                          ></app-usage-item-combo-single>
+                        </label>
+                      </div>
+                    </div>
+       
+            <div class="row  au-margin-top-10">
+              <div class="col-md-4">
+                  <label class="k-form-field">
+                    <span> مساحت طبقه
+                      <span class="k-required">*</span>
+                    </span>
+                    <input class="k-textbox"
+                       name="floorArea"
+                       [(ngModel)]="model.floorArea"
+                       placeholder="مساحت طبقه" 
+                       required
+                     />
+                  </label>
+                </div>
+            
+              <div class="col-md-4">
+                <label class="k-form-field">
+                  <span> مساحت مفید 
+                <span class="k-required">*</span>
+                  </span>
+                  <input class="k-textbox" 
+                      name="useFulAreaFloor"
+                      [(ngModel)]="model.useFulAreaFloor" 
+                      placeholder="مساحت مفید" 
+                      required
+                    />
+                </label>
+             </div>
+             <div class="col-md-4">
+                <label class="k-form-field">
+                  <span> تعداد طبقات
+                    <span class="k-required">*</span>
+                  </span>
+                  <input class="k-textbox"
+                     name="floorCount"
+                     [(ngModel)]="model.floorCount"
+                     placeholder="تعداد طبقات" 
+                     required
+                   />
+                </label>
+              </div>
+              
+            </div>        
+                      
+            <div class="row  au margin-top-10">
+                <div class="col-md-12">
+              <label class="k-form-field">
+                  <span>توضیحات
+                  </span>
+                  <textarea class="k-textbox"
+                   name="description" 
+                   [(ngModel)]="model.description"
+                    required style="width: 100%;height: 50px;">
+                    </textarea>
+               </label>
+            </div>
+            </div>
+          </fieldset>
+
+          <div class=" au margin-top-10">
+            <div class="text-right">
+              <button type="button" class="k-button k-primary" (click)="saveAndNext()">ذخیره</button>
+               </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,84 @@
+// NOTIFIER: CORE STYLES
+
+// Container
+
+.notifier {
+    &__container {
+        * {
+            box-sizing: border-box;
+        }
+
+        &-list {
+            margin: {
+                top: 0;
+                bottom: 0;
+            };
+            padding: {
+                left: 0;
+            };
+            list-style-type: none;
+        }
+    }
+
+    &__notification {
+        display: block;
+        position: fixed; // Overlay
+        visibility: hidden; // Notifications are hidden by default, and get shown (or animated in) dynamically by the Angular component
+        z-index: 10000; // Pretty much random ...
+
+        // This attribute forces this element to be rendered on a new layer, by the GPU, in order to improve its performance (#perfmatters)
+        will-change: transform;
+
+        // This attribute improves the overall scrolling performance for fixed position elements, such as this one (#perfmatters)
+        // See <https://benfrain.com/improving-css-performance-fixed-position-elements/>
+        backface-visibility: hidden;
+    }
+}
+
+.dp-material[_nghost-c4] .dp-picker-input[_ngcontent-c4] {
+    width: 100% !important;
+    background-color: #ffffff  !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+// =====================================================
+// Tree
+// =====================================================
+
+tree-internal ul {
+    padding: 3px 10px 3px 0;
+}
+
+tree-internal .tree .folding {
+    width: 15px;
+}
+
+// =====================================================
+// jalali date picker
+// =====================================================
+
+.dp-input-container > input {
+    width: 100% !important;
+    border-radius: 2px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.08);
+    padding-right: 8px;
+    padding-left: 8px;
+}
+
+.dp-current-location-btn{
+    left: 5px !important;
+    right: auto !important;
+}
+// =====================================================
+// snotify
+// =====================================================
+
+.snotify-backdrop {
+    z-index: 99998;
+}
+
+.snotify {
+    z-index: 99999;
+}

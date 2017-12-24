@@ -1,0 +1,172 @@
+<div class="row example-wrapper au padding-100">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-block">
+        <form class="k-form">
+
+          <fieldset>
+            <legend>مشخصات فاز</legend>
+
+            <div class="row  au margin-top-10">
+                <div class="col-md-4">
+                    <label class="k-form-field">
+                        <span>نوع سازه
+                            <span class="k-required">*</span>
+                          </span>
+                   <app-building-structure-type-combo
+                          required 
+                          name="buildingStructureType" 
+                          [(ngModel)]="model.buildingStructureType" 
+                          >
+                        </app-building-structure-type-combo>
+                    </label>
+                  </div>
+                  <div class="col-md-4">
+                      <label class="k-form-field">
+                          <span>کاربری
+                              <span class="k-required">*</span>
+                            </span>
+                      <app-usage-combo
+                        #usageCombo
+                         name="usageId" 
+                         (valueChanged)="onUsageChange($event)"
+                         
+                        ></app-usage-combo>
+                      </label>
+                    </div>
+      
+                    <div class="col-md-4">
+                        <label class="k-form-field">
+                            <span>کاربری
+                                <span class="k-required">*</span>
+                              </span>
+                          <app-usage-item-combo-single
+                          #usageItemCombo
+                           name="usageItemId" 
+                          [(ngModel)]="model.usageItemId"
+                          [autoBound]="false"
+                          ></app-usage-item-combo-single>
+                        </label>
+                      </div>
+                    </div>
+          <div class="row  au margin-top-10">
+                 <div class="col-md-4">
+                    <label class="k-form-field">
+                      <span>تاریخ شروع ساخت
+                          <span class="k-required">*</span>
+                      </span>                      
+                       <dp-date-picker 
+                         name="buildDate" 
+                         [(ngModel)]="buildDate"
+                         placeholder="تاریخ شروع ساخت"
+                         theme="dp-material"
+                         class="k-textbox"
+                         style="width:100%;"
+                         [config]="datePickerConfig" 
+                         realonly
+                       >                       
+                     </dp-date-picker>
+                    </label>
+                  </div>
+
+                  <div class="col-md-4">
+                    <label class="k-form-field">
+                      <span>نام فاز
+                        <span class="k-required">*</span>
+                      </span>
+                      <input class="k-textbox" 
+                          required 
+                          name="phaseName" 
+                          [(ngModel)]="model.phaseName" 
+                          placeholder="نام فاز" />
+                    </label>
+                  </div>
+    
+                  <div class="col-md-4">
+                    <label class="k-form-field">
+                      <span>
+                        موقعیت فاز
+                        <span class="k-required">*</span>
+                      </span>
+                      <input class="k-textbox" 
+                            required name="phasePosition" 
+                            [(ngModel)]="model.phasePosition"
+                            placeholder="موقعیت فاز"
+                      />
+                    </label>
+                 </div>
+                  
+              </div>
+
+            <div class="row  au-margin-top-10">
+
+
+              <div class="col-md-4">
+                  <label class="k-form-field">
+                    <span> مساحت زمین تخصیص یافته
+                      <span class="k-required">*</span>
+                    </span>
+                    <input class="k-textbox"
+                       name="landAreaAllocated"
+                       [(ngModel)]="model.landAreaAllocated"
+                       placeholder="مساحت زمین تخصیص یافته" 
+                       required
+                     />
+                  </label>
+                </div>
+                <div class="col-md-4">
+                  <label class="k-form-field">
+                    <span>زیربنای فاز
+                      <span class="k-required">*</span>
+                    </span>
+                    <input class="k-textbox"
+                     name="phaseFoundation" 
+                     [(ngModel)]="model.phaseFoundation"
+                      placeholder="زیربنای فاز" />
+                  </label>
+              </div>
+
+              <div class="col-md-4">
+                <label class="k-form-field">
+                  <span> مساحت مفید فاز
+                <span class="k-required">*</span>
+                  </span>
+                  <input class="k-textbox" 
+                      name="useFulAreaPhase"
+                      [(ngModel)]="model.useFulAreaPhase" 
+                      placeholder="مساحت مفید فاز" 
+                      required
+                    />
+                </label>
+             </div>
+
+            </div>
+
+           
+          
+
+            <div class="row  au margin-top-10">
+                <div class="col-md-12">
+              <label class="k-form-field">
+                  <span>توضیحات
+                  </span>
+                  <textarea class="k-textbox"
+                   name="description" 
+                   [(ngModel)]="model.description"
+                    required style="width: 100%;height: 50px;">
+                    </textarea>
+               </label>
+            </div>
+            </div>
+          </fieldset>
+
+          <div class=" au margin-top-10">
+            <div class="text-right">
+              <button type="button" class="k-button k-primary" (click)="saveAndNext()">ذخیره</button>
+               </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<section class="k-form">
+  
+      <label class="k-form-field">
+        <span>کشور</span>
+    <app-country-combo
+     name="countryId"
+      (valueChanged)="onCountryChange($event)"
+       [(ngModel)]="model.countryId"
+       ngDefaultControl
+       style="width:100%;"
+       >
+    </app-country-combo>
+  </label>
+  <label class="k-form-field">
+      <span>استان</span>
+
+      <kendo-dropdownlist 
+      [data]="view | async"
+      [value]="selectedId"
+      [valuePrimitive]="true" 
+      [textField]="'provinceName'"
+      [valueField]="'provinceId'"
+      [(ngModel)]="selectedId"
+      [filterable]="true"
+      (valueChange)="onValueChange($event)"
+      (selectionChange)="onSelectionChange($event)"
+      (filterChange)="onFilterChange($event)" 
+      (open)="onOpen()"
+      (close)="onClose()"
+      (focus)="onFocus()"
+      (blur)="onBlur()"
+      style="width: 100%;"
+      ngModel
+      >
+       </kendo-dropdownlist>
+      
+   
+  </label>
+
+</section>

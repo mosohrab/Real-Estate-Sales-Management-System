@@ -1,0 +1,16 @@
+<!-- [value]="selectedId" -->
+      <kendo-dropdownlist 
+      [data]="view | async"
+    
+      [(ngModel)]="selectedId"
+      [valuePrimitive]="true"      
+      [textField]="'cityName'"
+      [valueField]="'cityId'"
+      [filterable]="true"
+      (valueChange)="onValueChange($event)"
+      style="width: 100%;"
+      ngModel
+      >
+       </kendo-dropdownlist>
+      
+   

@@ -1,0 +1,92 @@
+
+
+<kendo-dialog 
+[width]="500"
+ [height]="600" 
+[title]="Status" 
+(close)="onClose()"
+ *ngIf="isOpenedDialog"
+  style="text-align:right;">
+    
+      <kendo-dialog-titlebar>
+        <div style="font-size: 18px; line-height: 1.3em;">
+          <span class="k-icon k-i-warning"></span> مشخصات
+        </div>
+      </kendo-dialog-titlebar>
+
+      
+<form class="k-form" 
+#detailValueForm="ngForm" 
+(ngSubmit)="onSaveDetail(detailValueForm.form)" 
+style="text-align:right;">
+
+<p class="alert alert-info">
+  <span>گروه وضعیت خاص : </span>
+   <b> {{dataItem.specialStatusName}} </b>
+</p>
+
+  <label class="k-form-field">
+    <span>نام وضعیت خاص</span>
+    <input class="k-textbox"
+     name="name"
+    [(ngModel)]="dataItem.name" 
+    placeholder="نام وضعیت خاص" required />
+  </label>
+
+  <label class="k-form-field">
+    <span>شرح وضعیت خاص</span>
+    <input class="k-textbox"
+     name="descreption"
+    [(ngModel)]="dataItem.descreption" 
+    placeholder="شرح وضعیت خاص" required />
+  </label>
+<br>
+  <label class="k-form-field" style="margin-top: 10px;">
+    <input type="checkbox" id="haveMoreDetial" 
+    name="haveMoreDetial"
+    [(ngModel)]="dataItem.haveMoreDetial" 
+    class="k-checkbox">
+    <label class="k-checkbox-label" for="haveMoreDetial">
+      سایر مقادیر</label>
+  </label>
+
+  <label class="k-form-field">
+    <span> عنوان سایر مقادیر</span>
+    <input class="k-textbox" 
+    name="moreSpecialStatusLable"
+    [(ngModel)]="dataItem.moreSpecialStatusLable" 
+    [disabled]='dataItem.haveMoreDetial==false'
+   placeholder="عنوان سایر مقادیر"   />
+  </label>
+
+  <label class="k-form-field">
+    <span> مقیاس</span>
+    <app-scale-combo 
+    name="scaleId"
+    [(ngModel)]="dataItem.scaleId" 
+    [disabled]='dataItem.haveMoreDetial==false'
+    >
+  </app-scale-combo>
+  </label>
+
+
+
+
+
+ <br>
+
+
+
+</form>
+
+<kendo-dialog-actions>
+  <!-- [disabled]="!detailForm.valid" -->
+      <button kendoButton class="k-button " 
+      (click)="onOk(detailValueForm.form)" 
+      [disabled]="!(dataItem.specialStatusId >0)"
+       primary="true" type="submit">تایید</button>    
+      <button kendoButton class="k-button "
+       (click)="onClose()">انصراف</button>
+    </kendo-dialog-actions>
+  
+  </kendo-dialog>
