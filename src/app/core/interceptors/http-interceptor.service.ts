@@ -32,6 +32,8 @@ export class HttpInterceptedService extends Http {
     super(backend, defaultOptions);
   }
 
+
+
   request(url: string | Request, options?: RequestOptionsArgs): Observable<Response> {
     this.pendingRequests++;
     this.showLoadingBar();
@@ -40,7 +42,6 @@ export class HttpInterceptedService extends Http {
     return super.request(url, this.getRequestOptionArgs(options))
       .map(res => {
         that.hideLoadingBar();
-        debugger;
       }).catch((err: Response) => {
         // Exception handling
         switch (err.status) {
@@ -72,18 +73,6 @@ export class HttpInterceptedService extends Http {
 
       });
 
-    // this.loadingBar.start();
-    // return next.handle(req).do(
-    //   (event: HttpEvent<any>) => {
-    //     if (event instanceof HttpResponse) {
-    //       // this.loadingBar.complete();
-    //       this.hideLoadingBar();
-    //     }
-    //   },
-    //   (err: any) => {
-    //     // this.loadingBar.complete();
-    //     this.hideLoadingBar();
-    //   });
 
   }
 

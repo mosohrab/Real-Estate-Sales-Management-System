@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAQ,OAAD,CAAC,aAAa,EAAE,AAAe,cAAD,CAAC,aAAa,CAAA;EAC/C,UAAU,EAAE,KAAK;CACpB;;AAED,AAAA,iBAAiB,EAAE,AAAA,mBAAmB,CAAA;EAClC,OAAO,EAAE,GAAG;CACf;;AACD,AAAA,OAAO,EAAE,AAAA,cAAc,CAAA;EACnB,OAAO,EAAE,GAAG;CACf;;AAED,AAAiB,OAAV,CAAC,QAAQ,CAAC,MAAM;AACvB,AAAwB,cAAV,CAAC,QAAQ,CAAC,MAAM,CAAA;EAC9B,UAAU,EAAE,KAAK;EACjB,aAAa,EAAE,CAAC;CACf",
+    "sources": [
+        "kendo-fix.scss"
+    ],
+    "names": [],
+    "file": "kendo-fix.css"
+}

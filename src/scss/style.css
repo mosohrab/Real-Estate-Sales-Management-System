@@ -1,0 +1,42 @@
+.notifier__container * {
+  box-sizing: border-box;
+}
+
+.notifier__container-list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.notifier__notification {
+  display: block;
+  position: fixed;
+  visibility: hidden;
+  z-index: 10000;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.dp-material[_nghost-c4] .dp-picker-input[_ngcontent-c4] {
+  width: 100% !important;
+  background-color: #ffffff  !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+tree-internal ul {
+  padding: 3px 10px 3px 0;
+}
+
+tree-internal .tree .folding {
+  width: 15px;
+}
+
+.dp-input-container > input {
+  width: 100% !important;
+  border-radius: 2px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+/*# sourceMappingURL=style.css.map */

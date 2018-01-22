@@ -1,4 +1,4 @@
-#aa-header {
+﻿#aa-header {
   display: block;
   height: 49px;
   margin: 0;
@@ -172,3 +172,34 @@ img.aa-online {
 
 img.aa-online {
   border-right-color: #40ac2b !important; }
+
+.aa-dashboard > .aa-dashboard-item {
+  margin-bottom: 5px;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  /*border: 1px solid #000;*/
+  position: relative;
+  vertical-align: top;
+  /* float: right; */
+  padding: 3px;
+  margin: 10px;
+  text-align: center; }
+
+.aa-dashboard > .aa-dashboard-item img {
+  width: 64px;
+  height: 64px; }
+
+.aa-dashboard > .aa-dashboard-item span {
+  display: inline-block;
+  width: 100%;
+  margin-top: 5px;
+  /* width: 98px; */
+  /* height: 36px; */
+  /* text-overflow: ellipsis; */
+  /* overflow: hidden; */
+  /* word-break: break-word; */
+  margin-right: -3px;
+  /* word-spacing: inherit; */
+  /* word-wrap: break-word; */ }
+

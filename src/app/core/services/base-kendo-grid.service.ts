@@ -11,6 +11,8 @@ import { process, State } from '@progress/kendo-data-query';
 import { BaseService } from './base.service';
 import { NotifyManager } from '../utils/notify-manager';
 import { LoadingManager } from '../utils/loading-manager';
+import { OperationResultModel } from '../model/operation-result.model';
+import { retry } from 'rxjs/operator/retry';
 
 @Injectable()
 export class BaseKendoGridService extends BehaviorSubject<GridDataResult> {
@@ -28,7 +30,7 @@ export class BaseKendoGridService extends BehaviorSubject<GridDataResult> {
   protected CREATE_ACTION = 'create';
   protected UPDATE_ACTION = 'update';
   protected REMOVE_ACTION = 'destroy';
-
+  protected KendoGridDataResult: GridDataResult;
   constructor(http: HttpClient, apiUrl: string, readId: number = 0) {
     super(null);
     this.readId = readId;
@@ -92,17 +94,20 @@ export class BaseKendoGridService extends BehaviorSubject<GridDataResult> {
     //     .subscribe(() => this.read(), () => this.read());
   }
 
+
   public remove(id: number) {
     const that = this;
     // this.loading.show();
-    this._baseService.delete(id).subscribe(
-      d => {
-        that._baseService.operationHandling(d, (r) => {
-          that.notify.showSuccess();
-          that.readGrid();
-        });
-        // that.loading.hide();
-      },
+    this._baseService.delete(id).subscribe((r: boolean) => {
+      // that._baseService.operationHandling(d, (r) => {
+
+      if (r) {
+        that.notify.showSuccess();
+        that.readGrid();
+      }
+      // });
+      // that.loading.hide();
+    },
       err => {
         // console.log('error: ', err)
         that.notify.showError(err);
@@ -111,7 +116,8 @@ export class BaseKendoGridService extends BehaviorSubject<GridDataResult> {
     );
   }
 
-  public removeArrange(id: Array<number>) {
+
+  public removeRange(id: Array<number>) {
     const that = this;
     // this.loading.show();
     this._baseService.deleteRange(id).subscribe(
@@ -161,17 +167,29 @@ export class BaseKendoGridService extends BehaviorSubject<GridDataResult> {
     } else {
       httpUrl += `?${queryStr}`;
     }
+
+    const that = this;
     return this._baseService.http
       .get(httpUrl)
       .share()
-      // .map(response => response.json())
-      .map(response => {
-        debugger;
-        return <GridDataResult>{
-          // data: response.data,
-          // total: response.total
-        };
+      // .map(response => {
+      //   return <GridDataResult>{
+      //     // data: response.data,
+      //     // total: response.total
+      //   };
+      // })
+      .map((response: OperationResultModel) => {
+
+        let result: GridDataResult;
+        that._baseService.operationHandling(response, (r: GridDataResult) => {
+          result = r;
+        });
+
+        return result || <GridDataResult>{};
+
       });
+
+
   }
 
 }

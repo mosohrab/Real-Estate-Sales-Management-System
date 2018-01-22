@@ -8,15 +8,17 @@ import { AppModule } from '../../app.module';
 export class NotifyManager {
     private static _notifyManager: NotifyManager;
     private notifyService: SnotifyService;
-    private notifyConfig = {
+    private t: number | undefined = 2000;
+    private notifyConfig: SnotifyToastConfig = {
         position: 'rightTop',
-        timeout: 2000,
-        buttons: [],
+        timeout: this.t,
+        buttons: <any[]>[],
         showProgressBar: true,
         closeOnClick: true,
         pauseOnHover: true,
         backdrop: -1,
-        // icon: 'assets/custom-svg.svg'
+        // icon: 'assets/custom-svg.svg',
+
     };
     constructor() {
         this.notifyService = AppModule.injector.get(SnotifyService);
@@ -41,7 +43,8 @@ export class NotifyManager {
     showError(message?: string) {
         this.notifyService.clear();
 
-        this.notifyService.error(message || 'خطایی در اجرای عملیات رخ داده', '', this.notifyConfig);
+        this.notifyService.error(message || 'خطایی در اجرای عملیات رخ داده', '',
+            this.notifyConfig);
 
     }
     showWarning(message?: string) {
@@ -60,14 +63,14 @@ export class NotifyManager {
         config.closeOnClick = false;
         config.showProgressBar = false;
         config.backdrop = 1;
-        config.timeout = null;
+        config.timeout = undefined;
 
         config.buttons = [
             {
                 text: 'تایید',
                 action: (toast) => {
                     if (okAction) {
-                        setTimeout( () => {
+                        setTimeout(() => {
                             okAction();
                             that.notifyService.clear();
                         }, 500);

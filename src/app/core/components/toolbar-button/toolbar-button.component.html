@@ -2,10 +2,9 @@
 
 
 <nav class="au-bg-gray">
-
   <ul class="au-toolbar ">
-    <li class="au-toolbar-item " 
-    *ngIf="showAddButton" >
+    <li class="au-toolbar-item "
+     *ngIf="showAddButton" >
           <a class="au-button-icon" 
           href="javascript:void(0);"
           tooltip="افزودن"
@@ -40,7 +39,7 @@
         </a>
         
     </li>
-    <li class="au-toolbar-item "
+    <!-- <li class="au-toolbar-item "
     *ngIf="showDeletAlleButton"
     >
         <a class="au-button-icon"
@@ -52,7 +51,7 @@
         <i class="fa fa-remove fa-lg"></i>
         </a>
         
-    </li>
+    </li> -->
 
     <li class="au-toolbar-item "
     *ngFor="let btn of buttons"

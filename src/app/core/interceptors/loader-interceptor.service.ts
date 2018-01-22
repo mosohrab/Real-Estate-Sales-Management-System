@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import {
-  HttpEvent, HttpHandler,
-  HttpInterceptor, HttpRequest,
-  HttpResponse
+  HttpInterceptor, HttpRequest, HttpHandler, HttpEvent,
+  HttpProgressEvent, HttpEventType, HttpResponse
 } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
@@ -22,9 +21,9 @@ export class LoaderInterceptorService implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
     this.pendingRequests++;
     this.showLoadingBar();
-
     this.loadingBar.start();
     return next.handle(req).do(
       (event: HttpEvent<any>) => {
