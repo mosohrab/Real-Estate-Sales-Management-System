@@ -19,7 +19,7 @@ import * as moment from 'jalali-moment';
     CompanyService
   ]
 })
-export class CompanyDialogComponent extends BaseComponent {
+export class CompanyDialogComponent extends WeBaseComponent {
   service: CompanyService;
   isOpenedDialog = false;
   wizardStep = 1;

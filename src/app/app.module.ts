@@ -84,7 +84,7 @@ import { ProvinceUpsertComponent } from './components/base/province/province-ups
 // import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 import { BaseService } from './services/base.service';
-import { BaseKendoGridService } from './services/base-kendo-grid.service';
+import { WeBaseKendoGridService } from './services/base-kendo-grid.service';
 import { CountryService, CountryComboService } from './services/country.service';
 import { ProvinceService } from './services/province.service';
 import { CityService, CityKendoGridService } from './services/city.service';
@@ -249,8 +249,7 @@ import { UsageComponent } from './components/unit/usage/usage.component';
     SnotifyService,
 
     BaseService,
-    BaseKendoGridService,
-
+    WeBaseKendoGridService,
     CountryService,
     ProvinceService,
 

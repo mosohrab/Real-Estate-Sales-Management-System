@@ -6,7 +6,6 @@ import { GridDataResult } from '@progress/kendo-angular-grid';
 import { toODataString } from '@progress/kendo-data-query';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-
 import { ProvinceModel } from '../model/province.model';
 import { BaseService } from './base.service';
 import { WeBaseKendoGridService } from './base-kendo-grid.service';
@@ -14,7 +13,7 @@ import { UrlHelper } from '../infrastructure/url-helper';
 import { SpecialStatusValueModel } from '../model/special-status.model';
 
 @Injectable()
-export class SpecialStatusValueService extends WeBaseService {
+export class SpecialStatusValueService extends BaseService {
 
   constructor(http: Http) {
     super(http, UrlHelper.SpecialStatusValue_API);
@@ -27,7 +26,7 @@ export class SpecialStatusValueService extends WeBaseService {
 
 
 @Injectable()
-export class SpecialStatusValueKendoGridService extends BaseKendoGridService {
+export class SpecialStatusValueKendoGridService extends WeBaseKendoGridService {
 
   constructor(http: Http) {
     super(http, UrlHelper.SpecialStatusValue_API);

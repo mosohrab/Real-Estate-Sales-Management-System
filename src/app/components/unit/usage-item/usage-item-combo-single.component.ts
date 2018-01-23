@@ -4,7 +4,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { UsageItemModel } from '../../../model/usage.model';
 import { UsageService, UsageItemService, UsageItemComboService } from '../../../services/usage.service';
-import { BaseComponent, BaseComboComponent } from '../../shared/base.component';
+import { BaseComboComponent } from '../../../core/components/base.component';
 
 @Component({
   selector: 'app-usage-item-combo-single',
@@ -21,9 +21,7 @@ import { BaseComponent, BaseComboComponent } from '../../shared/base.component';
     }
   ]
 })
-export class UsageItemComboSingleComponent extends BaseComboComponent
-// <UsageItemModel, UsageItemService> 
-{
+export class UsageItemComboSingleComponent extends BaseComboComponent {
 
   service: UsageItemComboService;
   model = <UsageItemModel>{};

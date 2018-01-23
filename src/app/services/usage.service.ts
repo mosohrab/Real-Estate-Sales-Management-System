@@ -62,7 +62,7 @@ export class UsageItemService extends BaseService {
 }
 
 @Injectable()
-export class UsageItemKendoGridService extends BaseKendoGridService {
+export class UsageItemKendoGridService extends WeBaseKendoGridService {
     usageItemService: UsageItemService;
 
     constructor(http: Http, service: UsageItemService) {

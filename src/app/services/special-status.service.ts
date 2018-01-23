@@ -23,7 +23,7 @@ export class SpecialStatusService extends BaseService {
 
 
 @Injectable()
-export class SpecialStatusKendoGridService extends BaseKendoGridService {
+export class SpecialStatusKendoGridService extends WeBaseKendoGridService {
   statusService: SpecialStatusService;
 
   constructor(http: Http, service: SpecialStatusService) {

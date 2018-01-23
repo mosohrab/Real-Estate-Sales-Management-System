@@ -6,7 +6,6 @@ import { GridDataResult } from '@progress/kendo-angular-grid';
 import { toODataString } from '@progress/kendo-data-query';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-
 import { PersonModel } from '../model/person.model';
 import { BaseService } from './base.service';
 import { WeBaseKendoGridService } from './base-kendo-grid.service';
@@ -55,7 +54,7 @@ export class PersonStatusService extends BaseService {
 
 
 @Injectable()
-export class PersonStatusKendoGridService extends BaseKendoGridService {
+export class PersonStatusKendoGridService extends WeBaseKendoGridService {
   _personStatusService: PersonStatusService;
 
   constructor(http: Http, service: PersonStatusService) {

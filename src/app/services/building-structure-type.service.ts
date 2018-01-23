@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { BaseService } from './base.service';
-import { BaseKendoGridService } from './base-kendo-grid.service';
+import { WeBaseKendoGridService } from './base-kendo-grid.service';
 import { UrlHelper } from '../infrastructure/url-helper';
 import { BuildingstructuretypeModel } from '../model/base.model';
 
@@ -22,7 +22,7 @@ export class BuildingstructuretypeService extends BaseService {
 }
 
 @Injectable()
-export class BuildingstructuretypeKendoGridService extends BaseKendoGridService {
+export class BuildingstructuretypeKendoGridService extends WeBaseKendoGridService {
     baseService: BuildingstructuretypeService;
 
     constructor(http: Http, service: BuildingstructuretypeService) {

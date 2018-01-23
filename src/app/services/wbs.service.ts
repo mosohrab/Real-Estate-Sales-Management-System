@@ -116,7 +116,7 @@ export class WbsStructureService extends BaseService {
 
 
 @Injectable()
-export class WbsStructureKendoGridService extends BaseKendoGridService {
+export class WbsStructureKendoGridService extends WeBaseKendoGridService {
     baseService: WbsStructureService;
 
     constructor(http: Http, service: WbsStructureService) {

@@ -15,8 +15,7 @@ import {
 
 import { SpecialStatusValueService } from '../../../services/special-status-value.service';
 import { SpecialStatusModel, SpecialStatusValueModel } from '../../../model/special-status.model';
-
-import { BaseComponent, BaseControlValueAccessor } from '../../shared/base.component';
+import { WeBaseComponent } from '../../we-base.component';
 import { OperationResultModel } from '../../../model/operation-result.model';
 
 @Component({
@@ -31,7 +30,7 @@ import { OperationResultModel } from '../../../model/operation-result.model';
     }
   ]
 })
-export class SpecialStatusValueUpsertComponent extends BaseComponent {
+export class SpecialStatusValueUpsertComponent extends WeBaseComponent {
   service: SpecialStatusValueService;
 
   @Input() dataItem = <SpecialStatusValueModel>{};

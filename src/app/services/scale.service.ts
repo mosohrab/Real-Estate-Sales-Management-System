@@ -3,19 +3,17 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-
 import { GridDataResult } from '@progress/kendo-angular-grid';
 import { toODataString } from '@progress/kendo-data-query';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-
 import { ScaleModel } from '../model/base.model';
 import { BaseService } from './base.service';
 import { WeBaseKendoGridService } from './base-kendo-grid.service';
 import { UrlHelper } from '../infrastructure/url-helper';
 
 @Injectable()
-export class ScaleService extends WeBaseService {
+export class ScaleService extends BaseService {
 
   constructor(http: Http) {
     super(http, UrlHelper.SCALE_API);
@@ -27,7 +25,7 @@ export class ScaleService extends WeBaseService {
 
 
 @Injectable()
-export class ScaleKendoGridService extends BaseKendoGridService {
+export class ScaleKendoGridService extends WeBaseKendoGridService {
 
   constructor(http: Http) {
     super(http, UrlHelper.SCALE_API);

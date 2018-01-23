@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { UnitFeatureModel, UnitFeatureTitleModel, UnitFeatureValueModel } from '../model/unit-feature.model';
 import { BaseService } from './base.service';
-import { BaseKendoGridService } from './base-kendo-grid.service';
+import { WeBaseKendoGridService } from './base-kendo-grid.service';
 import { UrlHelper } from '../infrastructure/url-helper';
 import { TreeModel } from '../ng2-tree/src/tree.types';
 
@@ -46,7 +46,7 @@ export class UnitFeatureService extends BaseService {
 }
 
 @Injectable()
-export class UnitFeatureKendoGridService extends BaseKendoGridService {
+export class UnitFeatureKendoGridService extends WeBaseKendoGridService {
     featureService: UnitFeatureService;
 
     constructor(http: Http, service: UnitFeatureService) {
@@ -92,7 +92,7 @@ export class UnitFeatureTitleService extends BaseService {
 }
 
 @Injectable()
-export class UnitFeatureTitleKendoGridService extends BaseKendoGridService {
+export class UnitFeatureTitleKendoGridService extends WeBaseKendoGridService {
     statusService: UnitFeatureTitleService;
 
     constructor(http: Http, service: UnitFeatureTitleService) {
@@ -151,7 +151,7 @@ export class UnitFeatureValueService extends BaseService {
 }
 
 @Injectable()
-export class UnitFeatureValueKendoGridService extends BaseKendoGridService {
+export class UnitFeatureValueKendoGridService extends WeBaseKendoGridService {
     statusService: UnitFeatureValueService;
 
     constructor(http: Http, service: UnitFeatureValueService) {
