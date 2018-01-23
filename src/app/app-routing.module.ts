@@ -3,8 +3,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-
-
+import { RootComponent } from './app.component';
 import { CityComponent } from './components/base/city/city.component';
 import { CountryComponent } from './components/base/country/country.component';
 import { BuildingStructureTypeComponent } from './components/base/building-structure-type/building-structure-type.component';
@@ -27,39 +26,156 @@ import { UnitComponent } from './components/unit/unit/unit.component';
 import { FeatureComponent } from './components/unit/feature/feature.component';
 import { MeasuringUnitComponent } from './components/unit/measuring-unit/measuring-unit.component';
 import { UsageComponent } from './components/unit/usage/usage.component';
+import { CountryComboComponent } from './components/shared/country-combo/country-combo.component';
 
 
 const routes: Routes = [
-//   { path: 'home', component: WelcomeComponent },
-//   { path: 'welcome', redirectTo: 'home', pathMatch: 'full' },
-//   { path: '', redirectTo: 'home', pathMatch: 'full' },
-//   { path: '**', component: PageNotFoundComponent }
+  //   { path: 'home', component: WelcomeComponent },
+  //   { path: 'welcome', redirectTo: 'home', pathMatch: 'full' },
+  //   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  //   { path: '**', component: PageNotFoundComponent }
 
-{ path: 'base/country', component: CountryComponent },
-{ path: 'base/city', component: CityComponent },
-{ path: 'base/buildingstructuretype', component: BuildingStructureTypeComponent },
-{ path: 'base/province', component: ProvinceComponent },
-{ path: 'base/scale', component: ScaleComponent },
+  // {
+  //   path: 'base',
+  //   component: AppComponent,
+  //   children: [
+  //     { path: 'country', component: CountryComponent },
+  //     { path: 'city', component: CityComponent },
+  //     { path: 'buildingstructuretype', component: BuildingStructureTypeComponent },
+  //     { path: 'province', component: ProvinceComponent },
+  //     { path: 'scale', component: ScaleComponent },
+  //   ]
+  // },
 
-{ path: 'special', component: SpecialStatusComponent },
-{ path: 'person', component: PersonComponent },
-// { path: 'person/detail', component: PersonDetailComponent },
-// { path: 'person/detail/:id', component: PersonDetailComponent },
-// { path: 'person/detail/:id/special', component: PersonSpecialStatusComponent },
-{ path: 'company', component: CompanyComponent },
-// { path: 'company/detail', component: CompanyDetailComponent },
-// { path: 'company/detail/:id', component: CompanyDetailComponent },
-// { path: 'company/detail/:id/special', component: CompanySpecialStatusComponent },
+  {
+    path: '',
+    component: RootComponent,
+    children: [
+      {
+        path: 'base',
+        component: RootComponent,
+        data: {
+          breadcrumb: 'اطلاعات پایه'
+        },
+        children: [
+          {
+            path: 'country',
+            component: CountryComponent,
+            data: {
+              breadcrumb: 'کشور'
+            }
+          },
+          {
+            path: 'province',
+            component: CityComponent,
+            data: {
+              breadcrumb: 'استان'
+            }
+          },
+          {
+            path: 'city',
+            component: CityComponent,
+            data: {
+              breadcrumb: 'شهر'
+            }
+          },
+          {
+            path: 'buildingstructuretype',
+            component: CityComponent,
+            data: {
+              breadcrumb: 'نوع سازه'
+            }
+          },
+          {
+            path: 'scale',
+            component: CityComponent,
+            data: {
+              breadcrumb: 'مقیاس'
+            }
+          },
+        ],
+      }, // end base
+
+      {
+        path: 'buyer',
+        component: RootComponent,
+        data: { breadcrumb: 'خریداران' },
+        children: [
+          {
+            path: 'special', component: SpecialStatusComponent,
+            data: { breadcrumb: 'ویژگی ها' }
+          },
+
+          {
+            path: 'person', component: PersonComponent,
+            data: { breadcrumb: 'اشخاص حقیقی' }
+          },
+          // { path: 'person/detail', component: PersonDetailComponent },
+          // { path: 'person/detail/:id', component: PersonDetailComponent },
+          // { path: 'person/detail/:id/special', component: PersonSpecialStatusComponent },
+
+          {
+            path: 'company', component: CompanyComponent,
+            data: { breadcrumb: 'اشخاص حقوقی' },
+          },
+          // { path: 'company/detail', component: CompanyDetailComponent },
+          // { path: 'company/detail/:id', component: CompanyDetailComponent },
+          // { path: 'company/detail/:id/special', component: CompanySpecialStatusComponent },
+
+        ],
+
+      }, // end
+
+      {
+        path: 'wbs',
+        component: RootComponent,
+        data: { breadcrumb: 'ساختار شکست' },
+        children: [
+          {
+            path: 'wbs', component: WbsComponent,
+            data: { breadcrumb: 'ساختار شکست' }
+          },
+        ]
+      }, // end
+
+      {
+        path: 'unit',
+        component: RootComponent,
+        data: { breadcrumb: ' واحد ها' },
+        children: [
+          {
+            path: 'unit', component: UnitComponent,
+            data: { breadcrumb: 'تعریف واحدها' }
+          },
+
+          {
+            path: 'unitfeature', component: FeatureComponent,
+            data: { breadcrumb: 'ویژگیهای عمومی و انتخابی' }
+          },
+
+          {
+            path: 'measuringunit', component: MeasuringUnitComponent,
+            data: { breadcrumb: 'واحد سنجش' }
+          },
+
+          {
+            path: 'unitusage', component: UsageComponent,
+            data: { breadcrumb: 'کاربری واحد' }
+          },
+        ]
+      }, // end
 
 
-{ path: 'wbs', component: WbsComponent },
+    ]
+  },
 
 
-{ path: 'unit', component: UnitComponent },
-{ path: 'unitfeature', component: FeatureComponent },
-{ path: 'measuringunit', component: MeasuringUnitComponent },
-{ path: 'unitusage', component: UsageComponent },
 
+  // { path: 'base/country', component: CountryComponent },
+  // { path: 'base/city', component: CityComponent },
+  // { path: 'base/buildingstructuretype', component: BuildingStructureTypeComponent },
+  // { path: 'base/province', component: ProvinceComponent },
+  // { path: 'base/scale', component: ScaleComponent },
 
 
 ];

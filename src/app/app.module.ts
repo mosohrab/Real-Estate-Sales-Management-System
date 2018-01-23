@@ -68,7 +68,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 
 // Components
-import { AppComponent } from './app.component';
+import { AppComponent, RootComponent } from './app.component';
 
 import { CountryComboComponent } from './components/shared/country-combo/country-combo.component';
 import { CountryUpsertComponent } from './components/base/country/country-upsert.component';
@@ -148,6 +148,7 @@ import { UsageComponent } from './components/unit/usage/usage.component';
   declarations: [
     // JalaliPipe,
     AppComponent,
+    RootComponent,
 
     CountryComboComponent,
     CityComponent,

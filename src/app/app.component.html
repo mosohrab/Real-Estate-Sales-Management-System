@@ -99,17 +99,17 @@ The content below is only a placeholder and can be replaced.
           </a>
           <ul>
             <li>
-              <a [routerLink]="['special']">
+              <a [routerLink]="['/buyer/special']">
                 <span>ویژگی ها</span>
               </a>
             </li>
             <li>
-              <a [routerLink]="['person']">
+              <a [routerLink]="['/buyer/person']">
                 <span>اشخاص حقیقی</span>
               </a>
             </li>
             <li>
-              <a [routerLink]="['company']">
+              <a [routerLink]="['/buyer/company']">
                 <span>اشخاص حقوقی</span>
               </a>
             </li>
@@ -128,7 +128,7 @@ The content below is only a placeholder and can be replaced.
           </a>
           <ul>
             <li>
-              <a href="##" [routerLink]="['wbs']">
+              <a href="##" [routerLink]="['/wbs/wbs']">
                 <span>ساختار شکست</span>
               </a>
             </li>
@@ -147,7 +147,7 @@ The content below is only a placeholder and can be replaced.
           </a>
           <ul>
             <li>
-              <a href="##" [routerLink]="['unitfeature']">
+              <a href="##" [routerLink]="['/unit/unitfeature']">
                 <span>ویژگیهای عمومی و انتخابی</span>
               </a>
             </li>
@@ -157,7 +157,7 @@ The content below is only a placeholder and can be replaced.
               </a>
             </li> -->
             <li>
-              <a href="##" [routerLink]="['unit']">
+              <a href="##" [routerLink]="['/unit/unit']">
                 <span>تعریف واحدها</span>
               </a>
             </li>
@@ -178,7 +178,7 @@ The content below is only a placeholder and can be replaced.
 
   <article id="aa-main">
 
-    <div id="aa-ribbon" *ngIf="breadcrumbs.length > 0">
+    <div id="aa-ribbon" >
 
       <span class="aa-ribbon-button-alignment">
         <span id="aa-refresh"
@@ -195,16 +195,17 @@ The content below is only a placeholder and can be replaced.
       </span>
 
       <!-- breadcrumb -->
-      <ol class="au-breadcrumb">
-        <li>Home</li>
-        <li>Dashboard</li>
-        <li>Analytics</li>
-      </ol>
+      <!-- <ol class="au-breadcrumb" >
+        <li *ngFor="let item of breadcrumbs">{{ item.name }}</li>
+      </ol> -->
+
+      <app-breadcrumb></app-breadcrumb>
 
       <!-- end breadcrumb -->
     </div>
 
   <div id="aa-content">
+
     <router-outlet></router-outlet>
   </div>
   </article>

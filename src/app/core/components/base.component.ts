@@ -11,7 +11,6 @@ import { BreadcrumbModel } from '../model/breadcrumb.model';
 
 export abstract class BaseComponent implements OnInit, AfterViewInit, OnChanges {
 
-  breadcrumbs = new Array<BreadcrumbModel>();
   datePickerConfig = {
     drops: 'up', // down
     format: 'jYYYY/jMM/jDD',

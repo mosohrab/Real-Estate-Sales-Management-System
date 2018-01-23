@@ -29,4 +29,24 @@ export class AppComponent extends WeBaseComponent {
   title = 'app';
   template = `<img src="assets/img/loading.gif" />`;
 
+  constructor() {
+    super();
+
+  }
 }
+
+
+
+@Component({
+  template: `
+    <router-outlet></router-outlet>
+  `
+})
+export class RootComponent extends WeBaseComponent {
+
+  constructor() {
+    super();
+  }
+
+}
+
