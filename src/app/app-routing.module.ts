@@ -35,11 +35,11 @@ const routes: Routes = [
 //   { path: '', redirectTo: 'home', pathMatch: 'full' },
 //   { path: '**', component: PageNotFoundComponent }
 
-{ path: 'country', component: CountryComponent },
-{ path: 'city', component: CityComponent },
-{ path: 'buildingstructuretype', component: BuildingStructureTypeComponent },
-{ path: 'province', component: ProvinceComponent },
-{ path: 'scale', component: ScaleComponent },
+{ path: 'base/country', component: CountryComponent },
+{ path: 'base/city', component: CityComponent },
+{ path: 'base/buildingstructuretype', component: BuildingStructureTypeComponent },
+{ path: 'base/province', component: ProvinceComponent },
+{ path: 'base/scale', component: ScaleComponent },
 
 { path: 'special', component: SpecialStatusComponent },
 { path: 'person', component: PersonComponent },

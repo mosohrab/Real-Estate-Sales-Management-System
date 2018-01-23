@@ -8,7 +8,7 @@ import { CityService } from '../../../services/city.service';
 import { CityModel } from '../../../model/city.model';
 import { ProvinceModel } from '../../../model/province.model';
 
-import { BaseComponent } from '../../shared/base.component';
+import { WeBaseComponent } from '../../we-base.component';
 import { OperationResultModel } from '../../../model/operation-result.model';
 import { ProvinceComboComponent } from '../../shared/province-combo/province-combo.component';
 
@@ -18,7 +18,7 @@ import { ProvinceComboComponent } from '../../shared/province-combo/province-com
   styleUrls: ['./city-detail.component.scss'],
   providers: [CityService]
 })
-export class CityDetailComponent extends BaseComponent {
+export class CityDetailComponent extends WeBaseComponent {
   service: CityService;
   @Input() cityId?: number;
   @ViewChild('provinceCombo') provinceCombo: ProvinceComboComponent;
@@ -35,6 +35,7 @@ export class CityDetailComponent extends BaseComponent {
   }
 
   public openDialog() {
+    this.model = <CityModel>{};
     this.opened = true;
   }
   public openDialogById(id: number) {

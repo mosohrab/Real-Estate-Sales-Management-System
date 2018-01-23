@@ -4,7 +4,7 @@ import {
   EventEmitter, Output
 } from '@angular/core';
 
-import { BaseComponent } from '../../shared/base.component';
+import { WeBaseComponent } from '../../we-base.component';
 import { UnitModel } from '../../../model/unit.model';
 import { UnitService } from '../../../services/unit.service';
 import { UsageItemComboSingleComponent } from '../../unit/usage-item/usage-item-combo-single.component';
@@ -20,7 +20,7 @@ import { UsageItemComboSingleComponent } from '../../unit/usage-item/usage-item-
     // {provide: NgbDatepickerI18n, useClass: NgbDatepickerI18nPersian}
   ]
 })
-export class UnitDetailComponent extends BaseComponent {
+export class UnitDetailComponent extends WeBaseComponent {
   unitId: number;
   service: UnitService;
   model = <UnitModel>{};
@@ -39,7 +39,7 @@ export class UnitDetailComponent extends BaseComponent {
 
   }
   ngAfterViewInitHandler() {
- 
+
     // this.usageItemCombo;
   }
   public onUsageChange(value: any): void {
@@ -47,11 +47,13 @@ export class UnitDetailComponent extends BaseComponent {
   }
 
   public openDialog(wbsHId: number) {
+    this.model = <UnitModel>{};
     this.model.wbsHid = wbsHId;
     this.isOpenedDialog = true;
   }
 
   public openDialogById(id: number) {
+    this.model = <UnitModel>{};
     this.unitId = id;
     if (this.unitId > 0) {
       const that = this;

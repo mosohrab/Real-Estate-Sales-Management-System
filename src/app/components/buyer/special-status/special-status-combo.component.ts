@@ -4,7 +4,7 @@ import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/f
 
 import { SpecialStatusModel } from '../../../model/special-status.model';
 import { SpecialStatusComboService } from '../../../services/special-status.service';
-import { BaseComponent, BaseComboComponent } from '../../shared/base.component';
+import {  BaseComboComponent } from '../../../core/components/base.component';
 
 @Component({
   selector: 'app-special-status-combo',

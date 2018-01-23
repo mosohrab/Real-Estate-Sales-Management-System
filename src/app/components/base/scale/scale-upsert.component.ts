@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { ScaleModel } from '../../../model/base.model';
 import { ScaleService, ScaleComboService } from '../../../services/scale.service';
-import { BaseComponent } from '../../shared/base.component';
+import { WeBaseComponent } from '../../we-base.component';
 import { OperationResultModel } from '../../../model/operation-result.model';
 
 
@@ -22,7 +22,7 @@ import { OperationResultModel } from '../../../model/operation-result.model';
 
   encapsulation: ViewEncapsulation.None
 })
-export class ScaleUpsertComponent extends BaseComponent {
+export class ScaleUpsertComponent extends WeBaseComponent {
 
   service: ScaleService;
   model = <ScaleModel>{};

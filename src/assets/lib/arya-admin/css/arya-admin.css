@@ -103,7 +103,7 @@
       vertical-align: middle; }
 
 #aa-main {
-  position: absolute;
+  /* position: absolute;
   bottom: 0;
   right: 200px;
   left: 0;
@@ -112,7 +112,15 @@
   background-color: #F3F3F3;
   padding-right: 10px;
   padding-left: 10px;
-  padding-top: 10px; }
+  padding-top: 10px; */
+  
+  margin-right: 200px;
+  padding: 0;
+  padding-bottom: 52px;
+  min-height: 500px;
+  position: relative;
+
+}
 
 #aa-footer {
   position: absolute;

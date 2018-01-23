@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
-import { UnitModel,UnitFeatureAssignedModel } from '../model/unit.model';
+import { UnitModel, UnitFeatureAssignedModel } from '../model/unit.model';
 import { BaseService } from './base.service';
 import { BaseKendoGridService } from './base-kendo-grid.service';
 import { UrlHelper } from '../infrastructure/url-helper';

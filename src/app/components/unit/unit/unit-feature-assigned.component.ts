@@ -4,8 +4,7 @@ import {
   EventEmitter, Output
 } from '@angular/core';
 
-import { BaseComponent } from '../../shared/base.component';
-import { BaseKendoGridComponent } from '../../shared/base-kendo-grid.component';
+import { WeBaseKendoGridComponent } from '../../we-base-kendo-grid.component';
 import { UnitFeatureAssignedModel, UnitModel } from '../../../model/unit.model';
 import { UnitService, UnitFeatureAssignedService, UnitFeatureAssignedKendoGridService } from '../../../services/unit.service';
 import { UsageItemComboSingleComponent } from '../../unit/usage-item/usage-item-combo-single.component';
@@ -24,7 +23,7 @@ import { UnitFeatureAssignedUpsertComponent } from './unit-feature-assigned-upse
   ],
   preserveWhitespaces: false
 })
-export class UnitFeatureAssignedComponent extends BaseKendoGridComponent {
+export class UnitFeatureAssignedComponent extends WeBaseKendoGridComponent {
   unitService: UnitService;
   service: UnitFeatureAssignedKendoGridService;
   model = <UnitFeatureAssignedModel>{};

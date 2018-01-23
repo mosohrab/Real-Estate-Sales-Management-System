@@ -3,7 +3,7 @@ import {
   ViewChild
 } from '@angular/core';
 
-import { BaseComponent } from '../../shared/base.component';
+import { WeBaseComponent } from '../../we-base.component';
 import { SpecialStatusValueComboComponent } from '../special-status-value/special-status-value-combo.component';
 import { PersonModel, PersonStatusModel } from '../../../model/person.model';
 import { PersonService } from '../../../services/person.service';
@@ -18,7 +18,7 @@ import * as moment from 'jalali-moment';
     PersonService
   ]
 })
-export class PersonDialogComponent extends BaseComponent {
+export class PersonDialogComponent extends WeBaseComponent {
   service: PersonService;
   isOpenedDialog = false;
   wizardStep = 1;

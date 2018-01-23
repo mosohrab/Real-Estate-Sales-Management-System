@@ -4,7 +4,7 @@ import {
   EventEmitter, Output
 } from '@angular/core';
 
-import { BaseComponent } from '../../shared/base.component';
+import { WeBaseComponent } from '../../we-base.component';
 import { UnitFeatureAssignedModel, UnitModel } from '../../../model/unit.model';
 import { UnitService, UnitFeatureAssignedService } from '../../../services/unit.service';
 import {
@@ -35,7 +35,7 @@ import { FeatureValueComboSingleComponent } from '../../unit/feature/feature-val
   ],
   preserveWhitespaces: false
 })
-export class UnitFeatureAssignedUpsertComponent extends BaseComponent {
+export class UnitFeatureAssignedUpsertComponent extends WeBaseComponent {
   unitService: UnitService;
   service: UnitFeatureAssignedService;
   model = <UnitFeatureAssignedModel>{};

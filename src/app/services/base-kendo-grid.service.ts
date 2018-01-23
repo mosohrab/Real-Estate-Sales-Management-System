@@ -8,13 +8,12 @@ import { toODataString, toDataSourceRequestString } from '@progress/kendo-data-q
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { process, State } from '@progress/kendo-data-query';
-
 import { BaseService } from './base.service';
 import { NotifyManager } from '../infrastructure/notify-manager';
 import { LoadingManager } from '../infrastructure/loading-manager';
 
 @Injectable()
-export class BaseKendoGridService extends BehaviorSubject<GridDataResult> {
+export class WeBaseKendoGridService extends BehaviorSubject<GridDataResult> {
   readId: number;
   loading: LoadingManager;
   notify: NotifyManager;

@@ -4,7 +4,7 @@ import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/f
 
 import { CompanyTypeModel } from '../../../model/company.model';
 import { CompanyTypeService, CompanyTypeComboService } from '../../../services/company-type.service';
-import { BaseComponent, BaseComboComponent } from '../../shared/base.component';
+import {  BaseComboComponent } from '../../../core/components/base.component';
 
 @Component({
   selector: 'app-company-type-combo',

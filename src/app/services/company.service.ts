@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { BaseService } from './base.service';
-import { BaseKendoGridService } from './base-kendo-grid.service';
+import { WeBaseKendoGridService } from './base-kendo-grid.service';
 import { OperationResultModel } from '../model/operation-result.model';
 import { UrlHelper } from '../infrastructure/url-helper';
 
@@ -26,7 +26,7 @@ export class CompanyService extends BaseService {
 
 
 @Injectable()
-export class CompanyKendoGridService extends BaseKendoGridService {
+export class CompanyKendoGridService extends WeBaseKendoGridService {
   _companyService: CompanyService;
 
   constructor(http: Http, service: CompanyService) {
@@ -51,7 +51,7 @@ export class CompanyStatusService extends BaseService {
 
 
 @Injectable()
-export class CompanyStatusKendoGridService extends BaseKendoGridService {
+export class CompanyStatusKendoGridService extends WeBaseKendoGridService {
   _companyStatusService: CompanyStatusService;
 
   constructor(http: Http, service: CompanyStatusService) {

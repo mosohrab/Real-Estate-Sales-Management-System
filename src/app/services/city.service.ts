@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { CityModel } from '../model/city.model';
 import { BaseService } from './base.service';
-import { BaseKendoGridService } from './base-kendo-grid.service';
+import { WeBaseKendoGridService } from './base-kendo-grid.service';
 import { OperationResultModel } from '../model/operation-result.model';
 import { UrlHelper } from '../infrastructure/url-helper';
 
@@ -29,7 +29,7 @@ export class CityService extends BaseService {
 
 
 @Injectable()
-export class CityKendoGridService extends BaseKendoGridService {
+export class CityKendoGridService extends WeBaseKendoGridService {
   _cityService: CityService;
 
   constructor(http: Http, cityService: CityService) {

@@ -6,7 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import * as moment from 'jalali-moment';
 
-import { BaseComponent } from '../../shared/base.component';
+import { WeBaseComponent } from '../../we-base.component';
 import { WbsBlockModel } from '../../../model/wbs.model';
 import { WbsBlockService } from '../../../services/wbs.service';
 import { UsageItemComboSingleComponent } from '../../unit/usage-item/usage-item-combo-single.component';
@@ -23,7 +23,7 @@ import { UsageItemComboSingleComponent } from '../../unit/usage-item/usage-item-
     // {provide: NgbDatepickerI18n, useClass: NgbDatepickerI18nPersian}
   ]
 })
-export class WbsBlockDetailComponent extends BaseComponent {
+export class WbsBlockDetailComponent extends WeBaseComponent {
   _activatedRoute: any;
   _service: WbsBlockService;
   _router: Router;

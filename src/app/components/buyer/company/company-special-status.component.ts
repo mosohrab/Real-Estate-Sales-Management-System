@@ -8,8 +8,7 @@ import {
 } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { BaseComponent } from '../../shared/base.component';
-import { BaseKendoGridComponent } from '../../shared/base-kendo-grid.component';
+import { WeBaseKendoGridComponent } from '../../we-base-kendo-grid.component';
 import { SpecialStatusService } from '../../../services/special-status.service';
 import { SpecialStatusValueService } from '../../../services/special-status-value.service';
 import { SpecialStatusValueComboComponent } from '../special-status-value/special-status-value-combo.component';
@@ -28,7 +27,7 @@ import { CompanyService, CompanyStatusService, CompanyStatusKendoGridService } f
     CompanyStatusKendoGridService
   ]
 })
-export class CompanySpecialStatusComponent extends BaseKendoGridComponent {
+export class CompanySpecialStatusComponent extends WeBaseKendoGridComponent {
   _companyService: CompanyService;
   _service: CompanyStatusKendoGridService;
   // _activatedRoute: ActivatedRoute;

@@ -6,8 +6,8 @@ import {
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 
-import { BaseKendoGridComponent } from '../../shared/base-kendo-grid.component';
-import { BaseKendoGridService } from '../../../services/base-kendo-grid.service';
+import { WeBaseKendoGridComponent } from '../../we-base-kendo-grid.component';
+import { WeBaseKendoGridService } from '../../../services/base-kendo-grid.service';
 import { ScaleModel } from '../../../model/base.model';
 import { ScaleService, ScaleKendoGridService } from '../../../services/scale.service';
 import { ScaleUpsertComponent } from './scale-upsert.component';
@@ -23,7 +23,7 @@ import { ScaleUpsertComponent } from './scale-upsert.component';
   ]
 
 })
-export class ScaleComponent extends BaseKendoGridComponent {
+export class ScaleComponent extends WeBaseKendoGridComponent {
 
   @ViewChild('dialogUpsert') dialogUpsert: ScaleUpsertComponent;
 

@@ -9,7 +9,7 @@ import * as moment from 'jalali-moment';
 import { CountryModel } from '../../../model/country.model';
 import { ProvinceModel } from '../../../model/Province.model';
 import { CityModel } from '../../../model/city.model';
-import { BaseComponent } from '../../shared/base.component';
+import { WeBaseComponent } from '../../we-base.component';
 import { WbsCompanyModel } from '../../../model/wbs.model';
 import { WbsCompanyService } from '../../../services/wbs.service';
 import { CityService } from '../../../services/city.service';
@@ -28,7 +28,7 @@ import { CityComboSingleComponent } from '../../shared/city-combo-single/city-co
     // {provide: NgbDatepickerI18n, useClass: NgbDatepickerI18nPersian}
   ]
 })
-export class WbsCompanyDetailComponent extends BaseComponent {
+export class WbsCompanyDetailComponent extends WeBaseComponent {
   _activatedRoute: any;
   service: WbsCompanyService;
   _router: Router;

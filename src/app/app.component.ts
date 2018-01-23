@@ -2,10 +2,13 @@ import { Component } from '@angular/core';
 // import { HTTP_PROVIDERS } from '@angular/http';
 
 
-import {NgbDateStruct, NgbCalendar, NgbDatepickerI18n,
-   NgbDatepickerConfig} from '@ng-bootstrap/ng-bootstrap';
-import {NgbCalendarPersian} from 'ng2-datepicker-jalali/persian/ngb-calendar-persian';
-import {NgbDatepickerI18nPersian} from 'ng2-datepicker-jalali/persian/ngb-datepicker-i18n-persian';
+import {
+  NgbDateStruct, NgbCalendar, NgbDatepickerI18n,
+  NgbDatepickerConfig
+} from '@ng-bootstrap/ng-bootstrap';
+import { NgbCalendarPersian } from 'ng2-datepicker-jalali/persian/ngb-calendar-persian';
+import { NgbDatepickerI18nPersian } from 'ng2-datepicker-jalali/persian/ngb-datepicker-i18n-persian';
+import { WeBaseComponent } from './components/we-base.component';
 
 
 
@@ -18,11 +21,11 @@ import {NgbDatepickerI18nPersian} from 'ng2-datepicker-jalali/persian/ngb-datepi
 
   // ]
   providers: [
-    {provide: NgbCalendar, useClass: NgbCalendarPersian},
-    {provide: NgbDatepickerI18n, useClass: NgbDatepickerI18nPersian}
+    { provide: NgbCalendar, useClass: NgbCalendarPersian },
+    { provide: NgbDatepickerI18n, useClass: NgbDatepickerI18nPersian }
   ]
 })
-export class AppComponent {
+export class AppComponent extends WeBaseComponent {
   title = 'app';
   template = `<img src="assets/img/loading.gif" />`;
 

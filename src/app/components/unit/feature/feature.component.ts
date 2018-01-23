@@ -10,10 +10,7 @@ import {
   SelectionEvent
 } from '@progress/kendo-angular-grid';
 
-
-// import { BaseKendoGridComponent } from '../../shared/base-kendo-grid.component';
-import { BaseComponent, BaseTreeComponent } from '../../shared/base.component';
-import { BaseKendoGridComponent } from '../../shared/base-kendo-grid.component';
+import { WeBaseKendoGridComponent } from '../../we-base-kendo-grid.component';
 import {
   UnitFeatureService,
   UnitFeatureTitleService,
@@ -35,7 +32,7 @@ import { UnitFeatureTitleModel, UnitFeatureValueModel } from '../../../model/uni
   ],
   encapsulation: ViewEncapsulation.None
 })
-export class FeatureComponent extends BaseKendoGridComponent {
+export class FeatureComponent extends WeBaseKendoGridComponent {
 
   private _unitFeatureKendoGridService: UnitFeatureTitleKendoGridService;
 

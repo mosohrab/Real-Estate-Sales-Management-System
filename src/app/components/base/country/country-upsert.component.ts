@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { CountryService } from '../../../services/country.service';
 import { CountryModel } from '../../../model/country.model';
-import { BaseComponent } from '../../shared/base.component';
+import { WeBaseComponent } from '../../we-base.component';
 import { OperationResultModel } from '../../../model/operation-result.model';
 
 
@@ -22,7 +22,7 @@ import { OperationResultModel } from '../../../model/operation-result.model';
 
   encapsulation: ViewEncapsulation.None
 })
-export class CountryUpsertComponent extends BaseComponent {
+export class CountryUpsertComponent extends WeBaseComponent {
 
   service: CountryService;
   model = <CountryModel>{};
@@ -40,6 +40,7 @@ export class CountryUpsertComponent extends BaseComponent {
 
 
   public openDialog() {
+    this.model = <CountryModel>{};
     this.isOpenedDialog = true;
   }
 

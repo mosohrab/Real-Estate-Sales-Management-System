@@ -4,7 +4,7 @@ import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/f
 
 import { CountryModel } from '../../../model/country.model';
 import { CountryService, CountryComboService } from '../../../services/country.service';
-import { BaseComponent, BaseComboComponent } from '../base.component';
+import {  BaseComboComponent } from '../../../core/components/base.component';
 
 @Component({
   selector: 'app-country-combo',

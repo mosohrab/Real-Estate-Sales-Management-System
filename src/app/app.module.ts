@@ -47,11 +47,13 @@ import { load } from '@progress/kendo-angular-intl';
 //     require('cldr-data/main/es/timeZoneNames.json')
 // );
 
-
+// Core
 import { AryaNetCoreModule } from './core/core.module';
 import { AppConfigService } from './core/services/app-config.service';
 import { HttpInterceptedService } from './core/interceptors/http-interceptor.service';
 import { AppErrorHandler } from './core/utils/error-handler';
+// import { DeleteConfirmComponent } from './core/components/delete-confirm/delete-confirm.component';
+// import { ToolbarButtonComponent } from './core/components/toolbar-button/toolbar-button.component';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -61,21 +63,17 @@ import { AppRoutingModule } from './app-routing.module';
 // import { WbsModule } from './components/wbs/wbs.module';
 
 
-// pipes
-import { JalaliPipe } from './pipes/jalali.pipe';
+// // pipes
+// import { JalaliPipe } from './pipes/jalali.pipe';
 
 
 // Components
 import { AppComponent } from './app.component';
 
-import { DeleteConfirmComponent } from './core/components/delete-confirm/delete-confirm.component';
-import { ToolbarButtonComponent } from './core/components/toolbar-button/toolbar-button.component';
-
-
 import { CountryComboComponent } from './components/shared/country-combo/country-combo.component';
 import { CountryUpsertComponent } from './components/base/country/country-upsert.component';
 import { CityComponent } from './components/base/city/city.component';
-import { CityDetailComponent } from './components/base/city-detail/city-detail.component';
+import { CityDetailComponent } from './components/base/city/city-detail.component';
 import { CountryComponent } from './components/base/country/country.component';
 import { BuildingStructureTypeComponent } from './components/base/building-structure-type/building-structure-type.component';
 import { BuildingStructureTypeComboComponent } from './components/base/building-structure-type/building-structure-type-combo.component';
@@ -148,14 +146,8 @@ import { UsageComponent } from './components/unit/usage/usage.component';
 
 @NgModule({
   declarations: [
-    JalaliPipe,
-
-    // CountryComboComponent,
+    // JalaliPipe,
     AppComponent,
-
-    DeleteConfirmComponent,
-    ToolbarButtonComponent,
-    // ,PageNotFoundComponent,
 
     CountryComboComponent,
     CityComponent,

@@ -26,7 +26,7 @@ import {
 } from '../../../ng2-tree/src/menu/menu.events';
 import { NodeMenuItem } from '../../../ng2-tree/src/menu/node-menu.component';
 
-import { BaseComponent, BaseTreeComponent } from '../../shared/base.component';
+import { WeBaseComponent, WeBaseTreeComponent } from '../../we-base.component';
 import { WbsStructureService, WbsService } from '../../../services/wbs.service';
 import { WbsStructureModel, WbsModel } from '../../../model/wbs.model';
 import { debug } from 'util';
@@ -37,7 +37,7 @@ import { debug } from 'util';
   styleUrls: ['./wbs-tree.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class WbsTreeComponent extends BaseTreeComponent {
+export class WbsTreeComponent extends WeBaseTreeComponent {
   _wbsService: WbsService;
   _structureService: WbsStructureService;
   currentLevel: number;

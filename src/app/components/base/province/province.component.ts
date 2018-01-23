@@ -7,12 +7,9 @@ import {
 
 import { ProvinceModel } from '../../../model/province.model';
 import { CountryModel } from '../../../model/country.model';
-
-import { BaseKendoGridService } from '../../../services/base-kendo-grid.service';
 import { ProvinceService, ProvinceKendoGridService } from '../../../services/province.service';
-
 import { CountryComboComponent } from '../../shared/country-combo/country-combo.component';
-import { BaseKendoGridComponent } from '../../shared/base-kendo-grid.component';
+import { WeBaseKendoGridComponent } from '../../we-base-kendo-grid.component';
 import { ProvinceUpsertComponent } from './province-upsert.component';
 
 @Component({
@@ -21,7 +18,7 @@ import { ProvinceUpsertComponent } from './province-upsert.component';
   styleUrls: ['./province.component.scss'],
   providers: [ProvinceKendoGridService]
 })
-export class ProvinceComponent extends BaseKendoGridComponent {
+export class ProvinceComponent extends WeBaseKendoGridComponent {
 
   @ViewChild('dialogUpsert') dialogUpsert: ProvinceUpsertComponent;
 

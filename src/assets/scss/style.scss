@@ -35,11 +35,16 @@
     }
 }
 
+
+
+
 .dp-material[_nghost-c4] .dp-picker-input[_ngcontent-c4] {
     width: 100% !important;
     background-color: #ffffff  !important;
-    border-color: rgba(0, 0, 0, 0.08) !important;
+    border-color: rgba(0, 0, 0, 0.08)  !important;
 }
+
+
 
 // =====================================================
 // Tree
@@ -48,37 +53,20 @@
 tree-internal ul {
     padding: 3px 10px 3px 0;
 }
-
 tree-internal .tree .folding {
     width: 15px;
 }
+
+
 
 // =====================================================
 // jalali date picker
 // =====================================================
 
-.dp-input-container > input {
+.dp-input-container > input{
     width: 100% !important;
     border-radius: 2px;
     border-width: 1px;
     border-style: solid;
     border-color: rgba(0, 0, 0, 0.08);
-    padding-right: 8px;
-    padding-left: 8px;
-}
-
-.dp-current-location-btn{
-    left: 5px !important;
-    right: auto !important;
-}
-// =====================================================
-// snotify
-// =====================================================
-
-.snotify-backdrop {
-    z-index: 99998;
-}
-
-.snotify {
-    z-index: 99999;
 }

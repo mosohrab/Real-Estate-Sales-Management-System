@@ -7,9 +7,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { WbsService } from '../../../services/wbs.service';
 import { WbsModel } from '../../../model/wbs.model';
-
-import { BaseComponent } from '../../shared/base.component';
-import { BaseKendoGridComponent } from '../../shared/base-kendo-grid.component';
+import { WeBaseComponent } from '../../we-base.component';
 import { OperationResultModel } from '../../../model/operation-result.model';
 
 
@@ -23,7 +21,7 @@ import { OperationResultModel } from '../../../model/operation-result.model';
 
   encapsulation: ViewEncapsulation.None
 })
-export class WbsUpsertComponent extends BaseComponent {
+export class WbsUpsertComponent extends WeBaseComponent {
 
   service: WbsService;
   model = <WbsModel>{};

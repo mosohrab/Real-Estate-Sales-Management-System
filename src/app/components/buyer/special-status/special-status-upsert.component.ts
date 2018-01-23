@@ -5,10 +5,8 @@ import {
 } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-
-
 import { SpecialStatusModel } from '../../../model/special-status.model';
-import { BaseComponent } from '../../shared/base.component';
+import { WeBaseComponent } from '../../we-base.component';
 import { OperationResultModel } from '../../../model/operation-result.model';
 import { SpecialStatusService } from '../../../services/special-status.service';
 
@@ -22,7 +20,7 @@ import { SpecialStatusService } from '../../../services/special-status.service';
   ],
   encapsulation: ViewEncapsulation.None
 })
-export class SpecialStatusUpsertComponent extends BaseComponent {
+export class SpecialStatusUpsertComponent extends WeBaseComponent {
 
   service: SpecialStatusService;
   model = <SpecialStatusModel>{};

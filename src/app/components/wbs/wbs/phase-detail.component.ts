@@ -5,8 +5,7 @@ import {
 import { Router, ActivatedRoute } from '@angular/router';
 
 import * as moment from 'jalali-moment';
-
-import { BaseComponent } from '../../shared/base.component';
+import { WeBaseComponent } from '../../we-base.component';
 import { WbsPhaseModel } from '../../../model/wbs.model';
 import { WbsPhaseService } from '../../../services/wbs.service';
 
@@ -27,7 +26,7 @@ import { UsageItemComboSingleComponent } from '../../unit/usage-item/usage-item-
     // {provide: NgbDatepickerI18n, useClass: NgbDatepickerI18nPersian}
   ]
 })
-export class WbsPhaseDetailComponent extends BaseComponent {
+export class WbsPhaseDetailComponent extends WeBaseComponent {
   _activatedRoute: any;
   _service: WbsPhaseService;
   _router: Router;

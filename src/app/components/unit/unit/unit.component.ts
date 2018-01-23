@@ -16,7 +16,7 @@ import {
   NodeEvent
 } from '../../../ng2-tree/src/tree.events';
 
-import { BaseComponent, BaseTreeComponent } from '../../shared/base.component';
+import { WeBaseComponent, WeBaseTreeComponent } from '../../we-base.component';
 import { WbsStructureService, WbsService } from '../../../services/wbs.service';
 import { WbsModel } from '../../../model/wbs.model';
 import { UnitListComponent } from './unit-list.component';
@@ -31,7 +31,7 @@ import { UnitListComponent } from './unit-list.component';
   ],
   encapsulation: ViewEncapsulation.None
 })
-export class UnitComponent extends BaseComponent {
+export class UnitComponent extends WeBaseComponent {
 
   private _wbsService: WbsService;
   currentLevel: number;

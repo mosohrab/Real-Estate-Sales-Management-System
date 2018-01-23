@@ -3,7 +3,7 @@ import {
   ViewChild
 } from '@angular/core';
 
-import { BaseComponent } from '../../shared/base.component';
+import { WeBaseComponent } from '../../we-base.component';
 import { SpecialStatusValueComboComponent } from '../special-status-value/special-status-value-combo.component';
 import { CompanyModel, CompanyStatusModel } from '../../../model/company.model';
 import { CompanyService } from '../../../services/company.service';

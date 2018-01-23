@@ -17,8 +17,7 @@ import {
 } from '../../../services/unit-feature.service';
 import { UnitFeatureTitleModel } from '../../../model/unit-feature.model';
 
-import { BaseComponent } from '../../shared/base.component';
-import { BaseKendoGridComponent } from '../../shared/base-kendo-grid.component';
+import { WeBaseComponent } from '../../we-base.component';
 import { OperationResultModel } from '../../../model/operation-result.model';
 
 
@@ -33,7 +32,7 @@ import { OperationResultModel } from '../../../model/operation-result.model';
 
   encapsulation: ViewEncapsulation.None
 })
-export class FeatureTitleUpsertComponent extends BaseComponent {
+export class FeatureTitleUpsertComponent extends WeBaseComponent {
 // extends BaseControlValueAccessor {
   _service: UnitFeatureTitleService;
 
@@ -51,11 +50,7 @@ export class FeatureTitleUpsertComponent extends BaseComponent {
 
 
   public openDialog() {
-    this.dataItem.featureId = null;
-    this.dataItem.featureTitleName = '';
-    this.dataItem.featureName = '';
-    this.dataItem.unitFeatureTitleId = null;
-    this.dataItem.canMoreSelect = null;
+    this.dataItem = <UnitFeatureTitleModel>{};
     this.isOpenedDialog = true;
   }
 

@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { UsageModel, UsageItemModel } from '../model/usage.model';
 import { BaseService } from './base.service';
-import { BaseKendoGridService } from './base-kendo-grid.service';
+import { WeBaseKendoGridService } from './base-kendo-grid.service';
 import { UrlHelper } from '../infrastructure/url-helper';
 
 @Injectable()
@@ -18,7 +18,7 @@ export class UsageService extends BaseService {
 }
 
 @Injectable()
-export class UsageKendoGridService extends BaseKendoGridService {
+export class UsageKendoGridService extends WeBaseKendoGridService {
     usageService: UsageService;
 
     constructor(http: Http, service: UsageService) {

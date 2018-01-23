@@ -20,17 +20,17 @@ import {
 
 } from '@progress/kendo-angular-grid';
 
-import { NotifyManager } from '../../infrastructure/notify-manager';
-import { DeleteConfirmComponent } from '../../core/components/delete-confirm/delete-confirm.component';
-import { BaseKendoGridService } from '../../services/base-kendo-grid.service';
-import { BaseComponent } from './base.component';
+import { NotifyManager } from '../infrastructure/notify-manager';
+import { DeleteConfirmComponent } from '../core/components/delete-confirm/delete-confirm.component';
+import { WeBaseKendoGridService } from '../services/base-kendo-grid.service';
+import { WeBaseComponent } from './we-base.component';
 // @Component({
 // selector: 'app-base-kendo-grid',
 // template: `
 // <app-delete-confirm [openedConfirmDelete]="openedConfirmDelete"></app-delete-confirm>
 // `
 // })
-export abstract class BaseKendoGridComponent extends BaseComponent {
+export abstract class WeBaseKendoGridComponent extends WeBaseComponent {
     // implements OnInit, AfterViewInit {
 
     protected notify: NotifyManager;
@@ -56,7 +56,7 @@ export abstract class BaseKendoGridComponent extends BaseComponent {
     public openedConfirmDelete = true;
     protected editedRowIndex: number;
     protected editedItem: any;
-    protected _service: BaseKendoGridService;
+    protected _service: WeBaseKendoGridService;
 
     protected dataItemSelected = Array<any>();
     protected selectAllState: SelectAllCheckboxState = 'unchecked';
@@ -64,7 +64,7 @@ export abstract class BaseKendoGridComponent extends BaseComponent {
     // @ContentChild('deleteConfirm') deleteConfirm: ElementRef;
     // @ViewChild(DeleteConfirmComponent) deleteConfirm2: DeleteConfirmComponent;
 
-    constructor(service: BaseKendoGridService) {
+    constructor(service: WeBaseKendoGridService) {
         super();
         this._service = service;
         this.gridDataResult =

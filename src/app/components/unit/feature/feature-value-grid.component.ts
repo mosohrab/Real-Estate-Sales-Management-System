@@ -14,9 +14,7 @@ import {
 
 import { UnitFeatureValueKendoGridService } from '../../../services/unit-feature.service';
 import { UnitFeatureTitleModel, UnitFeatureValueModel } from '../../../model/unit-feature.model';
-
-import { BaseComponent } from '../../shared/base.component';
-import { BaseKendoGridComponent } from '../../shared/base-kendo-grid.component';
+import { WeBaseKendoGridComponent } from '../../we-base-kendo-grid.component';
 import { OperationResultModel } from '../../../model/operation-result.model';
 import { FeatureValueUpsertComponent } from './feature-value-upsert.component';
 
@@ -31,7 +29,7 @@ import { FeatureValueUpsertComponent } from './feature-value-upsert.component';
 
   encapsulation: ViewEncapsulation.None
 })
-export class FeatureValueGridComponent extends BaseKendoGridComponent {
+export class FeatureValueGridComponent extends WeBaseKendoGridComponent {
 
   _service: UnitFeatureValueKendoGridService;
 

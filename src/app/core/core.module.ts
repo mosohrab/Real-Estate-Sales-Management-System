@@ -10,6 +10,11 @@ import { BaseService } from './services/base.service';
 import { BaseKendoGridService } from './services/base-kendo-grid.service';
 import { BaseKendoGridComponent } from './components/base-kendo-grid.component';
 
+// pipes
+import { JalaliPipe } from './pipes/jalali.pipe';
+import { PersianWordPipe } from './pipes/persian-word.pipe';
+
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -17,7 +22,9 @@ import { BaseKendoGridComponent } from './components/base-kendo-grid.component';
     // CommonModule
   ],
   declarations: [
-
+    JalaliPipe,
+    PersianWordPipe,
+    
     // DeleteConfirmComponent,
     ToolbarButtonComponent
   ],
@@ -26,7 +33,9 @@ import { BaseKendoGridComponent } from './components/base-kendo-grid.component';
     BaseKendoGridService
   ],
   exports: [
-    ToolbarButtonComponent
+    ToolbarButtonComponent,
+    JalaliPipe,
+
   ]
 
 })

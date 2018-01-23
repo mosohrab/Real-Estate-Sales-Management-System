@@ -10,7 +10,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { CountryModel } from '../model/country.model';
 import { BaseService } from './base.service';
-import { BaseKendoGridService } from './base-kendo-grid.service';
+import { WeBaseKendoGridService } from './base-kendo-grid.service';
 import { UrlHelper } from '../infrastructure/url-helper';
 
 @Injectable()
@@ -26,7 +26,7 @@ export class CountryService extends BaseService {
 
 
 @Injectable()
-export class CountryKendoGridService extends BaseKendoGridService {
+export class CountryKendoGridService extends WeBaseKendoGridService {
 
   constructor(http: Http) {
     super(http, UrlHelper.COUTRY_API);

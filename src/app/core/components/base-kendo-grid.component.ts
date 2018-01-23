@@ -19,6 +19,7 @@ import {
 import { NotifyManager } from '../utils/notify-manager';
 import { DeleteConfirmComponent } from './delete-confirm/delete-confirm.component';
 import { BaseKendoGridService } from '../services/base-kendo-grid.service';
+import { BaseComponent } from './base.component';
 
 // @Component({
 // selector: 'app-base-kendo-grid',
@@ -26,7 +27,7 @@ import { BaseKendoGridService } from '../services/base-kendo-grid.service';
 // <app-delete-confirm [openedConfirmDelete]="openedConfirmDelete"></app-delete-confirm>
 // `
 // })
-export abstract class BaseKendoGridComponent implements OnInit, AfterViewInit {
+export abstract class BaseKendoGridComponent extends BaseComponent {
 
     protected notify: NotifyManager;
     protected gridDataResult: Observable<GridDataResult>;
@@ -61,6 +62,7 @@ export abstract class BaseKendoGridComponent implements OnInit, AfterViewInit {
     // @ViewChild(DeleteConfirmComponent) deleteConfirm2: DeleteConfirmComponent;
 
     constructor(service: BaseKendoGridService) {
+        super();
         this._service = service;
         this.gridDataResult =
             this.gridDataResult = service;
@@ -69,22 +71,7 @@ export abstract class BaseKendoGridComponent implements OnInit, AfterViewInit {
 
     }
 
-    protected abstract ngOnInitHandler();
-    ngOnInit() {
-        this.ngOnInitHandler();
-
-        //  this.deleteConfirm.openedConfirmDelete = true;
-        // this.deleteConfirm.open();
-
-    }
-
-    protected ngAfterViewInitHandler() { }
-    ngAfterViewInit() {
-        this.ngAfterViewInitHandler();
-    }
-
-
-    private onAdd({ sender }) {
+   private onAdd({ sender }) {
         this.onCloseEditor(sender);
         sender.addRow({});
     }

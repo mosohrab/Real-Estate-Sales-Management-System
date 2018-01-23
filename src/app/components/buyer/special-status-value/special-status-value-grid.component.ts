@@ -12,9 +12,7 @@ import {
 
 import { SpecialStatusValueKendoGridService } from '../../../services/special-status-value.service';
 import { SpecialStatusModel, SpecialStatusValueModel } from '../../../model/special-status.model';
-
-import { BaseComponent } from '../../shared/base.component';
-import { BaseKendoGridComponent } from '../../shared/base-kendo-grid.component';
+import { WeBaseKendoGridComponent } from '../../we-base-kendo-grid.component';
 import { OperationResultModel } from '../../../model/operation-result.model';
 import { SpecialStatusValueUpsertComponent } from './special-status-value-upsert.component';
 
@@ -24,7 +22,7 @@ import { SpecialStatusValueUpsertComponent } from './special-status-value-upsert
   styleUrls: ['./special-status-value-grid.component.scss'],
   providers: [SpecialStatusValueKendoGridService]
 })
-export class SpecialStatusValueGridComponent extends BaseKendoGridComponent {
+export class SpecialStatusValueGridComponent extends WeBaseKendoGridComponent {
   _service: SpecialStatusValueKendoGridService;
 
   @Input() dataItem = <SpecialStatusValueModel>{};

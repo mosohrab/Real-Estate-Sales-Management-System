@@ -4,12 +4,9 @@ import {
 } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-
 import { ProvinceService } from '../../../services/province.service';
 import { ProvinceModel } from '../../../model/province.model';
-
-import { BaseComponent } from '../../shared/base.component';
-import { BaseKendoGridComponent } from '../../shared/base-kendo-grid.component';
+import { WeBaseComponent } from '../../we-base.component';
 import { OperationResultModel } from '../../../model/operation-result.model';
 
 
@@ -23,7 +20,7 @@ import { OperationResultModel } from '../../../model/operation-result.model';
 
   encapsulation: ViewEncapsulation.None
 })
-export class ProvinceUpsertComponent extends BaseComponent {
+export class ProvinceUpsertComponent extends WeBaseComponent {
 
   service: ProvinceService;
   model = <ProvinceModel>{};
@@ -39,6 +36,7 @@ export class ProvinceUpsertComponent extends BaseComponent {
 
 
   public openDialog() {
+    this.model = <ProvinceModel>{};
     this.isOpenedDialog = true;
   }
 

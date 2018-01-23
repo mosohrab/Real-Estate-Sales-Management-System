@@ -11,11 +11,11 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { ScaleModel } from '../model/base.model';
 import { BaseService } from './base.service';
-import { BaseKendoGridService } from './base-kendo-grid.service';
+import { WeBaseKendoGridService } from './base-kendo-grid.service';
 import { UrlHelper } from '../infrastructure/url-helper';
 
 @Injectable()
-export class ScaleService extends BaseService {
+export class ScaleService extends WeBaseService {
 
   constructor(http: Http) {
     super(http, UrlHelper.SCALE_API);

@@ -12,7 +12,7 @@ import {
 } from '@progress/kendo-angular-grid';
 
 import { SpecialStatusModel } from '../../../model/special-status.model';
-import { BaseKendoGridComponent } from '../../shared/base-kendo-grid.component';
+import { WeBaseKendoGridComponent } from '../../we-base-kendo-grid.component';
 import { SpecialStatusService, SpecialStatusKendoGridService } from '../../../services/special-status.service';
 import { SpecialStatusUpsertComponent } from './special-status-upsert.component';
 import { SpecialStatusValueUpsertComponent } from '../special-status-value/special-status-value-upsert.component';
@@ -26,7 +26,7 @@ import { SpecialStatusDialogComponent } from './special-status-dialog.component'
     SpecialStatusService,
     SpecialStatusKendoGridService]
 })
-export class SpecialStatusComponent extends BaseKendoGridComponent {
+export class SpecialStatusComponent extends WeBaseKendoGridComponent {
   service: SpecialStatusKendoGridService;
   model = <SpecialStatusModel>{};
   statusTypeItems: Array<string> = [

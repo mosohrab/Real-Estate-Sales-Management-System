@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { ProvinceModel } from '../model/province.model';
 import { BaseService } from './base.service';
-import { BaseKendoGridService } from './base-kendo-grid.service';
+import { WeBaseKendoGridService } from './base-kendo-grid.service';
 import { UrlHelper } from '../infrastructure/url-helper';
 
 @Injectable()
@@ -22,7 +22,7 @@ export class ProvinceService extends BaseService {
 }
 
 @Injectable()
-export class ProvinceKendoGridService extends BaseKendoGridService {
+export class ProvinceKendoGridService extends WeBaseKendoGridService {
 
   constructor(http: Http) {
     super(http, UrlHelper.PROVINCE_API);

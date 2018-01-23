@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { BaseKendoGridComponent } from '../../shared/base-kendo-grid.component';
+import { WeBaseKendoGridComponent } from '../../we-base-kendo-grid.component';
 import { CompanyService, CompanyKendoGridService } from '../../../services/company.service';
 import { CompanyModel } from '../../../model/company.model';
 import { CompanyDialogComponent } from './company-dialog.component';
@@ -19,7 +19,7 @@ import { CompanyDialogComponent } from './company-dialog.component';
     CompanyKendoGridService
   ]
 })
-export class CompanyComponent extends BaseKendoGridComponent {
+export class CompanyComponent extends WeBaseKendoGridComponent {
   _router: Router;
   @ViewChild('companyDialog') dialogUpsert: CompanyDialogComponent;
 

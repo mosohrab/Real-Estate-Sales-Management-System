@@ -9,12 +9,12 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { ProvinceModel } from '../model/province.model';
 import { BaseService } from './base.service';
-import { BaseKendoGridService } from './base-kendo-grid.service';
+import { WeBaseKendoGridService } from './base-kendo-grid.service';
 import { UrlHelper } from '../infrastructure/url-helper';
 import { SpecialStatusValueModel } from '../model/special-status.model';
 
 @Injectable()
-export class SpecialStatusValueService extends BaseService {
+export class SpecialStatusValueService extends WeBaseService {
 
   constructor(http: Http) {
     super(http, UrlHelper.SpecialStatusValue_API);

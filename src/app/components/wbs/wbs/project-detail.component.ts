@@ -6,7 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import * as moment from 'jalali-moment';
 
-import { BaseComponent } from '../../shared/base.component';
+import { WeBaseComponent } from '../../we-base.component';
 import { WbsProjectModel } from '../../../model/wbs.model';
 import { WbsProjectService } from '../../../services/wbs.service';
 
@@ -27,7 +27,7 @@ import { UsageItemComboSingleComponent } from '../../unit/usage-item/usage-item-
     // {provide: NgbDatepickerI18n, useClass: NgbDatepickerI18nPersian}
   ]
 })
-export class WbsProjectDetailComponent extends BaseComponent {
+export class WbsProjectDetailComponent extends WeBaseComponent {
   _activatedRoute: any;
   _service: WbsProjectService;
   _router: Router;

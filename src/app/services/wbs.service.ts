@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { BaseService } from './base.service';
-import { BaseKendoGridService } from './base-kendo-grid.service';
+import { WeBaseKendoGridService } from './base-kendo-grid.service';
 import { UrlHelper } from '../infrastructure/url-helper';
 import { TreeModel } from '../ng2-tree/src/tree.types';
 import { WbsStructureModel } from '../model/wbs.model';
@@ -64,7 +64,7 @@ export class WbsService extends BaseService {
 }
 
 @Injectable()
-export class WbsKendoGridService extends BaseKendoGridService {
+export class WbsKendoGridService extends WeBaseKendoGridService {
     featureService: WbsService;
 
     constructor(http: Http, service: WbsService) {

@@ -24,9 +24,7 @@ import {
   NodeMenuAction
 } from '../../../ng2-tree/src/menu/menu.events';
 import { NodeMenuItem } from '../../../ng2-tree/src/menu/node-menu.component';
-
-
-import { BaseComponent, BaseTreeComponent } from '../../shared/base.component';
+import { WeBaseComponent, WeBaseTreeComponent } from '../../we-base.component';
 import { WbsStructureService, WbsService } from '../../../services/wbs.service';
 import { WbsStructureModel, WbsModel } from '../../../model/wbs.model';
 import { WbsCompanyDetailComponent } from './company-detail.component';
@@ -43,7 +41,7 @@ import { WbsUpsertComponent } from './wbs-upsert.component';
   ],
   encapsulation: ViewEncapsulation.None
 })
-export class WbsComponent extends BaseTreeComponent {
+export class WbsComponent extends WeBaseTreeComponent {
   _structureService: WbsStructureService;
   // extends BaseKendoGridComponent {
   private _wbsService: WbsService;

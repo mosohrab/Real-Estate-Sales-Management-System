@@ -8,7 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import * as moment from 'jalali-moment';
 
-import { BaseComponent } from '../../shared/base.component';
+import { WeBaseComponent } from '../../we-base.component';
 import { CompanyModel } from '../../../model/company.model';
 import { CompanyService } from '../../../services/company.service';
 
@@ -22,7 +22,7 @@ import { CompanyService } from '../../../services/company.service';
     // {provide: NgbDatepickerI18n, useClass: NgbDatepickerI18nPersian}
   ]
 })
-export class CompanyDetailComponent extends BaseComponent {
+export class CompanyDetailComponent extends WeBaseComponent {
   _activatedRoute: any;
   _service: CompanyService;
   _router: Router;

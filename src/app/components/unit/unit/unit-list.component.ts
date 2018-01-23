@@ -6,9 +6,7 @@ import {
 
 import { OperationResultModel } from '../../../core/model/operation-result.model';
 import { ToolbarButton, ToolbarButtonClickEvent } from '../../../core/model/toolbar-button';
-
-import { BaseComponent } from '../../shared/base.component';
-import { BaseKendoGridComponent } from '../../shared/base-kendo-grid.component';
+import { WeBaseKendoGridComponent } from '../../we-base-kendo-grid.component';
 import { UnitService, UnitKendoGridService } from '../../../services/unit.service';
 import { WbsModel } from '../../../model/wbs.model';
 import { WbsService } from '../../../services/wbs.service';
@@ -25,7 +23,7 @@ import { UnitFeatureAssignedComponent } from './unit-feature-assigned.component'
   ],
   encapsulation: ViewEncapsulation.None
 })
-export class UnitListComponent extends BaseKendoGridComponent {
+export class UnitListComponent extends WeBaseKendoGridComponent {
   wbsService: WbsService;
   wbsModel = <WbsModel>{};
   buttons = new Array<ToolbarButton>();

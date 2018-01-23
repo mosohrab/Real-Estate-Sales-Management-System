@@ -3,15 +3,7 @@ import {
   ViewChild
 } from '@angular/core';
 import { Router } from '@angular/router';
-
-// kendo
-import { State } from '@progress/kendo-data-query';
-import { GridDataResult, DataStateChangeEvent, PageChangeEvent } from '@progress/kendo-angular-grid';
-
-
-import { BaseKendoGridComponent } from '../../shared/base-kendo-grid.component';
-
-import { BaseKendoGridService } from '../../../services/base-kendo-grid.service';
+import { WeBaseKendoGridComponent } from '../../we-base-kendo-grid.component';
 import { PersonService, PersonKendoGridService } from '../../../services/person.service';
 import { PersonModel } from '../../../model/person.model';
 import { PersonDialogComponent } from './person-dialog.component';
@@ -25,7 +17,7 @@ import { PersonDialogComponent } from './person-dialog.component';
     PersonKendoGridService
   ]
 })
-export class PersonComponent extends BaseKendoGridComponent {
+export class PersonComponent extends WeBaseKendoGridComponent {
   @ViewChild('personDialog') dialogUpsert: PersonDialogComponent;
 
   constructor(router: Router,

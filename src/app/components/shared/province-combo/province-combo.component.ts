@@ -8,7 +8,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { ProvinceService, ProvinceComboService } from '../../../services/province.service';
 import { ProvinceModel } from '../../../model/Province.model';
-import { BaseComponent, BaseComboComponent } from '../base.component';
+import {  BaseComboComponent } from '../../../core/components/base.component';
 
 @Component({
   selector: 'app-province-combo',

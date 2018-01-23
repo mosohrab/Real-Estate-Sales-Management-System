@@ -15,8 +15,7 @@ The content below is only a placeholder and can be replaced.
 <header id="aa-header">
   <div id="aa-logo-group">
     <a id="aa-logo" href="##" [routerLink]="['/']">
-      <!-- <img src="assets/img/logo.png" alt="SmartAdmin"> -->
-      نرم افزار مدیریت املاک و مستغلات
+      <img src="assets/img/logo.png" alt="SmartAdmin">
     </a>
     <!-- <span id="aa-activity" class="activity-dropdown">
       <i class="fa fa-user"></i>
@@ -64,25 +63,25 @@ The content below is only a placeholder and can be replaced.
           </a>
           <ul>
             <li>
-              <a href="##" [routerLink]="['country']">
+              <a href="##" [routerLink]="['/base/country']">
                 <span>کشور</span>
               </a>
             </li>
             <li>
 
-              <a href="##" [routerLink]="['province']">
+              <a href="##" [routerLink]="['/base/province']">
                 <span>استان</span>
               </a>
             </li>
             <li>
 
-              <a [routerLink]="['city']">
+              <a [routerLink]="['/base/city']">
                 <span>شهرها</span>
               </a>
             </li>
 
             <li>
-              <a [routerLink]="['scale']">
+              <a [routerLink]="['/base/scale']">
                 <span>مقیاس</span>
               </a>
             </li>
@@ -119,7 +118,7 @@ The content below is only a placeholder and can be replaced.
 
         </li>
 
-          
+
         <li>
           <a href="#" class="aa-collapse">
             <span>ساختار شکست</span>
@@ -133,7 +132,7 @@ The content below is only a placeholder and can be replaced.
                 <span>ساختار شکست</span>
               </a>
             </li>
-         
+
           </ul>
 
         </li>
@@ -162,7 +161,7 @@ The content below is only a placeholder and can be replaced.
                 <span>تعریف واحدها</span>
               </a>
             </li>
-          <!--  <li>
+            <!--  <li>
               <a href="##" [routerLink]="['unitusage']">
                 <span>کاربری واحدها</span>
               </a>
@@ -178,10 +177,38 @@ The content below is only a placeholder and can be replaced.
   </aside>
 
   <article id="aa-main">
+
+    <div id="aa-ribbon" *ngIf="breadcrumbs.length > 0">
+
+      <span class="aa-ribbon-button-alignment">
+        <span id="aa-refresh"
+         class="btn aa-btn-ribbon" 
+         data-action="resetWidgets"
+          data-title="refresh" 
+          rel="tooltip" 
+          data-placement="bottom"
+          data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings."
+          data-html="true" 
+          data-reset-msg="Would you like to RESET all your saved widgets and clear LocalStorage?">
+          <i class="fa fa-refresh"></i>
+        </span>
+      </span>
+
+      <!-- breadcrumb -->
+      <ol class="au-breadcrumb">
+        <li>Home</li>
+        <li>Dashboard</li>
+        <li>Analytics</li>
+      </ol>
+
+      <!-- end breadcrumb -->
+    </div>
+
+  <div id="aa-content">
     <router-outlet></router-outlet>
+  </div>
   </article>
 </section>
 <!-- <app-spinner [threshold]="2000" [template]="template" [loadingText]="''"> </app-spinner> -->
 <ng-snotify></ng-snotify>
 <!-- <app-delete-confirm></app-delete-confirm> -->
-

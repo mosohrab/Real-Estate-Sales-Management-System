@@ -6,10 +6,10 @@ import { State } from '@progress/kendo-data-query';
 import { GridDataResult, DataStateChangeEvent, PageChangeEvent } from '@progress/kendo-angular-grid';
 
 import { CityModel } from '../../../model/city.model';
-import { BaseKendoGridComponent } from '../../shared/base-kendo-grid.component';
-import { BaseKendoGridService } from '../../../services/base-kendo-grid.service';
+import { WeBaseKendoGridComponent } from '../../we-base-kendo-grid.component';
+import { WeBaseKendoGridService } from '../../../services/base-kendo-grid.service';
 import { CityService, CityKendoGridService } from '../../../services/city.service';
-import { CityDetailComponent } from '../city-detail/city-detail.component';
+import { CityDetailComponent } from './city-detail.component';
 
 @Component({
   selector: 'app-city',
@@ -18,7 +18,7 @@ import { CityDetailComponent } from '../city-detail/city-detail.component';
   providers: [CityService, CityKendoGridService],
 
 })
-export class CityComponent extends BaseKendoGridComponent {
+export class CityComponent extends WeBaseKendoGridComponent {
   @ViewChild('dialogUpsert') dialogUpsert: CityDetailComponent;
 
   constructor(service: CityKendoGridService) {

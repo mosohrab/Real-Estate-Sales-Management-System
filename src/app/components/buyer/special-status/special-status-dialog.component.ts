@@ -6,7 +6,8 @@ import { Observable } from 'rxjs/Observable';
 
 
 import { SpecialStatusModel } from '../../../model/special-status.model';
-import { BaseComponent } from '../../shared/base.component';
+
+import { WeBaseComponent } from '../../we-base.component';
 import { OperationResultModel } from '../../../model/operation-result.model';
 import { SpecialStatusService } from '../../../services/special-status.service';
 
@@ -19,7 +20,7 @@ import { SpecialStatusService } from '../../../services/special-status.service';
   ],
   encapsulation: ViewEncapsulation.None
 })
-export class SpecialStatusDialogComponent extends BaseComponent {
+export class SpecialStatusDialogComponent extends WeBaseComponent {
   private isSuccessAction = false;
   @Output() closedDialog = new EventEmitter<boolean>();
 
@@ -42,10 +43,12 @@ export class SpecialStatusDialogComponent extends BaseComponent {
 
 
   public openDialog() {
+    this.model = <SpecialStatusModel>{};
     this.isOpenedDialog = true;
   }
 
   public openDialogById(id: number) {
+    this.model = <SpecialStatusModel>{};
     const that = this;
     this.service.find(id)
       .subscribe(x => {

@@ -8,7 +8,7 @@ import {
 import { Router, ActivatedRoute } from '@angular/router';
 import * as moment from 'jalali-moment';
 
-import { BaseComponent } from '../../shared/base.component';
+import { WeBaseComponent } from '../../we-base.component';
 import { PersonModel } from '../../../model/person.model';
 import { PersonService } from '../../../services/person.service';
 
@@ -20,7 +20,7 @@ import { PersonService } from '../../../services/person.service';
     PersonService
   ]
 })
-export class PersonDetailComponent extends BaseComponent {
+export class PersonDetailComponent extends WeBaseComponent {
   service: PersonService;
   @Input() personModel = <PersonModel>{};
   @Input()  birthDate: any;

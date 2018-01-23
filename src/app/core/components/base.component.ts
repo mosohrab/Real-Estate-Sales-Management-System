@@ -1,14 +1,17 @@
 import {
   Component, OnInit,
-  Input, Output, EventEmitter
+  Input, Output, EventEmitter,
+  AfterViewInit, OnChanges, SimpleChanges
 } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-
 import { BaseService } from '../services/base.service';
+import { BreadcrumbModel } from '../model/breadcrumb.model';
 
-export abstract class BaseComponent implements OnInit {
+export abstract class BaseComponent implements OnInit, AfterViewInit, OnChanges {
+
+  breadcrumbs = new Array<BreadcrumbModel>();
   datePickerConfig = {
     drops: 'up', // down
     format: 'jYYYY/jMM/jDD',
@@ -78,6 +81,17 @@ export abstract class BaseComponent implements OnInit {
   ngOnInit() {
     this.ngOnInitHandler();
   }
+
+  ngAfterViewInitHandler() { }
+  ngAfterViewInit(): void {
+    this.ngAfterViewInitHandler();
+  }
+
+  ngOnChangesHandler(changes: SimpleChanges) { }
+  ngOnChanges(changes: SimpleChanges): void {
+    this.ngOnChangesHandler(changes);
+  }
+
 
 }
 
