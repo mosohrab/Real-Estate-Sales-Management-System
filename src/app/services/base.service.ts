@@ -269,7 +269,7 @@ export class BaseService {
         this.notify.showError(operation.errorMessage);
       }
     } else {
-      if (5) {
+      if (successFunc) {
         successFunc(operation.result);
       } else {
         this.notify.showSuccess();

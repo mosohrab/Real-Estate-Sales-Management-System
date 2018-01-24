@@ -144,7 +144,6 @@ export class WbsTreeComponent extends WeBaseTreeComponent {
       .subscribe(res => {
         event.node.setChildren(res);
         event.node.reloadChildren();
-        debugger;
         that._wbsService.loading.hide();
       });
 

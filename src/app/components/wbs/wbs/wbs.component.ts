@@ -30,6 +30,7 @@ import { WbsStructureModel, WbsModel } from '../../../model/wbs.model';
 import { WbsCompanyDetailComponent } from './company-detail.component';
 import { WbsProjectDetailComponent } from './project-detail.component';
 import { WbsUpsertComponent } from './wbs-upsert.component';
+import { OperationResultModel } from '../../../model/operation-result.model';
 
 @Component({
   selector: 'app-wbs',
@@ -197,6 +198,11 @@ export class WbsComponent extends WeBaseTreeComponent {
       .subscribe(r => {
         that._wbsService.operationHandling(r, (d) => {
           that._wbsService.notify.showSuccess();
+          // that._initTree();
+        }, (er) => {
+          this._wbsService.notify.showError(r.errorMessage);
+          event.node.parent.removeChild(event.node);
+          event.node.parent.reloadChildren();
         });
 
         this._wbsService.loading.hide();
@@ -205,6 +211,7 @@ export class WbsComponent extends WeBaseTreeComponent {
 
   constructor(service: WbsService, structureService: WbsStructureService) {
     super();
+
     this._wbsService = service;
     this._structureService = structureService;
 
@@ -212,7 +219,9 @@ export class WbsComponent extends WeBaseTreeComponent {
 
   ngOnInitHandler() {
     const that = this;
-    //  that._service.readGrid();
+    this._wbsService.initBusyConfig(this.busyConfig);
+    this._wbsService.loading.show();
+
     this._structureService.getAllItems()
       .subscribe((res: Array<WbsStructureModel>) => {
         that.structureModel = res;
@@ -235,25 +244,37 @@ export class WbsComponent extends WeBaseTreeComponent {
       .subscribe(r => {
         that._wbsService.operationHandling(r, (d) => {
           that._wbsService.notify.showSuccess();
+          // that._initTree();
+        }, (er) => {
+          this._wbsService.notify.showError(r.errorMessage);
+          event.node.parent.addChild(event.node, event.lastIndex);
+          event.node.parent.reloadChildren();
         });
-        that._initTree();
         that._wbsService.loading.hide();
       });
   }
+
   protected renamedHandler(event: NodeRenamedEvent) {
     const t = <TreeModel>event.node.node;
     const model = <WbsModel>{
       wbsHid: <number>t.id,
       name: <string>t.value
     };
+
     this._wbsService.loading.show();
+
     const that = this;
     this._wbsService.edit(model)
-      .subscribe(r => {
+      .subscribe((r: OperationResultModel) => {
+
         that._wbsService.operationHandling(r, (d) => {
           that._wbsService.notify.showSuccess();
+          // that._initTree();
+        }, (er) => {
+          this._wbsService.notify.showError(r.errorMessage);
+          event.node.node.value = event.oldValue;
         });
-        that._initTree();
+
         that._wbsService.loading.hide();
       });
   }
@@ -287,6 +308,7 @@ export class WbsComponent extends WeBaseTreeComponent {
   private _initTree() {
     const that = this;
     const nSetting = Object.assign({}, that.nodeSettings);
+
     that._wbsService
       .getTreeItems(null)
       .map((t: TreeModel[]) => {
@@ -309,7 +331,7 @@ export class WbsComponent extends WeBaseTreeComponent {
         nSetting.menuItems = this._getLevelMenu(p);
         const r = <TreeModel>{
           value: '------------',
-         // settings: nSetting,
+          // settings: nSetting,
           children: []
         };
         if (res.length === 0) {
@@ -322,6 +344,7 @@ export class WbsComponent extends WeBaseTreeComponent {
         r.children = res;
         that.tree = r;
 
+        that._wbsService.loading.hide();
       });
 
 

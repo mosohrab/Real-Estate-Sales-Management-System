@@ -149,7 +149,7 @@ const routes: Routes = [
           },
 
           {
-            path: 'unitfeature', component: FeatureComponent,
+            path: 'feature', component: FeatureComponent,
             data: { breadcrumb: 'ویژگیهای عمومی و انتخابی' }
           },
 
@@ -159,7 +159,7 @@ const routes: Routes = [
           },
 
           {
-            path: 'unitusage', component: UsageComponent,
+            path: 'usage', component: UsageComponent,
             data: { breadcrumb: 'کاربری واحد' }
           },
         ]

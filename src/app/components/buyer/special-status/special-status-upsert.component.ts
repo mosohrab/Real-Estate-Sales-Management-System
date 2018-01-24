@@ -47,7 +47,6 @@ export class SpecialStatusUpsertComponent extends WeBaseComponent {
   }
 
   public openDialogById(id: number) {
-    debugger;
     const that = this;
     this.service.find(id)
       .subscribe(x => {

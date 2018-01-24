@@ -1,3 +1,70 @@
-<p>
-کاربری واحد
-</p>
+
+
+  <form novalidate #myForm="ngForm">
+
+    <div class="au-panel" style="min-height: 350px;">
+      <div class="au-panel-header au-bg-gray">
+        <app-toolbar-button [showAddButton]="true" [showEditButton]="true" [showDeleteButton]="true" [showDeletAlleButton]="true"
+          (addClicked)="onAddClicked()" (editClicked)="onEditClicked()" (deleteClicked)="onDeleteClicked()" (deleteAllClicked)="onDeleteAllClicked()">
+
+        </app-toolbar-button>
+      </div>
+
+      <kendo-grid 
+      [data]="gridDataResult | async" [pageSize]="state.take" [skip]="state.skip" [sort]="state.sort" [sortable]="true"
+        [pageable]="true" 
+        [selectable]="true" 
+        (dataStateChange)="onDataStateChange($event)"
+        (pageChange)="onPageChange($event)"
+        [filter]="state.filter" 
+         filterable="menu" 
+        [resizable]="true"
+            
+        [selectable]="selectableSettings"
+        [kendoGridSelectBy]="'usageId'" 
+        [selectedKeys]="dataItemSelected" 
+        (selectedKeysChange)="onSelectedKeysChange($event)"
+        (selectionChange)="valueGrid.setStatusItem($event)"
+         [height]="300"
+      
+         >
+      
+        <kendo-grid-checkbox-column [width]="40">
+          <ng-template kendoGridHeaderTemplate>
+            <input class="k-checkbox" id="selectAllStatus" kendoGridSelectAllCheckbox [state]="selectAllState" (selectAllChange)="onSelectAllChange($event)">
+            <label class="k-checkbox-label" for="selectAllStatus"></label>
+          </ng-template>
+        </kendo-grid-checkbox-column>
+
+
+        <kendo-grid-column
+         field="specialStatusId" [hidden]="true" [filterable]="false" [sortable]="false"></kendo-grid-column>
+
+
+        <kendo-grid-column field="usageName" 
+         title="نوع کاربری" 
+         [filterable]="true">
+        </kendo-grid-column>
+
+       
+
+      </kendo-grid>
+    </div>
+  </form>
+ 
+
+<app-usage-dialog
+ #statusDialog
+(closedDialog)="closedDialog($event)"
+>
+</app-usage-dialog>
+
+
+
+<div class="au-margin-top-10">
+
+  <app-special-status-value-grid
+   #valueGrid>
+  </app-special-status-value-grid>
+
+</div>

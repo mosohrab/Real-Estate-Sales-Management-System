@@ -129,8 +129,6 @@ import { UnitDetailComponent } from './components/unit/unit/unit-detail.componen
 import { UnitFeatureAssignedComponent } from './components/unit/unit/unit-feature-assigned.component';
 import { UnitFeatureAssignedUpsertComponent } from './components/unit/unit/unit-feature-assigned-upsert.component';
 
-import { UsageComboComponent } from './components/unit/usage/usage-combo.component';
-import { UsageItemComboSingleComponent } from './components/unit/usage-item/usage-item-combo-single.component';
 import { FeatureComponent } from './components/unit/feature/feature.component';
 import { FeatureComboComponent } from './components/unit/feature/feature-combo.component';
 import { FeatureTitleUpsertComponent } from './components/unit/feature/feature-title-upsert.component';
@@ -140,7 +138,13 @@ import { FeatureValueUpsertComponent } from './components/unit/feature/feature-v
 import { FeatureValueComboSingleComponent } from './components/unit/feature/feature-value-combo-single.component';
 
 import { MeasuringUnitComponent } from './components/unit/measuring-unit/measuring-unit.component';
+import { UsageComboComponent } from './components/unit/usage/usage-combo.component';
 import { UsageComponent } from './components/unit/usage/usage.component';
+import { UsageDialogComponent } from './components/unit/usage/usage-dialog.component';
+import { UsageItemComboSingleComponent } from './components/unit/usage-item/usage-item-combo-single.component';
+import { UsageItemComponent } from './components/unit/usage-item/usage-item.component';
+import { UsageItemDialogComponent } from './components/unit/usage-item/usage-item-dialog.component';
+import { UsageItemKendoGridService } from './services/usage.service';
 
 
 
@@ -209,7 +213,10 @@ import { UsageComponent } from './components/unit/usage/usage.component';
     FeatureValueUpsertComponent,
     FeatureValueComboSingleComponent,
     UsageComponent,
-    MeasuringUnitComponent
+    MeasuringUnitComponent,
+    UsageDialogComponent,
+    UsageItemComponent,
+    UsageItemDialogComponent
   ],
   imports: [
     AryaNetCoreModule,
