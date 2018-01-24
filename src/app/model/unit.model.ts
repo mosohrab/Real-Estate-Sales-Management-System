@@ -27,3 +27,10 @@ export interface UnitFeatureAssignedModel {
     featureValueName: string;
 }
 
+
+
+export interface MeasuringUnitModel {
+    measuringUnitId: number;
+    measuringUnitName: string;
+}
+

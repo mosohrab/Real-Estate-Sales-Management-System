@@ -23,10 +23,32 @@
 
 <div class="au-margin-top-10">
   <label class="k-form-field">
+    <span>نوع کاربری </span>
+    <app-usage-combo
+     name="usageId" 
+     [(ngModel)]="model.usageId" 
+     >
+     </app-usage-combo>
+  </label>
+</div>
+
+<div class="au-margin-top-10">
+  <label class="k-form-field">
+    <span>واحد سنجش</span>
+    <app-measuring-unit-combo
+     name="measuringUnitId" 
+     [(ngModel)]="model.measuringUnitId" 
+     >
+     </app-measuring-unit-combo>
+  </label>
+</div>
+
+<div class="au-margin-top-10">
+  <label class="k-form-field">
     <span>نام </span>
     <input class="k-textbox"
-     name="usageName" 
-     [(ngModel)]="model.usageName" 
+     name="usageItemName" 
+     [(ngModel)]="model.usageItemName" 
      required />
   </label>
 </div>

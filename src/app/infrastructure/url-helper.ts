@@ -27,5 +27,6 @@ export class UrlHelper {
     static USAGEITEM_API= 'usageitem';
     static BUILDINGSTRUCTURETYPE_API= 'buildingstructuretype';
     static UNITFEATUREASSIGNED_API= 'unitfeatureassigned';
+    static MeasuringUnit_API= 'MeasuringUnit';
 
 }

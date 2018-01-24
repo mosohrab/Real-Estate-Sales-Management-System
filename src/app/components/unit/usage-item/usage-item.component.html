@@ -40,28 +40,26 @@
           </ng-template>
         </kendo-grid-checkbox-column>
 
-        <kendo-grid-column field="usageName"
+        <kendo-grid-column
+         field="usageName"
          title="نوع کاربری"
-         [filterable]="true">
-        
+         [filterable]="true">        
         </kendo-grid-column>
 
+        <kendo-grid-column
+         field="measuringUnitName"
+         title="واحد سنجش"
+         [filterable]="true">
+        </kendo-grid-column>
     
         <kendo-grid-column field="usageItemName"
-         title= کاربری"
-         [filterable]="true">
-        
+         title="کاربری" 
+         [filterable]="true">        
         </kendo-grid-column>
-
-    
-     
-
 
       </kendo-grid>
     </div>
   </form>
- 
-</div>
 
 <app-usage-item-dialog
  #statusDialog

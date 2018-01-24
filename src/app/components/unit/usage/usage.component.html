@@ -38,10 +38,7 @@
 
 
         <kendo-grid-column
-         field="specialStatusId" [hidden]="true" [filterable]="false" [sortable]="false"></kendo-grid-column>
-
-
-        <kendo-grid-column field="usageName" 
+         field="usageName" 
          title="نوع کاربری" 
          [filterable]="true">
         </kendo-grid-column>
@@ -63,8 +60,7 @@
 
 <div class="au-margin-top-10">
 
-  <app-special-status-value-grid
-   #valueGrid>
-  </app-special-status-value-grid>
+  <app-usage-item #valueGrid>
+  </app-usage-item>
 
 </div>

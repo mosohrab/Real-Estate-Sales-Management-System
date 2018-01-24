@@ -1,0 +1,13 @@
+<kendo-dropdownlist 
+[data]="view | async"
+[(ngModel)]="selectedId"
+[valuePrimitive]="true" 
+[textField]="'measuringUnitName'"
+[valueField]="'measuringUnitId'"
+[filterable]="true"
+(valueChange)="onValueChange($event)"
+ style="width: 100%;"
+
+>
+ </kendo-dropdownlist>
+
