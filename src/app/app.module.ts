@@ -138,6 +138,7 @@ import { FeatureValueUpsertComponent } from './components/unit/feature/feature-v
 import { FeatureValueComboSingleComponent } from './components/unit/feature/feature-value-combo-single.component';
 
 import { MeasuringUnitComponent } from './components/unit/measuring-unit/measuring-unit.component';
+import { MeasuringUnitDialogComponent } from './components/unit/measuring-unit/measuring-unit-dialog.component';
 import { MeasuringUnitComboComponent } from './components/unit/measuring-unit/measuring-unit-combo.component';
 import { UsageComboComponent } from './components/unit/usage/usage-combo.component';
 import { UsageComponent } from './components/unit/usage/usage.component';
@@ -215,6 +216,7 @@ import { UsageItemKendoGridService } from './services/usage.service';
     FeatureValueComboSingleComponent,
     UsageComponent,
     MeasuringUnitComponent,
+    MeasuringUnitDialogComponent,
     MeasuringUnitComboComponent,
     UsageDialogComponent,
     UsageItemComponent,

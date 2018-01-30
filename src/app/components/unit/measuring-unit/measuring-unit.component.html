@@ -1,3 +1,62 @@
-<p>
-واحد سنجش
-</p>
+
+  <form novalidate #myForm="ngForm" >
+  <div class="au-panel">
+    <div class="au-panel-header au-bg-gray">
+      <app-toolbar-button
+      [showAddButton]="true"
+      [showEditButton]="true"           
+      [showDeleteButton]="true"
+      [showDeletAlleButton]="true"
+      (addClicked)="onAddClicked()"
+      (editClicked)="onEditClicked()"
+      (deleteClicked)="onDeleteClicked()"
+      (deleteAllClicked)="onDeleteAllClicked()" >
+          </app-toolbar-button>
+        </div>
+
+        <kendo-grid 
+        [data]="gridDataResult | async" 
+        [pageSize]="state.take"
+     [skip]="state.skip"
+      [sort]="state.sort"
+       [sortable]="true"
+      [pageable]="true" 
+      [selectable]="true"  
+      (dataStateChange)="onDataStateChange($event)"
+      (pageChange)="onPageChange($event)"
+      [filter]="state.filter" 
+       filterable="menu" 
+      [resizable]="true"
+      [selectable]="selectableSettings" 
+      [kendoGridSelectBy]="'measuringUnitId'"
+      [selectedKeys]="dataItemSelected"
+      (selectedKeysChange)="onSelectedKeysChange($event)"
+      (selectionChange)="valueGrid.setValueItem($event)"
+      [height]="300"
+      >
+
+      <kendo-grid-checkbox-column width="40" >
+              <ng-template kendoGridHeaderTemplate>
+                  <input class="k-checkbox" 
+                  id="selectAllCheckboxId"
+                   kendoGridSelectAllCheckbox
+                   [state]="selectAllState"
+                  (selectAllChange)="onSelectAllChange($event)">
+                  <label class="k-checkbox-label"
+                   for="selectAllCheckboxId"></label>
+              </ng-template>
+          </kendo-grid-checkbox-column>
+        
+      <kendo-grid-column
+       field="measuringUnitName" 
+       title="نام"  
+       [filterable]="true">
+      </kendo-grid-column>     
+    </kendo-grid>
+  </div>
+  </form>
+<app-measuring-unit-dialog
+#titleUpsertDialog  
+(closedDialog)="closedDialog($event)"
+>
+</app-measuring-unit-dialog>
