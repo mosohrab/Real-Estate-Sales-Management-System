@@ -1,0 +1,58 @@
+
+
+<kendo-dialog [width]="500" [height]="400" 
+[title]="Status" 
+(close)="onClose()"
+ *ngIf="isOpenedDialog"
+  style="text-align:right;">
+    
+      <kendo-dialog-titlebar>
+        <div style="font-size: 18px; line-height: 1.3em;">
+          <span class="k-icon k-i-warning"></span> مشخصات
+        </div>
+      </kendo-dialog-titlebar>
+
+      
+
+<form class="k-form" 
+#detailValueForm="ngForm" 
+(ngSubmit)="onSaveDetail(detailValueForm.form)" 
+ style="text-align:right;">
+
+
+
+<div class="au-margin-top-10">
+   <label class="k-form-field">
+    <span>عنوان</span>
+    <input class="k-textbox"
+     name="title"
+    [(ngModel)]="model.title" 
+    required />
+  </label>
+</div>
+
+<div class="au-margin-top-10">
+   <label class="k-form-field">
+    <span>شرح</span>
+    <input class="k-textarea"
+     name="description"
+    [(ngModel)]="model.description" 
+    required />
+  </label>
+</div>
+
+
+
+
+</form>
+
+<kendo-dialog-actions>
+    <!-- [disabled]="!detailForm.valid" -->
+        <button kendoButton class="k-button " (click)="onOk()" 
+         primary="true" type="submit">تایید</button>  
+           
+        <button kendoButton class="k-button "
+         (click)="onClose()">انصراف</button>
+      </kendo-dialog-actions>
+    
+    </kendo-dialog>

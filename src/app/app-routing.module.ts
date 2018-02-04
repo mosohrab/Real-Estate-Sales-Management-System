@@ -28,6 +28,9 @@ import { MeasuringUnitComponent } from './components/unit/measuring-unit/measuri
 import { UsageComponent } from './components/unit/usage/usage.component';
 import { CountryComboComponent } from './components/shared/country-combo/country-combo.component';
 
+import { SalesPlanComponent } from './components/sales/sales-plan/sales-plan.component';
+import { SalesPlanStatusComponent } from './components/sales/sales-plan-status/sales-plan-status.component';
+
 
 const routes: Routes = [
   //   { path: 'home', component: WelcomeComponent },
@@ -162,6 +165,29 @@ const routes: Routes = [
             path: 'usage', component: UsageComponent,
             data: { breadcrumb: 'کاربری واحد' }
           },
+        ]
+      }, // end
+
+      {
+        path: 'sales',
+        component: RootComponent,
+        data: { breadcrumb: 'فروش' },
+        children: [
+          {
+            path: 'planstatus', component: SalesPlanStatusComponent,
+            data: { breadcrumb: 'وضعیت طرح و فروش' }
+          },
+          {
+            path: 'plan', component: SalesPlanComponent,
+            data: { breadcrumb: 'طرح فروش' }
+          },
+
+          // {
+          //   path: 'feature', component: FeatureComponent,
+          //   data: { breadcrumb: 'ویژگیهای عمومی و انتخابی' }
+          // },
+
+
         ]
       }, // end
 

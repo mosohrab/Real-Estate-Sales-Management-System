@@ -132,29 +132,22 @@ export class BaseService {
 
 
   public put(model: any, url?: string): Observable<OperationResultModel> {
-    const body = JSON.stringify(model);
-    //  const body = new URLSearchParams();
-    // this.appendParams(body, model);
-    const httpUrl = `${this.API_URL}${url}`;
+    let httpUrl = `${this.API_URL}`;
+    if (url !== undefined) {
+      httpUrl += url;
+    }
 
-    const headers = new Headers(
-      {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json;',
-        // 'Content-Type': 'application/x-www-form-urlencoded'
-      });
-
-    const options = new RequestOptions({ headers: headers });
     const that = this;
-    return this._http.put(httpUrl, body, options)
-      //  .map(this.extractData)
+    return this._http.put(httpUrl, model)
       .map(res => {
         const b = res.json();
-        // const r = body.fields || {};
         that.operationHandling(b);
       })
       .catch(this.handleError);
   }
+
+
+
 
   public deleteRequest(id: any, url?: string): Observable<OperationResultModel> {
     const httpUrl = `${this.API_URL}${url}/${id}`;

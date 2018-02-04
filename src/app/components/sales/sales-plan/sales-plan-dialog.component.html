@@ -1,0 +1,113 @@
+
+
+<kendo-dialog [width]="600" [height]="600" 
+[title]="Status" 
+(close)="onClose()"
+ *ngIf="isOpenedDialog"
+  style="text-align:right;">
+    
+      <kendo-dialog-titlebar>
+        <div style="font-size: 18px; line-height: 1.3em;">
+          <span class="k-icon k-i-warning"></span> مشخصات
+        </div>
+      </kendo-dialog-titlebar>
+
+      
+
+<form class="k-form" 
+#detailValueForm="ngForm" 
+(ngSubmit)="onSaveDetail(detailValueForm.form)" 
+ style="text-align:right;">
+
+
+ <div class="au-margin-top-10">  
+  <label class="k-form-field">
+    <span>شماره</span>
+    <input class="k-textbox"
+    name="number"
+   [(ngModel)]="model.number" 
+   required />
+  </label>
+</div>
+
+<div class="au-margin-top-10">
+   <label class="k-form-field">
+    <span>عنوان</span>
+    <input class="k-textbox"
+     name="title"
+    [(ngModel)]="model.title" 
+    required />
+  </label>
+</div>
+
+<div class="au-margin-top-10">
+   <label class="k-form-field">
+    <span>وضعیت</span>
+    <app-sales-plan-status-combo
+     name="salesPlanStatusId"
+    [(ngModel)]="model.salesPlanStatusId" 
+    >
+    </app-sales-plan-status-combo>
+  </label>
+</div>
+
+
+<div class="au-margin-top-10">
+   <label class="k-form-field">
+    <span>تاریخ شروع</span>
+
+    <dp-date-picker 
+    name="registerDate"  
+    [(ngModel)]="startDate" 
+    theme="dp-material" 
+    class="k-textbox" 
+    style="width:100%;" 
+    [config]="datePickerConfig"  
+    realonly>
+     </dp-date-picker>
+
+  </label>
+</div>
+
+<div class="au-margin-top-10">
+   <label class="k-form-field">
+    <span>تاریخ انقضاء</span>
+
+    <dp-date-picker 
+    name="registerDate" 
+    [(ngModel)]="endDate" 
+    theme="dp-material" 
+    class="k-textbox"
+                         style="width:100%;"
+                         [config]="datePickerConfig" 
+                         realonly
+                         >
+                         </dp-date-picker>
+
+  </label>
+</div>
+
+
+<div class="au-margin-top-10">
+  <label class="k-form-field">
+   <span>توضیحات</span>
+   <input class="k-textarea"
+    name="description"
+   [(ngModel)]="model.description" 
+   required />
+ </label>
+</div>
+
+
+</form>
+
+<kendo-dialog-actions>
+    <!-- [disabled]="!detailForm.valid" -->
+        <button kendoButton class="k-button " (click)="onOk()" 
+         primary="true" type="submit">تایید</button>  
+
+        <button kendoButton class="k-button "
+         (click)="onClose()">انصراف</button>
+      </kendo-dialog-actions>
+    
+    </kendo-dialog>

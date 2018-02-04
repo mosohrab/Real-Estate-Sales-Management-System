@@ -148,6 +148,16 @@ import { UsageItemComponent } from './components/unit/usage-item/usage-item.comp
 import { UsageItemDialogComponent } from './components/unit/usage-item/usage-item-dialog.component';
 import { UsageItemKendoGridService } from './services/usage.service';
 
+import { SalesPlanComponent } from './components/sales/sales-plan/sales-plan.component';
+import { SalesPlanDialogComponent} from './components/sales/sales-plan/sales-plan-dialog.component';
+import { SalesPlanStatusComponent } from './components/sales/sales-plan-status/sales-plan-status.component';
+import { SalesPlanStatusDialogComponent } from './components/sales/sales-plan-status/sales-plan-status-dialog.component';
+import { SalesPlanStatusComboComponent } from './components/sales/sales-plan-status/sales-plan-status-combo.component';
+import { ParentBundlingComponent } from './components/Sales/parent-bundling/parent-bundling.component';
+import { UnitBundlingComponent } from './components/Sales/unit-bundling/unit-bundling.component';
+import { BundlingComponent } from './components/Sales/bundling/bundling.component';
+import { SelectiveBundlingComponent } from './components/Sales/selective-bundling/selective-bundling.component';
+
 
 
 @NgModule({
@@ -220,7 +230,16 @@ import { UsageItemKendoGridService } from './services/usage.service';
     MeasuringUnitComboComponent,
     UsageDialogComponent,
     UsageItemComponent,
-    UsageItemDialogComponent
+    UsageItemDialogComponent,
+    SalesPlanComponent,
+    SalesPlanDialogComponent,
+    SalesPlanStatusComponent,
+    SalesPlanStatusDialogComponent,
+    SalesPlanStatusComboComponent,
+    ParentBundlingComponent,
+    UnitBundlingComponent,
+    BundlingComponent,
+    SelectiveBundlingComponent
   ],
   imports: [
     AryaNetCoreModule,
