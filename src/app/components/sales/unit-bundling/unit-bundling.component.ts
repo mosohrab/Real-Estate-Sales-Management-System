@@ -1,4 +1,6 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
+import { WeBaseComponent } from '../../we-base.component';
+
 
 @Component({
   selector: 'app-unit-bundling',
@@ -6,11 +8,19 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./unit-bundling.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class UnitBundlingComponent implements OnInit {
+export class UnitBundlingComponent extends WeBaseComponent {
 
-  constructor() { }
 
-  ngOnInit() {
+  constructor() {
+    super();
   }
 
+  ngOnInitHandler() {
+  }
+
+
+
+  onSaveStatus() {
+
+  }
 }

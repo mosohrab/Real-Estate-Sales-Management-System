@@ -3,13 +3,13 @@
 <kendo-treeview
         [nodes]="data  | async"
         [textField]="['value']"
-        kendoTreeViewExpandable
-      
+        kendoTreeViewExpandable      
         [hasChildren]="hasChildren"
         [children]="fetchChildren"
         [kendoTreeViewCheckable]="checkableSettings"
         [(checkedKeys)]="checkedKeys"
-
+        [(expandedKeys)]="expandedKeys"
+        
       style="height: 300px;overflow: auto;"
       >
     </kendo-treeview>

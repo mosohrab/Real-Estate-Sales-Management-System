@@ -1,3 +1,33 @@
-<p>
-  unit-bundling works!
-</p>
+
+<kendo-tabstrip [expandMode]="'single'" >
+
+    <kendo-tabstrip-tab
+     [title]="'ساختار'"
+      [expanded]='true'
+       [selected]="true" >
+      <ng-template kendoTabContent>
+  
+      </ng-template>
+    </kendo-tabstrip-tab>
+  
+  
+    <kendo-tabstrip-tab [title]="'کاربری'">
+      <ng-template kendoTabContent>
+  
+      </ng-template>
+    </kendo-tabstrip-tab>
+  
+  
+    <kendo-tabstrip-tab [title]="'کاربری / ویژگی عمومی'">
+      <ng-template kendoTabContent>
+      
+      </ng-template>
+    </kendo-tabstrip-tab>
+  
+    <kendo-tabstrip-tab [title]="'استثناء'">
+      <ng-template kendoTabContent>
+      
+      </ng-template>
+    </kendo-tabstrip-tab>
+  
+  </kendo-tabstrip>

@@ -1,3 +1,10 @@
+
+
+export enum PersonType {
+    Person = 0,
+    Company
+}
+
 export interface PersonModel {
 
     personId: number;

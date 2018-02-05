@@ -8,8 +8,28 @@
     <kendo-tabstrip-tab [title]="'ویژگی های خاص'" [expanded]='true' [selected]="true" >
       <ng-template kendoTabContent>
   
-        <app-special-status-tree>
+          <div class="au-panel">
+              <div class="au-panel-header au-bg-gray">
+                <app-toolbar-button
+                [showAddButton]="true"
+                [showEditButton]="false"           
+                [showDeleteButton]="false"
+                [showDeletAlleButton]="true"
+                (addClicked)="onSaveStatus()"
+                (editClicked)="onEditClicked()"
+                (deleteClicked)="onDeleteClicked()"
+                (deleteAllClicked)="onDeleteAllClicked()"
+                
+                >
+                    
+            </app-toolbar-button>
+              </div>
+        <app-special-status-tree 
+         #statusTree   >
         </app-special-status-tree>
+
+        </div>
+
       </ng-template>
     </kendo-tabstrip-tab>
   
@@ -28,8 +48,8 @@
   
     <kendo-tabstrip-tab [title]="'نتایج'">
       <ng-template kendoTabContent>
-        <app-special-status-tree>
-        </app-special-status-tree>
+        <app-person-result>
+        </app-person-result>
       </ng-template>
     </kendo-tabstrip-tab>
   

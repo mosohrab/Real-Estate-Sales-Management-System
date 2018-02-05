@@ -31,5 +31,7 @@ export class UrlHelper {
     static SalesPlan_API= 'SalesPlan';
     static SalesPlanStatus_API= 'SalesPlanStatus';
     static PersonException_API= 'PersonException';
+    static BuyerRange_API= 'BuyerRange';
+    static PersonBundling_API= 'PersonBundling';
 
 }

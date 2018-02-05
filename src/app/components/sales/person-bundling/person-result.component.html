@@ -3,9 +3,9 @@
     <div class="au-panel">
      <div class="au-panel-header au-bg-gray">
        <app-toolbar-button
-       [showAddButton]="true"
+       [showAddButton]="false"
        [showEditButton]="false"           
-       [showDeleteButton]="true"
+       [showDeleteButton]="false"
        [showDeletAlleButton]="true"
        (addClicked)="onAddClicked()"
        (editClicked)="onEditClicked()"
@@ -32,7 +32,7 @@
            
       
        [selectable]="selectableSettings" 
-       [kendoGridSelectBy]="'personExceptionId'"
+       [kendoGridSelectBy]="'personBundlingId'"
        [selectedKeys]="dataItemSelected"
        (selectedKeysChange)="onSelectedKeysChange($event)"
        (selectionChange)="valueGrid.setValueItem($event)"
@@ -54,17 +54,29 @@
            </kendo-grid-checkbox-column>
          
        <kendo-grid-column
-        field="personFullName"
-         title="نام">
+        field="personBundlingType"
+         title="شرایط کلی احراز شده">
+
+         <ng-template kendoGridCellTemplate let-dataItem="dataItem">
+            <p *ngIf="dataItem.personBundlingType==0" class="text-center">
+              <span >ویژگی</span>
+            </p>
+            <p *ngIf="!dataItem.personBundlingType==1" class="text-center">
+              <span >استثناء</span>
+            </p>
+
+          </ng-template>
+
+
          </kendo-grid-column>
  
        <kendo-grid-column
-        field="title"
-        title="کد ملی/شماره اقتصادی">
+        field="name"
+        title="نام">
          </kendo-grid-column>
  
        <kendo-grid-column
-        field="startDate"
+        field="hasPermmision"
          title="دسترسی">
          </kendo-grid-column>
  

@@ -48,7 +48,15 @@ export class PersonSearchDialogComponent extends WeBaseKendoGridComponent {
   }
 
   public onOk(form) {
-    const items = this.personSearch.getSelectedItems();
+    const that = this;
+    this.personSearch.getSelectedItems()
+      .subscribe(r => {
+        const items = r;
+        if (items.length > 0) {
+          that.onClose();
+        }
+      });
+
   }
 
   onClose() {

@@ -31,11 +31,13 @@ export class SpecialStatuTreeComponent extends WeBaseComponent {
   specialStatusValueService: SpecialStatusValueService;
   public data: Observable<TreeModel[]>;
   // public data: Array<TreeModel[]>();
-  public checkedKeys: any[] = ['1'];
+
+  public checkedKeys: any[] = [''];
   public checkChildren = true;
   public checkParents = true;
   public checkMode: any = 'multiple';
   public selectionMode: any = 'single';
+  public expandedKeys: any[] = ['0'];
 
   constructor(specialStatusService: SpecialStatusService,
     specialStatusValueService: SpecialStatusValueService) {
@@ -106,7 +108,7 @@ export class SpecialStatuTreeComponent extends WeBaseComponent {
   }
   public fetchChildren = (item: TreeModel) => {
     if (item.id === undefined) {
-       return this.specialStatusService.getTree();
+      return this.specialStatusService.getTree();
 
     } else {
       return this.specialStatusValueService.getTree(item.id);

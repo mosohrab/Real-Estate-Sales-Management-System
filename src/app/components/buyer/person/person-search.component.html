@@ -7,7 +7,8 @@
                  class="search-query form-control"
                   placeholder="جستجو" />
                 <span class="input-group-btn">
-                    <button class="btn btn-danger" type="button">
+                    <button class="btn btn-danger" type="button"
+                     (click)="onSearch()" >
                         <span class="fa fa-search"></span>
                     </button>
                 </span>
@@ -19,8 +20,10 @@
         <kendo-grid [data]="gridDataResult | async"
          [pageSize]="state.take"
           [skip]="state.skip" 
-          [sort]="state.sort" [sortable]="true"
-            [pageable]="true" [selectable]="true"
+          [sort]="state.sort" 
+          [sortable]="true"
+            [pageable]="true"
+             [selectable]="true"
              (dataStateChange)="onDataStateChange($event)" 
              (pageChange)="onPageChange($event)"
             [resizable]="true" 
@@ -32,8 +35,10 @@
 
             <kendo-grid-checkbox-column width="40">
                 <ng-template kendoGridHeaderTemplate>
-                    <input class="k-checkbox" id="selectAllCheckboxId" kendoGridSelectAllCheckbox [state]="selectAllState" (selectAllChange)="onSelectAllChange($event)">
-                    <label class="k-checkbox-label" for="selectAllCheckboxId"></label>
+                    <input class="k-checkbox" 
+                    id="personSelectAllCheckboxId" kendoGridSelectAllCheckbox [state]="selectAllState" (selectAllChange)="onSelectAllChange($event)">
+                    <label class="k-checkbox-label"
+                     for="personSelectAllCheckboxId"></label>
                 </ng-template>
             </kendo-grid-checkbox-column>
 

@@ -160,6 +160,7 @@ import { SalesPlanStatusComponent } from './components/sales/sales-plan-status/s
 import { SalesPlanStatusDialogComponent } from './components/sales/sales-plan-status/sales-plan-status-dialog.component';
 import { SalesPlanStatusComboComponent } from './components/sales/sales-plan-status/sales-plan-status-combo.component';
 import { PersonBundlingComponent } from './components/Sales/person-bundling/person-bundling.component';
+import { PersonResultComponent } from './components/Sales/person-bundling/person-result.component';
 import { PersonExceptionComponent } from './components/Sales/person-bundling/person-exception.component';
 import { PersonExceptionDialogComponent } from './components/Sales/person-bundling/person-exception-dialog.component';
 import { UnitBundlingComponent } from './components/Sales/unit-bundling/unit-bundling.component';
@@ -250,6 +251,7 @@ import { SelectiveBundlingComponent } from './components/Sales/selective-bundlin
     SalesPlanStatusDialogComponent,
     SalesPlanStatusComboComponent,
     PersonBundlingComponent,
+    PersonResultComponent,
     PersonExceptionComponent,
     PersonExceptionDialogComponent,
     UnitBundlingComponent,

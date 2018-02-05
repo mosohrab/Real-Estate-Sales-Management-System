@@ -63,27 +63,27 @@ export class BaseService {
   }
 
   public post(model: any, url?: string): Observable<OperationResultModel> {
-    // const body = JSON.stringify(model);
-    const body = new URLSearchParams();
-    this.appendParams(body, model);
-    const httpUrl = `${this.API_URL}${url}`;
+    // const body = new URLSearchParams();
+    // this.appendParams(body, model);
+    let httpUrl = `${this.API_URL}`;
+    if (url !== undefined) {
+      httpUrl += `${url}`;
+    }
+    // const headers = new Headers(
+    //   {
+    //     'Accept': 'application/json',
+    //     // 'Content-Type': 'application/json',
+    //     'Content-Type': 'application/x-www-form-urlencoded'
+    //   });
 
-    const headers = new Headers(
-      {
-        'Accept': 'application/json',
-        // 'Content-Type': 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded'
-      });
-
-    const options = new RequestOptions({
-      headers: headers,
-      // params : body
-    });
+    // const options = new RequestOptions({
+    //   headers: headers,
+    //   // params : body
+    // });
 
     const that = this;
     // this.loading.show();
-    return this._http.post(httpUrl, body, options)
-      //  .map(this.extractData)
+    return this._http.post(httpUrl, model)
       .map(res => {
         const b = res.json();
         // const r = body.fields || {};
@@ -92,43 +92,29 @@ export class BaseService {
       })
       .catch(this.handleError);
 
-
-
-    //     const requestoptions = new RequestOptions({
-    //       method: RequestMethod.Post,
-    //       url: httpUrl,
-    //       headers: headers,
-    //       body: body,
-    //       params: body,
-    //   });
-    //   return this._http  .request(new Request(requestoptions))
-    //   .map(this.extractData)
-    //   .catch(this.handleError);
-    // // }
-
   }
 
-  public postJson(model: any, url?: string): Observable<OperationResultModel> {
-    const body = new URLSearchParams();
-    this.appendParams(body, model);
-    const httpUrl = `${this.API_URL}${url}`;
-    const headers = new Headers(
-      {
-        'Accept': 'application/json',
-        // 'Content-Type': 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded'
-      });
+  // public postJson(model: any, url?: string): Observable<OperationResultModel> {
+  //   const body = new URLSearchParams();
+  //   this.appendParams(body, model);
+  //   const httpUrl = `${this.API_URL}${url}`;
+  //   const headers = new Headers(
+  //     {
+  //       'Accept': 'application/json',
+  //       // 'Content-Type': 'application/json',
+  //       'Content-Type': 'application/x-www-form-urlencoded'
+  //     });
 
-    const options = new RequestOptions({
-      headers: headers,
-      // params : body
-    });
+  //   const options = new RequestOptions({
+  //     headers: headers,
+  //     // params : body
+  //   });
 
-    const that = this;
-    return this._http.post(httpUrl, body, options)
-      .map((res: Response) => res.json())
-      .catch(this.handleError);
-  }
+  //   const that = this;
+  //   return this._http.post(httpUrl, body, options)
+  //     .map((res: Response) => res.json())
+  //     .catch(this.handleError);
+  // }
 
 
   public put(model: any, url?: string): Observable<OperationResultModel> {
@@ -173,23 +159,23 @@ export class BaseService {
 
   public add(model: any): Observable<OperationResultModel> {
     // return this.post(model, 'Add');
-    return this.postJson(model, '');
+    return this.post(model, '');
   }
   public edit(model: any): Observable<OperationResultModel> {
-    return this.postJson(model, '/Edit' /*, 'Edit'*/);
+    return this.post(model, '/Edit' /*, 'Edit'*/);
   }
   public delete(id: number): Observable<OperationResultModel> {
-    return this.postJson(id, '/remove/' + id /* 'Delete/' + id*/);
+    return this.post(id, '/remove/' + id /* 'Delete/' + id*/);
   }
   public deleteRange(id: Array<number>): Observable<OperationResultModel> {
     let q = '?';
     for (let i = 0; i < id.length; i++) {
       q += `ids=${id[i]}&`;
     }
-    return this.postJson(id, '/removerange/' + q);
+    return this.post(id, '/removerange' + q);
   }
   public deleteAll(): Observable<OperationResultModel> {
-    return this.postJson(null, '/removeall');
+    return this.post(null, '/removeall');
   }
 
   // public find(id: number): Observable<OperationResultModel> {
@@ -229,7 +215,7 @@ export class BaseService {
     for (let i = 0; i < id.length; i++) {
       q += `ids=${id[i]}&`;
     }
-    const httpUrl = `${this.API_URL}/findall/${q}`;
+    const httpUrl = `${this.API_URL}/findall${q}`;
 
     return this._http
       .get(httpUrl)
