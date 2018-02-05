@@ -1,0 +1,39 @@
+<!-- <div class="au-panel">
+  <div class="au-panel-header au-bg-gray">
+    <h3>محدوده افراد</h3>
+  </div> -->
+
+<kendo-tabstrip [expandMode]="'single'" >
+
+    <kendo-tabstrip-tab [title]="'ویژگی های خاص'" [expanded]='true' [selected]="true" >
+      <ng-template kendoTabContent>
+  
+        <app-special-status-tree>
+        </app-special-status-tree>
+      </ng-template>
+    </kendo-tabstrip-tab>
+  
+  
+    <kendo-tabstrip-tab [title]="'استثناء'">
+      <ng-template kendoTabContent>
+  
+        <div style="width:750px;">
+          <app-person-exception>
+          </app-person-exception>
+        </div>
+  
+      </ng-template>
+    </kendo-tabstrip-tab>
+  
+  
+    <kendo-tabstrip-tab [title]="'نتایج'">
+      <ng-template kendoTabContent>
+        <app-special-status-tree>
+        </app-special-status-tree>
+      </ng-template>
+    </kendo-tabstrip-tab>
+  
+  </kendo-tabstrip>
+
+
+<!-- </div> -->

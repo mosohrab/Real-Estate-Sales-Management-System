@@ -2,15 +2,13 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-import { GridDataResult } from '@progress/kendo-angular-grid';
-import { toODataString } from '@progress/kendo-data-query';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { ProvinceModel } from '../model/province.model';
 import { BaseService } from './base.service';
 import { WeBaseKendoGridService } from './base-kendo-grid.service';
 import { UrlHelper } from '../infrastructure/url-helper';
 import { SpecialStatusValueModel } from '../model/special-status.model';
+import { TreeModel } from '../core/model/tree.model';
 
 @Injectable()
 export class SpecialStatusValueService extends BaseService {
@@ -19,6 +17,18 @@ export class SpecialStatusValueService extends BaseService {
     super(http, UrlHelper.SpecialStatusValue_API);
   }
 
+
+  public getAllItems(): Observable<SpecialStatusValueModel[]> {
+    return this.get('/getAllItems');
+  }
+
+  public getItemsByStatusId(id: number): Observable<SpecialStatusValueModel[]> {
+    return this.get('/getItems/' + id);
+  }
+
+  public getTree(id: number): Observable<TreeModel[]> {
+    return this.get('/GetTree/' + id);
+  }
 
 
 }

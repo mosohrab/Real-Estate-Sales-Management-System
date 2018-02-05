@@ -46,11 +46,11 @@ export class WeBaseKendoGridService extends BehaviorSubject<GridDataResult> {
     this._baseService.initBusyConfig(busyConfig);
   }
 
-  public readGrid(url?: string): Subscription {
+  public readGrid(search?: string): Subscription {
     const that = this;
 
     this._baseService.loading.show();
-    return this._readGrid(this.state, url)
+    return this._readGrid(this.state, search)
       .subscribe(x => {
         super.next(x);
       })
@@ -58,6 +58,7 @@ export class WeBaseKendoGridService extends BehaviorSubject<GridDataResult> {
         this._baseService.loading.hide();
       });
   }
+
 
 
   public save(data: any, isNew?: boolean) {
@@ -159,7 +160,7 @@ export class WeBaseKendoGridService extends BehaviorSubject<GridDataResult> {
   }
 
 
-  private _readGrid(state: any, url?: string): Observable<GridDataResult> {
+  private _readGrid(state: any, search?: string): Observable<GridDataResult> {
     const queryStr = `${toDataSourceRequestString(state)}`;
     //  url = url || 'read';
     // var httpUrl=`${this._baseService.API_URL}${url}?${queryStr}`;
@@ -169,6 +170,10 @@ export class WeBaseKendoGridService extends BehaviorSubject<GridDataResult> {
       httpUrl += `?id=${this.readId}&${queryStr}`;
     } else {
       httpUrl += `?${queryStr}`;
+    }
+
+    if (search !== undefined) {
+      httpUrl += `&search=${search}`;
     }
     return this._http
       .get(httpUrl)

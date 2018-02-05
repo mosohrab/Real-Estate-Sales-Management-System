@@ -1,0 +1,48 @@
+
+
+    <div id="custom-search-input">
+            <div class="input-group col-md-12">
+                <input type="text"
+                 name="search" [(ngModel)]="search"
+                 class="search-query form-control"
+                  placeholder="جستجو" />
+                <span class="input-group-btn">
+                    <button class="btn btn-danger" type="button">
+                        <span class="fa fa-search"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+
+
+    <div class="au-margin-top-10">
+        <kendo-grid [data]="gridDataResult | async"
+         [pageSize]="state.take"
+          [skip]="state.skip" 
+          [sort]="state.sort" [sortable]="true"
+            [pageable]="true" [selectable]="true"
+             (dataStateChange)="onDataStateChange($event)" 
+             (pageChange)="onPageChange($event)"
+            [resizable]="true" 
+            [selectable]="selectableSettings" 
+            [kendoGridSelectBy]="'personId'" 
+            [selectedKeys]="dataItemSelected"  
+            (selectedKeysChange)="onSelectedKeysChange($event)"
+             [height]="300" [ngBusy]="busyConfig">
+
+            <kendo-grid-checkbox-column width="40">
+                <ng-template kendoGridHeaderTemplate>
+                    <input class="k-checkbox" id="selectAllCheckboxId" kendoGridSelectAllCheckbox [state]="selectAllState" (selectAllChange)="onSelectAllChange($event)">
+                    <label class="k-checkbox-label" for="selectAllCheckboxId"></label>
+                </ng-template>
+            </kendo-grid-checkbox-column>
+
+            <kendo-grid-column field="firstName" title="نام"></kendo-grid-column>
+            <kendo-grid-column field="lastName" title="نام خانوادگی"></kendo-grid-column>
+            <kendo-grid-column field="fatherName" title="نام پدر" ></kendo-grid-column>
+            <kendo-grid-column field="nationalCode" title="کد ملی" ></kendo-grid-column>
+
+
+        </kendo-grid>
+    </div>
+

@@ -33,6 +33,7 @@ import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { CalendarModule } from '@progress/kendo-angular-dateinputs';
 import { PanelBarModule } from '@progress/kendo-angular-layout';
 import { TabStripModule } from '@progress/kendo-angular-layout';
+import { TreeViewModule } from '@progress/kendo-angular-treeview';
 /* Loading CLDR data */
 import { load } from '@progress/kendo-angular-intl';
 // load(
@@ -99,12 +100,15 @@ import { ScaleComponent } from './components/base/scale/scale.component';
 
 import { SpecialStatusComponent } from './components/buyer/special-status/special-status.component';
 import { SpecialStatusDialogComponent } from './components/buyer/special-status/special-status-dialog.component';
+import { SpecialStatuTreeComponent } from './components/buyer/special-status/special-status-tree.component';
 import { SpecialStatusValueComponent } from './components/buyer/special-status-value/special-status-value.component';
 import { SpecialStatusValueUpsertComponent } from './components/buyer/special-status-value/special-status-value-upsert.component';
 import { SpecialStatusComboComponent } from './components/buyer/special-status/special-status-combo.component';
 import { SpecialStatusValueComboComponent } from './components/buyer/special-status-value/special-status-value-combo.component';
 import { SpecialStatusValueGridComponent } from './components/buyer/special-status-value/special-status-value-grid.component';
 import { PersonComponent } from './components/buyer/person/person.component';
+import { PersonSearchComponent } from './components/buyer/person/person-search.component';
+import { PersonSearchDialogComponent } from './components/buyer/person/person-search-dialog.component';
 import { PersonDialogComponent } from './components/buyer/person/person-dialog.component';
 import { PersonDetailComponent } from './components/buyer/person/person-detail.component';
 import { PersonSpecialStatusComponent } from './components/buyer/person/person-special-status.component';
@@ -149,11 +153,15 @@ import { UsageItemDialogComponent } from './components/unit/usage-item/usage-ite
 import { UsageItemKendoGridService } from './services/usage.service';
 
 import { SalesPlanComponent } from './components/sales/sales-plan/sales-plan.component';
-import { SalesPlanDialogComponent} from './components/sales/sales-plan/sales-plan-dialog.component';
+import { SalesPlanDetailComponent } from './components/sales/sales-plan/sales-plan-detail.component';
+import { SalesPlanDialogComponent } from './components/sales/sales-plan/sales-plan-dialog.component';
+import { SalesPlanUpsertComponent } from './components/sales/sales-plan/sales-plan-upsert.component';
 import { SalesPlanStatusComponent } from './components/sales/sales-plan-status/sales-plan-status.component';
 import { SalesPlanStatusDialogComponent } from './components/sales/sales-plan-status/sales-plan-status-dialog.component';
 import { SalesPlanStatusComboComponent } from './components/sales/sales-plan-status/sales-plan-status-combo.component';
-import { ParentBundlingComponent } from './components/Sales/parent-bundling/parent-bundling.component';
+import { PersonBundlingComponent } from './components/Sales/person-bundling/person-bundling.component';
+import { PersonExceptionComponent } from './components/Sales/person-bundling/person-exception.component';
+import { PersonExceptionDialogComponent } from './components/Sales/person-bundling/person-exception-dialog.component';
 import { UnitBundlingComponent } from './components/Sales/unit-bundling/unit-bundling.component';
 import { BundlingComponent } from './components/Sales/bundling/bundling.component';
 import { SelectiveBundlingComponent } from './components/Sales/selective-bundling/selective-bundling.component';
@@ -186,12 +194,15 @@ import { SelectiveBundlingComponent } from './components/Sales/selective-bundlin
 
     SpecialStatusComponent,
     SpecialStatusDialogComponent,
+    SpecialStatuTreeComponent,
     SpecialStatusValueComponent,
     SpecialStatusValueUpsertComponent,
     SpecialStatusValueGridComponent,
     SpecialStatusComboComponent,
     SpecialStatusValueComboComponent,
     PersonComponent,
+    PersonSearchComponent,
+    PersonSearchDialogComponent,
     PersonDialogComponent,
     PersonDetailComponent,
     PersonSpecialStatusComponent,
@@ -232,11 +243,15 @@ import { SelectiveBundlingComponent } from './components/Sales/selective-bundlin
     UsageItemComponent,
     UsageItemDialogComponent,
     SalesPlanComponent,
+    SalesPlanDetailComponent,
     SalesPlanDialogComponent,
+    SalesPlanUpsertComponent,
     SalesPlanStatusComponent,
     SalesPlanStatusDialogComponent,
     SalesPlanStatusComboComponent,
-    ParentBundlingComponent,
+    PersonBundlingComponent,
+    PersonExceptionComponent,
+    PersonExceptionDialogComponent,
     UnitBundlingComponent,
     BundlingComponent,
     SelectiveBundlingComponent
@@ -266,6 +281,7 @@ import { SelectiveBundlingComponent } from './components/Sales/selective-bundlin
     CalendarModule,
     PanelBarModule,
     TabStripModule,
+    TreeViewModule,
 
     // BaseModule,
     // UnitModule,

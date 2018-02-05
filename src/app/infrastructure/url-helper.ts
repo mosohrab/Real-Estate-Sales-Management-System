@@ -30,5 +30,6 @@ export class UrlHelper {
     static MeasuringUnit_API= 'MeasuringUnit';
     static SalesPlan_API= 'SalesPlan';
     static SalesPlanStatus_API= 'SalesPlanStatus';
+    static PersonException_API= 'PersonException';
 
 }

@@ -1,0 +1,22 @@
+
+
+<kendo-treeview
+        [nodes]="data  | async"
+        [textField]="['value']"
+        kendoTreeViewExpandable
+      
+        [hasChildren]="hasChildren"
+        [children]="fetchChildren"
+        [kendoTreeViewCheckable]="checkableSettings"
+        [(checkedKeys)]="checkedKeys"
+
+      style="height: 300px;overflow: auto;"
+      >
+    </kendo-treeview>
+
+    <!--
+
+        kendoTreeViewHierarchyBinding
+        childrenField="children"
+      -->
+

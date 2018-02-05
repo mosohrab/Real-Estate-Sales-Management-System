@@ -1,0 +1,25 @@
+<kendo-dialog [width]="800" 
+[height]="400" 
+[title]="Status" (close)="onClose()" 
+*ngIf="isOpenedDialog" 
+ class="au-custome-dialog"
+ style="text-align:right;">
+
+    <kendo-dialog-titlebar>
+        <div style="font-size: 18px; line-height: 1.3em;">
+            <span class="k-icon k-i-warning"></span> مشخصات
+        </div>
+    </kendo-dialog-titlebar>
+
+<app-person-search>
+
+</app-person-search>
+
+
+
+    <kendo-dialog-actions>
+        <button kendoButton class="k-button " (click)="onOk()" primary="true" type="submit">تایید</button>
+        <button kendoButton class="k-button " (click)="onClose()">انصراف</button>
+    </kendo-dialog-actions>
+
+</kendo-dialog>

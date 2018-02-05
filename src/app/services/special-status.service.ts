@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
 
+import { Observable } from 'rxjs/Observable';
+import { ObserveOnSubscriber } from 'rxjs/operators/observeOn';
+import 'rxjs/add/operator/map';
 
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
@@ -10,6 +12,8 @@ import { BaseService } from './base.service';
 import { WeBaseKendoGridService } from './base-kendo-grid.service';
 import { UrlHelper } from '../infrastructure/url-helper';
 import { SpecialStatusModel } from '../model/special-status.model';
+import { OperationResultModel } from '../model/operation-result.model';
+import { TreeModel } from '../core/model/tree.model';
 
 @Injectable()
 export class SpecialStatusService extends BaseService {
@@ -17,6 +21,29 @@ export class SpecialStatusService extends BaseService {
   constructor(http: Http) {
     super(http, UrlHelper.SpecialStatus_API);
   }
+
+
+  public getAllItems(): Observable<SpecialStatusModel[]> {
+    return this.get('/getAllItems');
+  }
+
+  // public getTreeRoot(): Observable<TreeModel[]> {
+  //   return this.get('/GetTree');
+  // }
+  public getTree(): Observable<TreeModel[]> {
+    return this.get('/GetTree');
+  }
+
+
+  // public fetchCategories(): Observable<any[]> {
+  //   return this.get('getAllItems');
+  // }
+
+  // public fetchProducts(categoryID: number): any {
+  //   return this.get('getAllItems');
+  // }
+
+
 
 }
 
@@ -31,8 +58,6 @@ export class SpecialStatusKendoGridService extends WeBaseKendoGridService {
 
     this.statusService = service;
   }
-
-
 }
 
 
@@ -52,7 +77,7 @@ export class SpecialStatusComboService extends BehaviorSubject<SpecialStatusMode
   }
 
   public read(): void {
-    this.baseService.get('getItems')
+    this.baseService.get('getAllItems')
       .subscribe(x => super.next(x));
 
   }

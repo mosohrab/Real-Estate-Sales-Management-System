@@ -222,6 +222,28 @@ export class BaseService {
   }
 
 
+  public findAll(id: number[]): Observable<any[]> {
+    const that = this;
+
+    let q = '?';
+    for (let i = 0; i < id.length; i++) {
+      q += `ids=${id[i]}&`;
+    }
+    const httpUrl = `${this.API_URL}/findall/${q}`;
+
+    return this._http
+      .get(httpUrl)
+      .map(res => {
+        const b = res.json();
+        let r: any[];
+        that.operationHandling(b, (c) => {
+          r = c;
+        });
+        return r || [];
+      });
+
+  }
+
 
 
   // protected extractData(res: Response, successFunc?: any, errorFunc?: any) {

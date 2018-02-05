@@ -14,8 +14,6 @@ export interface SalesPlanModel {
 }
 
 
-
-
 export interface SalesPlanStatusModel {
     salesPlanStatusId: number;
     title: string;
@@ -23,4 +21,12 @@ export interface SalesPlanStatusModel {
 }
 
 
+export interface PersonExceptionModel {
+    personExceptionId: number;
+    personId: number;
+    personFullName: string;
+    salesPlanId: number;
+    salesPlanTitle: string;
+    hasPermmision: boolean;
+}
 

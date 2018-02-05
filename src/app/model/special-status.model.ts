@@ -6,8 +6,7 @@ export interface SpecialStatusModel {
     statusType?: boolean;
     // امکان انتخاب بیشتر
     canMoreSelect: boolean;
-
-
+    hasValue: boolean;
 }
 
 export interface SpecialStatusValueModel {

@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { SalesPlanModel, SalesPlanStatusModel } from '../model/sales.model';
+import { SalesPlanModel, SalesPlanStatusModel,PersonExceptionModel } from '../model/sales.model';
 import { BaseService } from './base.service';
 import { WeBaseKendoGridService } from './base-kendo-grid.service';
 import { OperationResultModel } from '../model/operation-result.model';
@@ -100,4 +100,52 @@ export class SalesPlanStatusComboService extends BehaviorSubject<SalesPlanModel[
   }
 
 }
+
+
+//
+//
+
+@Injectable()
+export class PersonExceptionService extends BaseService {
+
+  constructor(http: Http) {
+    super(http, UrlHelper.PersonException_API);
+  }
+}
+
+
+@Injectable()
+export class PersonExceptionKendoGridService extends WeBaseKendoGridService {
+  _cityService: SalesPlanStatusService;
+
+  constructor(http: Http, cityService: PersonExceptionService) {
+    super(http, UrlHelper.PersonException_API);
+    this._cityService = cityService;
+  }
+}
+
+
+@Injectable()
+export class PersonExceptionComboService extends BehaviorSubject<PersonExceptionModel[]> {
+
+  baseService: PersonExceptionService;
+  constructor(http: Http, service: PersonExceptionService) {
+    super(null);
+    this.baseService = service;
+    this.baseService.API_URL += '/';
+  }
+
+  // public read(provinceId: number): void {
+  //   this.baseService.get('getItems/' + provinceId)
+  //     .subscribe(x => super.next(x));
+  // }
+
+  public readAll(): void {
+    this.baseService.get('getAllItems')
+      .subscribe(x => super.next(x));
+
+  }
+
+}
+
 
