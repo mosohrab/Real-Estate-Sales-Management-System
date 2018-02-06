@@ -21,7 +21,6 @@ import {
 } from '@progress/kendo-angular-grid';
 
 import { NotifyManager } from '../infrastructure/notify-manager';
-import { DeleteConfirmComponent } from 'ng2-aryanet-core';
 import { WeBaseKendoGridService } from '../services/base-kendo-grid.service';
 import { WeBaseComponent } from './we-base.component';
 // @Component({

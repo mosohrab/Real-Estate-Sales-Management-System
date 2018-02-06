@@ -52,7 +52,7 @@ import { load } from '@progress/kendo-angular-intl';
 import {
   AryaNetCoreModule, HttpInterceptedService,
   AppConfigService, AppErrorHandler
-} from 'ng2-aryanet-core';
+} from  'ng2-aryanet-core';
 
 import { AppRoutingModule } from './app-routing.module';
 // // modules

@@ -17,6 +17,9 @@
     ]
   },
   "exclude": [
-    "src/app/ng2-tree"
+    "src/app/ng2-tree",
+    "node_modules",
+    "dist",
+    "**/*.spec.ts"
   ]
 }
