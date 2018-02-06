@@ -8,6 +8,8 @@ import { UnitModel, UnitFeatureAssignedModel } from '../model/unit.model';
 import { BaseService } from './base.service';
 import { WeBaseKendoGridService } from './base-kendo-grid.service';
 import { UrlHelper } from '../infrastructure/url-helper';
+import { TreeModel } from '../core/model/tree.model';
+
 
 @Injectable()
 export class UnitService extends BaseService {
@@ -15,6 +17,10 @@ export class UnitService extends BaseService {
     constructor(http: Http) {
         super(http, UrlHelper.UNIT_API);
     }
+
+
+
+
 }
 
 @Injectable()

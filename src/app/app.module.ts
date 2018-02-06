@@ -120,6 +120,7 @@ import { CompanySpecialStatusComponent } from './components/buyer/company/compan
 
 import { WbsComponent } from './components/wbs/wbs/wbs.component';
 import { WbsTreeComponent } from './components/wbs/wbs/wbs-tree.component';
+import { WbsActiveTreeComponent } from './components/wbs/wbs/wbs-active-tree.component';
 import { WbsUpsertComponent } from './components/wbs/wbs/wbs-upsert.component';
 import { WbsCompanyDetailComponent } from './components/wbs/wbs/company-detail.component';
 import { WbsProjectDetailComponent } from './components/wbs/wbs/project-detail.component';
@@ -215,6 +216,7 @@ import { SelectiveBundlingComponent } from './components/Sales/selective-bundlin
 
     WbsComponent,
     WbsTreeComponent,
+    WbsActiveTreeComponent,
     WbsUpsertComponent,
     WbsCompanyDetailComponent,
     WbsProjectDetailComponent,

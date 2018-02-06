@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
 import { WeBaseComponent } from '../../we-base.component';
 
+import {WbsActiveTreeComponent} from '../../wbs/wbs/wbs-active-tree.component';
 
 @Component({
   selector: 'app-unit-bundling',
@@ -9,6 +10,7 @@ import { WeBaseComponent } from '../../we-base.component';
   encapsulation: ViewEncapsulation.None
 })
 export class UnitBundlingComponent extends WeBaseComponent {
+  @ViewChild('wbsTree') wbsTree: WbsActiveTreeComponent;
 
 
   constructor() {
@@ -16,11 +18,14 @@ export class UnitBundlingComponent extends WeBaseComponent {
   }
 
   ngOnInitHandler() {
+    // this.buyerRangeService.initBusyConfig(this.busyConfig);
   }
 
 
 
-  onSaveStatus() {
+  onSaveWbs() {
+
+    this.wbsTree.getCheckedKeys();
 
   }
 }

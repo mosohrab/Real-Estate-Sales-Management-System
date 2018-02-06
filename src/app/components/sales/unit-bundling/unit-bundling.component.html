@@ -1,33 +1,49 @@
+<kendo-tabstrip [expandMode]="'single'" [ngBusy]="busyConfig" >
 
-<kendo-tabstrip [expandMode]="'single'" >
+  <kendo-tabstrip-tab [title]="'ساختار'" [expanded]='true' [selected]="true">
+    <ng-template kendoTabContent>
 
-    <kendo-tabstrip-tab
-     [title]="'ساختار'"
-      [expanded]='true'
-       [selected]="true" >
-      <ng-template kendoTabContent>
-  
-      </ng-template>
-    </kendo-tabstrip-tab>
-  
-  
-    <kendo-tabstrip-tab [title]="'کاربری'">
-      <ng-template kendoTabContent>
-  
-      </ng-template>
-    </kendo-tabstrip-tab>
-  
-  
-    <kendo-tabstrip-tab [title]="'کاربری / ویژگی عمومی'">
-      <ng-template kendoTabContent>
-      
-      </ng-template>
-    </kendo-tabstrip-tab>
-  
-    <kendo-tabstrip-tab [title]="'استثناء'">
-      <ng-template kendoTabContent>
-      
-      </ng-template>
-    </kendo-tabstrip-tab>
-  
-  </kendo-tabstrip>
+      <div class="au-panel">
+        <div class="au-panel-header au-bg-gray">
+          <app-toolbar-button 
+          [showAddButton]="true"
+           [showEditButton]="false"
+            [showDeleteButton]="false" 
+           [showDeletAlleButton]="true"
+            (addClicked)="onSaveWbs()" 
+            >
+
+          </app-toolbar-button>
+        </div>
+        <app-wbs-active-tree 
+          #wbsTree >
+        </app-wbs-active-tree>
+
+
+      </div>
+
+
+    </ng-template>
+  </kendo-tabstrip-tab>
+
+
+  <kendo-tabstrip-tab [title]="'کاربری'">
+    <ng-template kendoTabContent>
+
+    </ng-template>
+  </kendo-tabstrip-tab>
+
+
+  <kendo-tabstrip-tab [title]="'کاربری / ویژگی عمومی'">
+    <ng-template kendoTabContent>
+
+    </ng-template>
+  </kendo-tabstrip-tab>
+
+  <kendo-tabstrip-tab [title]="'استثناء'">
+    <ng-template kendoTabContent>
+
+    </ng-template>
+  </kendo-tabstrip-tab>
+
+</kendo-tabstrip>

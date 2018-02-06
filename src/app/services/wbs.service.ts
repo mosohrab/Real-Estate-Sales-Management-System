@@ -39,6 +39,27 @@ export class WbsService extends BaseService {
 
     }
 
+    public getActiveTreeItems(id: number): Observable<TreeModel[]> {
+        return this.get('/getActiveTree/' + id)
+            .map(res => {
+                const r = Array<TreeModel>();
+                for (let i = 0; i < res.length; i++) {
+                    const item = res[i];
+                    r.push(<TreeModel>{
+                        id: item.id,
+                        value: item.value,
+                        children: Array<TreeModel>(),
+                        emitLoadNextLevel: item.hasChildren,
+                        level: Number(item.level),
+                        hasChildren: item.hasChildren
+                    });
+                }
+                return r;
+
+            });
+
+    }
+
     // public getStructure(id: number): Observable<TreeModel[]> {
     //     return this.get('/getstructure')
     //         .map(res => {

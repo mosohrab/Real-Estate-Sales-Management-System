@@ -3,7 +3,7 @@
     <h3>محدوده افراد</h3>
   </div> -->
 
-<kendo-tabstrip [expandMode]="'single'" >
+<kendo-tabstrip [expandMode]="'single'" [ngBusy]="busyConfig" >
 
     <kendo-tabstrip-tab [title]="'ویژگی های خاص'" [expanded]='true' [selected]="true" >
       <ng-template kendoTabContent>

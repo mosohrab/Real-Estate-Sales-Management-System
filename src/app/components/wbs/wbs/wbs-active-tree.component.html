@@ -2,21 +2,29 @@
 
 <kendo-treeview
         [nodes]="data  | async"
-        [textField]="['value']"
-        kendoTreeViewExpandable      
+        textField="value"
         [hasChildren]="hasChildren"
         [children]="fetchChildren"
+
+        kendoTreeViewExpandable      
         [kendoTreeViewCheckable]="checkableSettings"
+        [checkBy]="'id'" 
         [(checkedKeys)]="checkedKeys"
         [(expandedKeys)]="expandedKeys"
-      
-      [ngBusy]="busyConfig"   
+        
+       
+
+      [ngBusy]="busyConfig" 
       style="height: 300px;overflow: auto;"
       >
     </kendo-treeview>
 
     <!--
-
+      idField="id"
+ kendoTreeViewSelectable
+        [selectBy]="'id'"
+        [(selectedKeys)]="selectedKeys"
+        [textField]="['value']"
         kendoTreeViewHierarchyBinding
         childrenField="children"
       -->

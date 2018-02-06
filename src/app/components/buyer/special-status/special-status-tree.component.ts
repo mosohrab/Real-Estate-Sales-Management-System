@@ -6,10 +6,9 @@ import {
   EventEmitter, ViewEncapsulation
 } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { CheckableSettings } from '@progress/kendo-angular-treeview';
 
 import { TreeModel } from '../../../core/model/tree.model';
-import { WeBaseComponent, WeBaseTreeComponent } from '../../we-base.component';
+import { WeBaseKendoTreeComponent } from '../../we-base.component';
 import { SpecialStatusModel } from '../../../model/special-status.model';
 import { SpecialStatusValueModel } from '../../../model/special-status.model';
 import { SpecialStatusService } from '../../../services/special-status.service';
@@ -26,18 +25,11 @@ import { SpecialStatusValueService } from '../../../services/special-status-valu
     SpecialStatusValueService
   ]
 })
-export class SpecialStatuTreeComponent extends WeBaseComponent {
+export class SpecialStatuTreeComponent extends WeBaseKendoTreeComponent {
   specialStatusService: SpecialStatusService;
   specialStatusValueService: SpecialStatusValueService;
   public data: Observable<TreeModel[]>;
   // public data: Array<TreeModel[]>();
-
-  public checkedKeys: any[] = [''];
-  public checkChildren = true;
-  public checkParents = true;
-  public checkMode: any = 'multiple';
-  public selectionMode: any = 'single';
-  public expandedKeys: any[] = ['0'];
 
   constructor(specialStatusService: SpecialStatusService,
     specialStatusValueService: SpecialStatusValueService) {
@@ -95,13 +87,6 @@ export class SpecialStatuTreeComponent extends WeBaseComponent {
   }
 
 
-  public get checkableSettings(): CheckableSettings {
-    return {
-      checkChildren: this.checkChildren,
-      checkParents: this.checkParents,
-      mode: this.checkMode
-    };
-  }
 
   public hasChildren = (item: TreeModel) => {
     return item.hasChildren;

@@ -6,6 +6,8 @@ import {
 } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
+import { CheckableSettings } from '@progress/kendo-angular-treeview';
+
 import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { BaseComponent } from '../core/components/base.component';
 
@@ -40,6 +42,28 @@ export abstract class WeBaseComponent extends BaseComponent {
     delay: 0,
     minDuration: 1000
   };
+
+}
+
+
+export abstract class WeBaseKendoTreeComponent extends WeBaseComponent {
+  public checkedKeys: any[] = [''];
+  public checkChildren = true;
+  public checkParents = true;
+  public checkMode: any = 'multiple';
+  public selectionMode: any = 'single';
+  public expandedKeys: any[] = ['0'];
+  public selectBy = 'id';
+  public selectedKeys: any[] = [0];
+
+
+  public get checkableSettings(): CheckableSettings {
+    return {
+      checkChildren: this.checkChildren,
+      checkParents: this.checkParents,
+      mode: this.checkMode
+    };
+  }
 
 }
 
