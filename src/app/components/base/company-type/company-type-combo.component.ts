@@ -4,7 +4,7 @@ import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/f
 
 import { CompanyTypeModel } from '../../../model/company.model';
 import { CompanyTypeService, CompanyTypeComboService } from '../../../services/company-type.service';
-import {  BaseComboComponent } from '../../../core/components/base.component';
+import {  BaseComboComponent } from 'ng2-aryanet-core';
 
 @Component({
   selector: 'app-company-type-combo',

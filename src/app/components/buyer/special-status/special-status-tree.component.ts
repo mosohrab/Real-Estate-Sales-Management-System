@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { TreeModel } from '../../../core/model/tree.model';
+import { TreeModel } from 'ng2-aryanet-core';
 import { WeBaseKendoTreeComponent } from '../../we-base.component';
 import { SpecialStatusModel } from '../../../model/special-status.model';
 import { SpecialStatusValueModel } from '../../../model/special-status.model';

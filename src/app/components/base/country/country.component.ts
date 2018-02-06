@@ -11,7 +11,7 @@ import { WeBaseKendoGridService } from '../../../services/base-kendo-grid.servic
 import { CountryKendoGridService } from '../../../services/country.service';
 import { CountryModel } from '../../../model/country.model';
 import { CountryUpsertComponent } from './country-upsert.component';
-import { BreadcrumbModel } from '../../../core/model/breadcrumb.model';
+import { BreadcrumbModel } from 'ng2-aryanet-core';
 import { BrowserModule } from '@angular/platform-browser/src/browser';
 
 @Component({

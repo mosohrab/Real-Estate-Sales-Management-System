@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
 import { CheckableSettings } from '@progress/kendo-angular-treeview';
 
 import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { BaseComponent } from '../core/components/base.component';
+import { BaseComponent } from 'ng2-aryanet-core';
 
 import { Tree } from '../ng2-tree/src/tree';
 import { TreeModel, TreeModelSettings } from '../ng2-tree/src/tree.types';

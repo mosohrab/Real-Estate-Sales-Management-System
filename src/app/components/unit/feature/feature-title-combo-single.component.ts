@@ -4,7 +4,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { UnitFeatureTitleModel } from '../../../model/unit-feature.model';
 import { UnitFeatureTitleService, UnitFeatureTitleComboService } from '../../../services/unit-feature.service';
-import {  BaseComboComponent } from '../../../core/components/base.component';
+import {  BaseComboComponent } from 'ng2-aryanet-core';
 
 @Component({
   selector: 'app-feature-title-combo-single',

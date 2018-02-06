@@ -4,7 +4,7 @@ import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/f
 
 import { ScaleModel } from '../../../model/base.model';
 import { ScaleService, ScaleComboService } from '../../../services/scale.service';
-import {  BaseComboComponent } from '../../../core/components/base.component';
+import {  BaseComboComponent } from 'ng2-aryanet-core';
 
 @Component({
   selector: 'app-scale-combo',

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Rx';
 import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MeasuringUnitModel } from '../../../model/unit.model';
 import { MeasuringUnitService, MeasuringUnitComboService } from '../../../services/measuring-unit.service';
-import { BaseComboComponent } from '../../../core/components/base.component';
+import { BaseComboComponent } from 'ng2-aryanet-core';
 
 @Component({
   selector: 'app-measuring-unit-combo',

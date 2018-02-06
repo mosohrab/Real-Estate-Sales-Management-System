@@ -4,8 +4,8 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 
-import { OperationResultModel } from '../../../core/model/operation-result.model';
-import { ToolbarButton, ToolbarButtonClickEvent } from '../../../core/model/toolbar-button';
+import { OperationResultModel } from 'ng2-aryanet-core';
+import { ToolbarButton, ToolbarButtonClickEvent } from 'ng2-aryanet-core';
 import { WeBaseKendoGridComponent } from '../../we-base-kendo-grid.component';
 import { UnitService, UnitKendoGridService } from '../../../services/unit.service';
 import { WbsModel } from '../../../model/wbs.model';

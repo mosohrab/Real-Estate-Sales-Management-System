@@ -5,7 +5,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { CityService, CityComboService } from '../../../services/city.service';
 import { CityModel } from '../../../model/city.model';
-import {  BaseComboComponent } from '../../../core/components/base.component';
+import {  BaseComboComponent } from 'ng2-aryanet-core';
 
 @Component({
   selector: 'app-city-combo-single',

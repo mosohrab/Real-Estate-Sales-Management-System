@@ -49,13 +49,10 @@ import { load } from '@progress/kendo-angular-intl';
 // );
 
 // Core
-import { AryaNetCoreModule } from './core/core.module';
-import { AppConfigService } from './core/services/app-config.service';
-import { HttpInterceptedService } from './core/interceptors/http-interceptor.service';
-import { AppErrorHandler } from './core/utils/error-handler';
-// import { DeleteConfirmComponent } from './core/components/delete-confirm/delete-confirm.component';
-// import { ToolbarButtonComponent } from './core/components/toolbar-button/toolbar-button.component';
-
+import {
+  AryaNetCoreModule, HttpInterceptedService,
+  AppConfigService, AppErrorHandler
+} from 'ng2-aryanet-core';
 
 import { AppRoutingModule } from './app-routing.module';
 // // modules
