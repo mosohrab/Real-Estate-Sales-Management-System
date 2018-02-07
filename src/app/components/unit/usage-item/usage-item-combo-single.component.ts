@@ -4,7 +4,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { UsageItemModel } from '../../../model/usage.model';
 import { UsageService, UsageItemService, UsageItemComboService } from '../../../services/usage.service';
-import { BaseComboComponent } from 'ng2-aryanet-core';
+import { BaseComboComponent } from '../../../core/components/base.component';
 
 @Component({
   selector: 'app-usage-item-combo-single',

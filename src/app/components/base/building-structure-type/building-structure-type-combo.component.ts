@@ -4,7 +4,8 @@ import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/f
 
 import {BuildingstructuretypeModel } from '../../../model/base.model';
 import { BuildingstructuretypeService, BuildingstructuretypeComboService } from '../../../services/building-structure-type.service';
-import {  BaseComboComponent } from 'ng2-aryanet-core';
+// import {  BaseComboComponent } from 'ng2-aryanet-core';
+import {  BaseComboComponent } from '../../../core/components/base.component';
 
 @Component({
   selector: 'app-building-structure-type-combo',

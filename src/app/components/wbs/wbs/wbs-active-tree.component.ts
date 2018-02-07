@@ -8,7 +8,7 @@ import {
 import { Observable } from 'rxjs/Observable';
 import { CheckableSettings } from '@progress/kendo-angular-treeview';
 
-import { TreeModel } from 'ng2-aryanet-core';
+import { TreeModel } from '../../../core/model/tree.model';
 import { WeBaseKendoTreeComponent } from '../../we-base.component';
 import { WbsService } from '../../../services/wbs.service';
 

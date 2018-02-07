@@ -8,7 +8,7 @@ import { BaseService } from './base.service';
 import { WeBaseKendoGridService } from './base-kendo-grid.service';
 import { UrlHelper } from '../infrastructure/url-helper';
 import { SpecialStatusValueModel } from '../model/special-status.model';
-import { TreeModel } from 'ng2-aryanet-core';
+import { TreeModel } from '../core/model/tree.model';
 
 @Injectable()
 export class SpecialStatusValueService extends BaseService {

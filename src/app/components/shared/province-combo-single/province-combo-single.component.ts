@@ -4,7 +4,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { ProvinceService, ProvinceComboService } from '../../../services/province.service';
 import { ProvinceModel } from '../../../model/Province.model';
-import {  BaseComboComponent } from 'ng2-aryanet-core';
+import {  BaseComboComponent } from '../../../core/components/base.component';
 
 @Component({
   selector: 'app-province-combo-single',

@@ -7,7 +7,7 @@ import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/f
 
 import { UnitFeatureModel } from '../../../model/unit-feature.model';
 import { UnitFeatureService, UnitFeatureComboService } from '../../../services/unit-feature.service';
-import {  BaseComboComponent } from 'ng2-aryanet-core';
+import {  BaseComboComponent } from '../../../core/components/base.component';
 
 @Component({
   selector: 'app-feature-combo',

@@ -16,7 +16,8 @@ import { UrlHelper } from '../infrastructure/url-helper';
 import { OperationResultModel } from '../model/operation-result.model';
 
 import { AppModule } from '../app.module';
-import { AppConfigService } from 'ng2-aryanet-core';
+// import { AppConfigService } from 'ng2-aryanet-core';
+import { AppConfigService } from '../core/services/app-config.service';
 
 
 @Injectable()

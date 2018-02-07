@@ -4,7 +4,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { UsageItemModel } from '../../../model/usage.model';
 import { UnitFeatureValueService, UnitFeatureValueComboService } from '../../../services/unit-feature.service';
-import {  BaseComboComponent } from 'ng2-aryanet-core';
+import {  BaseComboComponent } from '../../../core/components/base.component';
 import { UnitFeatureValueModel } from '../../../model/unit-feature.model';
 
 @Component({

@@ -8,7 +8,9 @@ import { UnitModel, UnitFeatureAssignedModel } from '../model/unit.model';
 import { BaseService } from './base.service';
 import { WeBaseKendoGridService } from './base-kendo-grid.service';
 import { UrlHelper } from '../infrastructure/url-helper';
-import { TreeModel } from 'ng2-aryanet-core';
+// import { TreeModel } from 'ng2-aryanet-core';
+ import { TreeModel } from '../core/model/tree.model';
+
 
 
 @Injectable()

@@ -44,7 +44,6 @@
     "moment": "^2.19.1",
     "moment-jalaali": "^0.7.2",
     "ng-snotify": "^4.0.2",
-    "ng2-aryanet-core": "^1.0.16",
     "ng2-datepicker-jalali": "^1.0.9",
     "ng2-jalali-date-picker": "^2.0.3",
     "ng2-slim-loading-bar": "^4.0.0",

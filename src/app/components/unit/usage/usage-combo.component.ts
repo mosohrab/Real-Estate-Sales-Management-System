@@ -7,7 +7,7 @@ import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/f
 
 import { UsageModel } from '../../../model/usage.model';
 import { UsageService, UsageComboService } from '../../../services/usage.service';
-import {  BaseComboComponent } from 'ng2-aryanet-core';
+import { BaseComboComponent } from '../../../core/components/base.component';
 
 @Component({
   selector: 'app-usage-combo',
