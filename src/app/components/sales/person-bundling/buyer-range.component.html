@@ -1,0 +1,27 @@
+
+<kendo-splitter style="height: 100%;">
+  <kendo-splitter-pane size="50%" >
+    <fieldset>
+        <legend>دسترسی مجاز</legend>
+        <div>
+<app-buyer-range-partial 
+ [hasPermission]="true" >
+
+</app-buyer-range-partial>
+        </div>
+    </fieldset>
+  </kendo-splitter-pane>
+
+  <kendo-splitter-pane>
+      <fieldset>
+        <legend>دسترسی غیر مجاز</legend>
+        <div>
+            
+<app-buyer-range-partial 
+[hasPermission]="false" >
+
+</app-buyer-range-partial>
+        </div>
+    </fieldset>
+  </kendo-splitter-pane>
+</kendo-splitter>

@@ -31,8 +31,7 @@ import { DialogModule } from '@progress/kendo-angular-dialog';
 import { RippleModule } from '@progress/kendo-angular-ripple';
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { CalendarModule } from '@progress/kendo-angular-dateinputs';
-import { PanelBarModule } from '@progress/kendo-angular-layout';
-import { TabStripModule } from '@progress/kendo-angular-layout';
+import { PanelBarModule,TabStripModule,SplitterModule } from '@progress/kendo-angular-layout';
 import { TreeViewModule } from '@progress/kendo-angular-treeview';
 /* Loading CLDR data */
 import { load } from '@progress/kendo-angular-intl';
@@ -164,9 +163,10 @@ import { SalesPlanStatusComponent } from './components/sales/sales-plan-status/s
 import { SalesPlanStatusDialogComponent } from './components/sales/sales-plan-status/sales-plan-status-dialog.component';
 import { SalesPlanStatusComboComponent } from './components/sales/sales-plan-status/sales-plan-status-combo.component';
 import { PersonBundlingComponent } from './components/Sales/person-bundling/person-bundling.component';
+import { PersonBundlingDialogComponent } from './components/Sales/person-bundling/person-bundling-dialog.component';
 import { PersonResultComponent } from './components/Sales/person-bundling/person-result.component';
-import { PersonExceptionComponent } from './components/Sales/person-bundling/person-exception.component';
-import { PersonExceptionDialogComponent } from './components/Sales/person-bundling/person-exception-dialog.component';
+import { BuyerRangeComponent } from './components/Sales/person-bundling/buyer-range.component';
+import { BuyerRangePartialComponent } from './components/Sales/person-bundling/buyer-range-partial.component';
 import { UnitBundlingComponent } from './components/Sales/unit-bundling/unit-bundling.component';
 import { BundlingComponent } from './components/Sales/bundling/bundling.component';
 import { SelectiveBundlingComponent } from './components/Sales/selective-bundling/selective-bundling.component';
@@ -256,9 +256,10 @@ import { SelectiveBundlingComponent } from './components/Sales/selective-bundlin
     SalesPlanStatusDialogComponent,
     SalesPlanStatusComboComponent,
     PersonBundlingComponent,
+    PersonBundlingDialogComponent,
     PersonResultComponent,
-    PersonExceptionComponent,
-    PersonExceptionDialogComponent,
+    BuyerRangeComponent,
+    BuyerRangePartialComponent,
     UnitBundlingComponent,
     BundlingComponent,
     SelectiveBundlingComponent
@@ -288,6 +289,7 @@ import { SelectiveBundlingComponent } from './components/Sales/selective-bundlin
     CalendarModule,
     PanelBarModule,
     TabStripModule,
+    SplitterModule,
     TreeViewModule,
 
     // BaseModule,

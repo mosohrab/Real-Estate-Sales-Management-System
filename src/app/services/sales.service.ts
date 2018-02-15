@@ -4,9 +4,9 @@ import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import {
-  SalesPlanModel, SalesPlanStatusModel, PersonExceptionModel,
-  BuyerRangeBulkModel, BuyerRangeModel, PersonBundlingModel,
-  PersonBundlingType
+  SalesPlanModel, SalesPlanStatusModel,
+  BuyerRangeModel, BuyerRangeValueModel,
+  PersonBundlingModel, PersonBundlingType
 } from '../model/sales.model';
 import { BaseService } from './base.service';
 import { WeBaseKendoGridService } from './base-kendo-grid.service';
@@ -106,48 +106,6 @@ export class SalesPlanStatusComboService extends BehaviorSubject<SalesPlanModel[
 }
 
 
-//
-//
-
-@Injectable()
-export class PersonExceptionService extends BaseService {
-
-  constructor(http: Http) {
-    super(http, UrlHelper.PersonException_API);
-  }
-}
-
-
-@Injectable()
-export class PersonExceptionKendoGridService extends WeBaseKendoGridService {
-  _cityService: SalesPlanStatusService;
-
-  constructor(http: Http, cityService: PersonExceptionService) {
-    super(http, UrlHelper.PersonException_API);
-    this._cityService = cityService;
-  }
-}
-
-
-@Injectable()
-export class PersonExceptionComboService extends BehaviorSubject<PersonExceptionModel[]> {
-
-  baseService: PersonExceptionService;
-  constructor(http: Http, service: PersonExceptionService) {
-    super(null);
-    this.baseService = service;
-    this.baseService.API_URL += '/';
-  }
-
-  public readAll(): void {
-    this.baseService.get('getAllItems')
-      .subscribe(x => super.next(x));
-
-  }
-
-}
-
-
 
 //
 //
@@ -177,6 +135,49 @@ export class BuyerRangeComboService extends BehaviorSubject<BuyerRangeModel[]> {
 
   baseService: BuyerRangeService;
   constructor(http: Http, service: BuyerRangeService) {
+    super(null);
+    this.baseService = service;
+    this.baseService.API_URL += '/';
+  }
+
+  public readAll(): void {
+    this.baseService.get('getAllItems')
+      .subscribe(x => super.next(x));
+
+  }
+
+}
+
+
+
+//
+//
+
+@Injectable()
+export class BuyerRangeValueService extends BaseService {
+
+  constructor(http: Http) {
+    super(http, UrlHelper.BuyerRangeValue_API);
+  }
+}
+
+
+@Injectable()
+export class BuyerRangeValueKendoGridService extends WeBaseKendoGridService {
+  baseService: BuyerRangeValueService;
+
+  constructor(http: Http, service: BuyerRangeValueService) {
+    super(http, UrlHelper.BuyerRangeValue_API);
+    this.baseService = service;
+  }
+}
+
+
+@Injectable()
+export class BuyerRangeValueComboService extends BehaviorSubject<BuyerRangeValueModel[]> {
+
+  baseService: BuyerRangeValueService;
+  constructor(http: Http, service: BuyerRangeValueService) {
     super(null);
     this.baseService = service;
     this.baseService.API_URL += '/';

@@ -5,48 +5,30 @@
 
 <kendo-tabstrip [expandMode]="'single'" [ngBusy]="busyConfig" >
 
-    <kendo-tabstrip-tab [title]="'ویژگی های خاص'" [expanded]='true' [selected]="true" >
+    <kendo-tabstrip-tab [title]="'اشخاص حقیقی/حقوقی'" 
+    [expanded]='true' 
+    [selected]="true" >
+
       <ng-template kendoTabContent>
-  
-          <div class="au-panel">
-              <div class="au-panel-header au-bg-gray">
-                <app-toolbar-button
-                [showAddButton]="true"
-                [showEditButton]="false"           
-                [showDeleteButton]="false"
-                [showDeletAlleButton]="true"
-                (addClicked)="onSaveStatus()"
-                (editClicked)="onEditClicked()"
-                (deleteClicked)="onDeleteClicked()"
-                (deleteAllClicked)="onDeleteAllClicked()"
-                
-                >
-                    
-            </app-toolbar-button>
-              </div>
-        <app-special-status-tree 
-         #statusTree   >
-        </app-special-status-tree>
-
-        </div>
-
+              <app-buyer-range>
+              </app-buyer-range>
       </ng-template>
     </kendo-tabstrip-tab>
   
   
-    <kendo-tabstrip-tab [title]="'استثناء'">
+    <kendo-tabstrip-tab [title]="'اشخاص حقیقی'">
       <ng-template kendoTabContent>
   
         <div style="width:750px;">
-          <app-person-exception>
-          </app-person-exception>
+          <app-buyer-range>
+          </app-buyer-range>
         </div>
   
       </ng-template>
     </kendo-tabstrip-tab>
   
   
-    <kendo-tabstrip-tab [title]="'نتایج'">
+    <kendo-tabstrip-tab [title]="'اشخاص حقوقی'">
       <ng-template kendoTabContent>
         <app-person-result>
         </app-person-result>

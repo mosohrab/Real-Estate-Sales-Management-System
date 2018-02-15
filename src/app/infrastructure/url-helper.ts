@@ -30,8 +30,9 @@ export class UrlHelper {
     static MeasuringUnit_API= 'MeasuringUnit';
     static SalesPlan_API= 'SalesPlan';
     static SalesPlanStatus_API= 'SalesPlanStatus';
-    static PersonException_API= 'PersonException';
+    // static PersonException_API= 'PersonException';
     static BuyerRange_API= 'BuyerRange';
+    static BuyerRangeValue_API= 'BuyerRange';
     static PersonBundling_API= 'PersonBundling';
 
 }

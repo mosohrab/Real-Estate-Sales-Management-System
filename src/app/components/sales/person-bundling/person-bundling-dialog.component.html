@@ -1,0 +1,87 @@
+
+
+<kendo-dialog [width]="950" [height]="500" 
+[title]="Status" 
+(close)="onClose()"
+ *ngIf="isOpenedDialog"
+  style="text-align:right;">
+    
+      <kendo-dialog-titlebar>
+        <div style="font-size: 18px; line-height: 1.3em;">
+          <span class="k-icon k-i-warning"></span> مشخصات
+        </div>
+      </kendo-dialog-titlebar>
+
+
+      
+<kendo-tabstrip [expandMode]="'single'" [ngBusy]="busyConfig" >
+
+  
+    <kendo-tabstrip-tab [title]="'اشخاص حقیقی'">
+      <ng-template kendoTabContent>
+  
+        <div >
+          <app-person-search 
+          #personDialog >
+          </app-person-search>
+        </div>
+  
+      </ng-template>
+    </kendo-tabstrip-tab>
+  
+  
+    <kendo-tabstrip-tab [title]="'اشخاص حقوقی'">
+      <ng-template kendoTabContent>
+        <app-person-result>
+        </app-person-result>
+      </ng-template>
+    </kendo-tabstrip-tab>
+
+
+
+
+  <kendo-tabstrip-tab [title]="'ویژگی ها'" 
+  [expanded]='true' 
+  [selected]="true" >
+
+    <ng-template kendoTabContent>
+
+        <div class="au-panel">
+            <div class="au-panel-header au-bg-gray">
+              <app-toolbar-button
+              [showAddButton]="true"
+              [showEditButton]="false"           
+              [showDeleteButton]="false"
+              [showDeletAlleButton]="true"
+              (addClicked)="onSaveStatus()"
+              (editClicked)="onEditClicked()"
+              (deleteClicked)="onDeleteClicked()"
+              (deleteAllClicked)="onDeleteAllClicked()"
+              
+              >
+                  
+          </app-toolbar-button>
+            </div>
+      <app-special-status-tree 
+       #statusTree   >
+      </app-special-status-tree>
+
+      </div>
+
+    </ng-template>
+  </kendo-tabstrip-tab>
+
+  
+  </kendo-tabstrip>
+
+
+
+  <kendo-dialog-actions>
+    <button kendoButton class="k-button " (click)="onOk()" 
+     primary="true" type="submit">تایید</button>  
+
+    <button kendoButton class="k-button "
+     (click)="onClose()">انصراف</button>
+  </kendo-dialog-actions>
+
+</kendo-dialog>

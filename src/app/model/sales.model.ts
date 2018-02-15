@@ -22,40 +22,52 @@ export interface SalesPlanStatusModel {
 }
 
 
-export interface PersonExceptionModel {
-    personExceptionId: number;
-    personId: number;
-    personFullName: string;
-    salesPlanId: number;
-    salesPlanTitle: string;
-    hasPermmision: boolean;
-}
-export interface PersonExceptionBulkModel {
-    personIds: number[];
-    hasPermmision: boolean;
-}
+// export interface PersonExceptionModel {
+//     personExceptionId: number;
+//     personId: number;
+//     personFullName: string;
+//     salesPlanId: number;
+//     salesPlanTitle: string;
+//     hasPermmision: boolean;
+// }
+// export interface PersonExceptionBulkModel {
+//     personIds: number[];
+//     hasPermmision: boolean;
+// }
 
 
 
-export interface BuyerRangeBulkModel {
-    statusValueId: number[];
-    hasPermmision: boolean;
-}
+// export interface BuyerRangeBulkModel {
+//     statusValueId: number[];
+//     hasPermmision: boolean;
+// }
 
 
 export interface BuyerRangeModel {
     buyerRangeId: number;
-    statusValueId: number;
-    statusValueName: string;
     salesPlanId: number;
     salesPlanTitle: string;
-    hasPermmision: boolean;
+    fillterType: number;
+    isSelectAll: boolean;
+}
+
+export interface BuyerRangeValueModel {
+    buyerRangeValueId: number;
+    buyerRangeId: number;
+    personId?: number;
+    personName: string;
+    companyId?: number;
+    companyName: string;
+    specialStatusValueId?: number;
+    specialStatusValueName: string;
+    hasPermission: boolean;
 }
 
 
 export enum PersonBundlingType {
-    specialStatusValue = 0,
-    exception = 1
+    PersonAndCompany = 0,
+    Person = 1,
+    Company = 2
 }
 
 export interface PersonBundlingModel {
