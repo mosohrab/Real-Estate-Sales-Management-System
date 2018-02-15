@@ -37,17 +37,18 @@ export interface SalesPlanStatusModel {
 
 
 
-// export interface BuyerRangeBulkModel {
-//     statusValueId: number[];
-//     hasPermmision: boolean;
-// }
+export interface BuyerRangeBulkModel {
+    buyerRange: BuyerRangeModel;
+    buyerRangeValues: BuyerRangeValueModel[];
+
+}
 
 
 export interface BuyerRangeModel {
     buyerRangeId: number;
     salesPlanId: number;
     salesPlanTitle: string;
-    fillterType: number;
+    fillterType: PersonBundlingType;
     isSelectAll: boolean;
 }
 

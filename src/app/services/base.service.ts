@@ -70,26 +70,12 @@ export class BaseService {
     if (url !== undefined) {
       httpUrl += `${url}`;
     }
-    // const headers = new Headers(
-    //   {
-    //     'Accept': 'application/json',
-    //     // 'Content-Type': 'application/json',
-    //     'Content-Type': 'application/x-www-form-urlencoded'
-    //   });
-
-    // const options = new RequestOptions({
-    //   headers: headers,
-    //   // params : body
-    // });
-
+   
     const that = this;
-    // this.loading.show();
     return this._http.post(httpUrl, model)
       .map(res => {
         const b = res.json();
-        // const r = body.fields || {};
-        that.operationHandling(b);
-        //  that.loading.hide();
+        return b;
       })
       .catch(this.handleError);
 
@@ -128,7 +114,7 @@ export class BaseService {
     return this._http.put(httpUrl, model)
       .map(res => {
         const b = res.json();
-        that.operationHandling(b);
+        return b;
       })
       .catch(this.handleError);
   }
@@ -151,8 +137,7 @@ export class BaseService {
       //  .map(this.extractData)
       .map(res => {
         const b = res.json();
-        // const r = body.fields || {};
-        that.operationHandling(b);
+        return b;
       })
       .catch(this.handleError);
   }

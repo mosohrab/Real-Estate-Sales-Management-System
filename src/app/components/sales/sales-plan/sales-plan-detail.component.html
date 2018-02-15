@@ -2,9 +2,6 @@
 
 <div class="au-margin-top-10">
 
-
-
-
     <div class="row bhoechie-tab-container au-margin-bottom-10 au-margin-top-10"
     style="height: 565px;">
         <div class="col-lg-2 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
@@ -12,19 +9,27 @@
                 <a href="#" class="list-group-item active ">
                     اطلاعات پایه
                 </a>
-                <a href="#" class="list-group-item ">
+                <a href="#" 
+                *ngIf="model.salesPlanId > 0 "
+                class="list-group-item ">
                     محدوده افراد
                 </a>
-                <a href="#" class="list-group-item ">
+                <a href="#"  
+                *ngIf="model.salesPlanId > 0 " 
+                class="list-group-item ">
                     محدوده واحد ها
                 </a>
                 <!-- <a href="#" class="list-group-item ">
                     محدوده انتخاب
                 </a> -->
-                <a href="#" class="list-group-item ">
+                <a href="#"   
+                *ngIf="model.salesPlanId > 0 " 
+                class="list-group-item ">
                     ارزشگذاری
                 </a>
-                <a href="#" class="list-group-item ">
+                <a href="#"   
+                *ngIf="model.salesPlanId > 0 " 
+                class="list-group-item ">
                     مالی
                 </a>
                 <!-- <a href="#" class="list-group-item ">
@@ -36,7 +41,9 @@
                 <a href="#" class="list-group-item ">
                     تاریخچه تغییرات
                 </a> -->
-                <a href="#" class="list-group-item ">
+                <a href="#"   
+                *ngIf="model.salesPlanId > 0 " 
+                class="list-group-item ">
                     باندلینگ
                 </a>
              
@@ -45,17 +52,21 @@
         <div class="col-lg-10 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">
             <!-- flight section -->
             <div class="bhoechie-tab-content active">
-                <app-sales-plan-upsert>
+                <app-sales-plan-upsert [model]="model" (addedPlan)="onAddedPlan($event)">
                   </app-sales-plan-upsert>
             </div>
             <!-- train section -->
-            <div class="bhoechie-tab-content">
-                <app-person-bundling>
+            <div class="bhoechie-tab-content"  
+                *ngIf="model.salesPlanId > 0 " 
+                >
+                <app-person-bundling [salesPlanId]="model.salesPlanId">
                   </app-person-bundling>
             </div>
 
             <!-- hotel search -->
-            <div class="bhoechie-tab-content">
+            <div class="bhoechie-tab-content"  
+            *ngIf="model.salesPlanId > 0 " 
+            >
               <app-unit-bundling>
                 
               </app-unit-bundling>
@@ -63,10 +74,14 @@
             <!-- <div class="bhoechie-tab-content">
               
             </div> -->
-            <div class="bhoechie-tab-content">
+            <div class="bhoechie-tab-content"  
+            *ngIf="model.salesPlanId > 0 " 
+            >
               
             </div>
-            <div class="bhoechie-tab-content">
+            <div class="bhoechie-tab-content"  
+            *ngIf="model.salesPlanId > 0 " 
+            >
                
             </div>
             <!-- <div class="bhoechie-tab-content">

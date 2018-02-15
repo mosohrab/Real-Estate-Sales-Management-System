@@ -23,6 +23,7 @@ export class BuyerRangePartialComponent extends WeBaseKendoGridComponent {
 
   @ViewChild('dialogUpsert') dialogUpsert: PersonBundlingDialogComponent;
   @Input() salePlanId: number;
+  @Input() hasPermission = true;
 
   constructor(service: BuyerRangeValueKendoGridService) {
     super(service);

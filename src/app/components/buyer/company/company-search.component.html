@@ -28,10 +28,10 @@
              (pageChange)="onPageChange($event)"
             [resizable]="true" 
             [selectable]="selectableSettings" 
-            [kendoGridSelectBy]="'personId'" 
+            [kendoGridSelectBy]="'companyId'" 
             [selectedKeys]="dataItemSelected"  
             (selectedKeysChange)="onSelectedKeysChange($event)"
-             [height]="300" >
+             [height]="300" [ngBusy]="busyConfig">
 
             <kendo-grid-checkbox-column width="40">
                 <ng-template kendoGridHeaderTemplate>
@@ -42,10 +42,21 @@
                 </ng-template>
             </kendo-grid-checkbox-column>
 
-            <kendo-grid-column field="firstName" title="نام"></kendo-grid-column>
-            <kendo-grid-column field="lastName" title="نام خانوادگی"></kendo-grid-column>
-            <kendo-grid-column field="fatherName" title="نام پدر" ></kendo-grid-column>
-            <kendo-grid-column field="nationalCode" title="کد ملی" ></kendo-grid-column>
+         
+  <kendo-grid-column field="companyName" 
+  title="نام شرکت"  ></kendo-grid-column>
+
+  <kendo-grid-column field="companyAbbreviation"
+   title="نام اختصاری" width="200"></kendo-grid-column>
+
+  <kendo-grid-column field="registrationNumber"
+   title="شماره ثبت" width="200"></kendo-grid-column>
+
+  <kendo-grid-column field="nationalIdCode" 
+  title="شناسه ملی" width="200"></kendo-grid-column>
+
+  <kendo-grid-column field="economicCode"
+   title="کد اقتصادی" width="200"></kendo-grid-column>
 
 
         </kendo-grid>

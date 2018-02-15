@@ -45,12 +45,12 @@
          >
                  <ng-template kendoGridHeaderTemplate>
                      <input class="k-checkbox" 
-                     id="selectAllCheckboxId"
+                     id="selectAllValCheckboxId"
                       kendoGridSelectAllCheckbox
                       [state]="selectAllState"
                      (selectAllChange)="onSelectAllChange($event)">
                      <label class="k-checkbox-label"
-                      for="selectAllCheckboxId"></label>
+                      for="selectAllValCheckboxId"></label>
                  </ng-template>
              </kendo-grid-checkbox-column>
            
@@ -71,8 +71,10 @@
      </form>
    
    
-   <app-person-bundling-dialog
-   #dialogUpsert
+   <app-person-bundling-dialog 
+   [salePlanId]="salePlanId" 
+   [hasPermission]="hasPermission" 
+   #dialogUpsert 
    (closedDialog)="closedDialog($event)">
    
    </app-person-bundling-dialog>

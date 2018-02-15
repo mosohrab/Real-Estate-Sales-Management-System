@@ -1,27 +1,18 @@
+<kendo-dialog [width]="950" [height]="700" [title]="Status" (close)="onClose()" *ngIf="isOpenedDialog" style="text-align:right;">
+
+  <kendo-dialog-titlebar>
+    <div style="font-size: 18px; line-height: 1.3em;">
+      <span class="k-icon k-i-warning"></span> مشخصات
+    </div>
+  </kendo-dialog-titlebar>
+
+  <app-sales-plan-detail [model]="model">
+  </app-sales-plan-detail>
 
 
-<kendo-dialog [width]="950" [height]="700" 
-[title]="Status" 
-(close)="onClose()"
- *ngIf="isOpenedDialog"
-  style="text-align:right;">
-    
-      <kendo-dialog-titlebar>
-        <div style="font-size: 18px; line-height: 1.3em;">
-          <span class="k-icon k-i-warning"></span> مشخصات
-        </div>
-      </kendo-dialog-titlebar>
-      
-<app-sales-plan-detail>
-</app-sales-plan-detail>
+  <!-- <kendo-dialog-actions>
 
+    <button kendoButton class="k-button " (click)="onClose()">انصراف</button>
+  </kendo-dialog-actions> -->
 
-<kendo-dialog-actions>
-        <!-- <button kendoButton class="k-button " (click)="onOk()" 
-         primary="true" type="submit">تایید</button>   -->
-
-        <button kendoButton class="k-button "
-         (click)="onClose()">انصراف</button>
-      </kendo-dialog-actions>
-    
-    </kendo-dialog>
+</kendo-dialog>

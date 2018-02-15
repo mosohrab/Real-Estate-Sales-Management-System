@@ -21,10 +21,10 @@ import * as moment from 'jalali-moment';
 })
 export class SalesPlanUpsertComponent extends WeBaseComponent {
   service: SalesPlanService;
-  model = <SalesPlanModel>{};
   startDate: any;
   endDate: any;
-  @Input() id: number;
+  @Input() model = <SalesPlanModel>{};
+  @Output() addedPlan =new EventEmitter<SalesPlanModel>();
 
   constructor(service: SalesPlanService) {
     super();
@@ -33,23 +33,24 @@ export class SalesPlanUpsertComponent extends WeBaseComponent {
 
   ngOnInitHandler() {
 
-    if (this.id !== undefined) {
-      const that = this;
-      this.service.find(this.id)
-        .subscribe(x => {
-          that.service.operationHandling(x, (r) => {
-            that.model = <SalesPlanModel>r;
+    // if (this.model !== undefined &&
+    //   this.model.salesPlanId > 0) {
+    //   const that = this;
+    //   this.service.find(this.model.salesPlanId)
+    //     .subscribe(x => {
+    //       that.service.operationHandling(x, (r) => {
+    //         that.model = <SalesPlanModel>r;
 
-            if (that.model.startDate !== undefined) {
-              this.startDate = moment(this.model.startDate);
-            }
-            if (that.model.endDate !== undefined) {
-              this.endDate = moment(this.model.endDate);
-            }
-          });
+    //         if (that.model.startDate !== undefined) {
+    //           this.startDate = moment(this.model.startDate);
+    //         }
+    //         if (that.model.endDate !== undefined) {
+    //           this.endDate = moment(this.model.endDate);
+    //         }
+    //       });
 
-        });
-    }
+    //     });
+    // }
   }
 
 
@@ -66,7 +67,6 @@ export class SalesPlanUpsertComponent extends WeBaseComponent {
     if (this.endDate !== undefined) {
       this.model.endDate = moment(this.endDate.format('YYYY/MM/DD'), 'jYYYY/jM/jD').format('YYYY/MM/DD');
     }
-
     const that = this;
     if (this.model.salesPlanId > 0) {
 
@@ -87,14 +87,17 @@ export class SalesPlanUpsertComponent extends WeBaseComponent {
 
       this.service.add(this.model)
         .subscribe(res => {
-          that.service.operationHandling(res, (r) => {
-            if (<boolean>r === true) {
-              that.service.notify.showSuccess();
+          debugger;
+          that.service.operationHandling(res, (r: number) => {
+            if (r > 0) {
 
+              that.service.notify.showSuccess();
+              that.model.salesPlanId = r;
+              debugger;
+              that.addedPlan.emit(that.model);
             } else {
               that.service.notify.showError();
             }
-
 
           });
         });

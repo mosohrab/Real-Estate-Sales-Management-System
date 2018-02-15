@@ -119,6 +119,8 @@ import { CompanyComponent } from './components/buyer/company/company.component';
 import { CompanyDetailComponent } from './components/buyer/company/company-detail.component';
 import { CompanyDialogComponent } from './components/buyer/company/company-dialog.component';
 import { CompanySpecialStatusComponent } from './components/buyer/company/company-special-status.component';
+import { CompanySearchComponent } from './components/buyer/company/company-search.component';
+import { CompanySearchDialogComponent } from './components/buyer/company/company-search-dialog.component';
 
 import { WbsComponent } from './components/wbs/wbs/wbs.component';
 import { WbsTreeComponent } from './components/wbs/wbs/wbs-tree.component';
@@ -216,6 +218,8 @@ import { SelectiveBundlingComponent } from './components/Sales/selective-bundlin
     CompanyDetailComponent,
     CompanyDialogComponent,
     CompanySpecialStatusComponent,
+    CompanySearchComponent,
+    CompanySearchDialogComponent,
 
     WbsComponent,
     WbsTreeComponent,

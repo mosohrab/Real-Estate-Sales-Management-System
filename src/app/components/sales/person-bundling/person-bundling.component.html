@@ -1,17 +1,17 @@
-<!-- <div class="au-panel">
-  <div class="au-panel-header au-bg-gray">
-    <h3>محدوده افراد</h3>
-  </div> -->
 
-<kendo-tabstrip [expandMode]="'single'" [ngBusy]="busyConfig" >
+  <!-- [ngBusy]="busyConfig" -->
+
+<kendo-tabstrip [expandMode]="'single'" 
+
+ >
 
     <kendo-tabstrip-tab [title]="'اشخاص حقیقی/حقوقی'" 
     [expanded]='true' 
     [selected]="true" >
 
       <ng-template kendoTabContent>
-              <app-buyer-range>
-              </app-buyer-range>
+        <app-buyer-range [salePlanId]="salePlanId" >
+        </app-buyer-range>
       </ng-template>
     </kendo-tabstrip-tab>
   
@@ -20,7 +20,7 @@
       <ng-template kendoTabContent>
   
         <div style="width:750px;">
-          <app-buyer-range>
+          <app-buyer-range [salePlanId]="salePlanId" >
           </app-buyer-range>
         </div>
   
@@ -30,8 +30,8 @@
   
     <kendo-tabstrip-tab [title]="'اشخاص حقوقی'">
       <ng-template kendoTabContent>
-        <app-person-result>
-        </app-person-result>
+        <app-buyer-range [salePlanId]="salePlanId" >
+        </app-buyer-range>
       </ng-template>
     </kendo-tabstrip-tab>
   

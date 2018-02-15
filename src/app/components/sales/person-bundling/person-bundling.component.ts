@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
+import { Component, OnInit,Input, ViewEncapsulation, ViewChild } from '@angular/core';
 import { WeBaseComponent } from '../../we-base.component';
 import { BuyerRangeService } from '../../../services/sales.service';
 import { SpecialStatuTreeComponent } from '../../buyer/special-status/special-status-tree.component';
@@ -14,7 +14,8 @@ import { SpecialStatuTreeComponent } from '../../buyer/special-status/special-st
   ]
 })
 export class PersonBundlingComponent extends WeBaseComponent {
-
+  @Input() salePlanId: number;
+ 
 
   constructor(private buyerRangeService: BuyerRangeService) {
     super();

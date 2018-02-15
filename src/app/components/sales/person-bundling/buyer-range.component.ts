@@ -15,6 +15,7 @@ import { SpecialStatuTreeComponent } from '../../buyer/special-status/special-st
 })
 export class BuyerRangeComponent extends WeBaseComponent {
 
+  @Input() salePlanId: number;
   @ViewChild('statusTree') statusTree: SpecialStatuTreeComponent;
 
   constructor(private buyerRangeService: BuyerRangeService) {

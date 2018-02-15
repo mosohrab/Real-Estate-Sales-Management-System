@@ -6,6 +6,8 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import {
   SalesPlanModel, SalesPlanStatusModel,
   BuyerRangeModel, BuyerRangeValueModel,
+  BuyerRangeBulkModel,
+
   PersonBundlingModel, PersonBundlingType
 } from '../model/sales.model';
 import { BaseService } from './base.service';
@@ -115,6 +117,19 @@ export class BuyerRangeService extends BaseService {
 
   constructor(http: Http) {
     super(http, UrlHelper.BuyerRange_API);
+  }
+
+
+  public Sync(model: BuyerRangeBulkModel): Observable<boolean> {
+    return this.post(model, '/Sync')
+      .map((res: OperationResultModel) => {
+        let r = false;
+        this.operationHandling(res, (b: boolean) => {
+
+          r = b;
+        })
+        return r;
+      });
   }
 }
 

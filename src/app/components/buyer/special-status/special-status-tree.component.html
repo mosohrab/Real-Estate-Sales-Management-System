@@ -7,9 +7,11 @@
         [hasChildren]="hasChildren"
         [children]="fetchChildren"
         [kendoTreeViewCheckable]="checkableSettings"
+        [checkBy]="'id'"
         [(checkedKeys)]="checkedKeys"
         [(expandedKeys)]="expandedKeys"
       
+
       [ngBusy]="busyConfig"   
       style="height: 300px;overflow: auto;"
       >
