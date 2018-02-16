@@ -1,33 +1,27 @@
-import { Component, OnInit,Input, ViewEncapsulation, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { WeBaseComponent } from '../../we-base.component';
-import { BuyerRangeService } from '../../../services/sales.service';
-import { SpecialStatuTreeComponent } from '../../buyer/special-status/special-status-tree.component';
 
+import { PersonBundlingType } from '../../../model/sales.model';
 
 @Component({
   selector: 'app-person-bundling',
   templateUrl: './person-bundling.component.html',
-  styleUrls: ['./person-bundling.component.scss'],
-  encapsulation: ViewEncapsulation.None,
-  providers: [
-    BuyerRangeService
-  ]
+  styleUrls: ['./person-bundling.component.scss']
 })
 export class PersonBundlingComponent extends WeBaseComponent {
-  @Input() salePlanId: number;
- 
 
-  constructor(private buyerRangeService: BuyerRangeService) {
+  fillterByPersonAndCompany:PersonBundlingType;
+  fillterByPerson:PersonBundlingType;
+  fillterByCompany:PersonBundlingType;
+
+  constructor() {
     super();
+
+    this.fillterByPersonAndCompany=PersonBundlingType.PersonAndCompany;
+    this.fillterByPerson=PersonBundlingType.Person;
+    this.fillterByCompany=PersonBundlingType.Company;
   }
 
-  ngOnInitHandler() {
-    this.buyerRangeService.initBusyConfig(this.busyConfig);
-  }
 
 
-
-  onSaveStatus() {
-
-  }
 }

@@ -6,7 +6,7 @@ import {
 import { WeBaseComponent } from '../../we-base.component';
 import {
   BuyerRangeModel, BuyerRangeValueModel,
-  BuyerRangeBulkModel
+  BuyerRangeBulkModel, PersonBundlingType,BuyerRangeAggregateModel
 } from '../../../model/sales.model';
 import { BuyerRangeService, BuyerRangeValueService } from '../../../services/sales.service';
 
@@ -32,6 +32,9 @@ export class PersonBundlingDialogComponent extends WeBaseComponent {
 
   @Input() salePlanId: number;
   @Input() hasPermission = true;
+  @Input() fillterType : PersonBundlingType;
+
+
   @Output() closedDialog = new EventEmitter<boolean>();
   @ViewChild('statusTree') statusTree: SpecialStatuTreeComponent;
   @ViewChild('personSearch') personSearch: PersonSearchComponent;
@@ -76,7 +79,6 @@ export class PersonBundlingDialogComponent extends WeBaseComponent {
   public onOk(form) {
     const that = this;
     this.model = new Array<BuyerRangeValueModel>();
-    debugger;
     //
     if (this.personSearch !== undefined) {
       const personIds = this.personSearch.getSelectedIds();
@@ -122,9 +124,10 @@ export class PersonBundlingDialogComponent extends WeBaseComponent {
 
     const m = <BuyerRangeBulkModel>{};
     m.buyerRange = <BuyerRangeModel>{
-      salesPlanId: this.salePlanId
+      salesPlanId: this.salePlanId,
+      fillterType: this.fillterType
     };
-
+    
     m.buyerRangeValues = this.model;
     this.buyerRangeService.Sync(m)
       .subscribe((r: boolean) => {

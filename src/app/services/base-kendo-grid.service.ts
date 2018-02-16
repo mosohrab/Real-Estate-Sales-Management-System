@@ -9,15 +9,17 @@ import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { process, State } from '@progress/kendo-data-query';
 import { BaseService } from './base.service';
-import { NotifyManager } from '../infrastructure/notify-manager';
-import { LoadingManager } from '../infrastructure/loading-manager';
+// import { NotifyManager } from '../infrastructure/notify-manager';
+// import { LoadingManager } from '../infrastructure/loading-manager';
+ import { NotifyManager } from '../core/utils/notify-manager';
+ import { LoadingManager } from '../infrastructure/loading-manager';
 
 @Injectable()
 export class WeBaseKendoGridService extends BehaviorSubject<GridDataResult> {
   readId: number;
   loading: LoadingManager;
   notify: NotifyManager;
-  protected _baseService: BaseService;
+  public _baseService: BaseService;
   protected _http: Http;
 
   protected dataItems: any[] = [];
@@ -36,8 +38,12 @@ export class WeBaseKendoGridService extends BehaviorSubject<GridDataResult> {
     this._http = http;
     this.readId = readId;
     this._baseService = new BaseService(http, apiUrl);
+    // this.notify = this._baseService.notify;
+    // this.loading = this._baseService.loading;
+    
     this.notify = this._baseService.notify;
     this.loading = this._baseService.loading;
+
 
 
   }
@@ -64,36 +70,36 @@ export class WeBaseKendoGridService extends BehaviorSubject<GridDataResult> {
   public save(data: any, isNew?: boolean) {
     const action = isNew ? this.CREATE_ACTION : this.UPDATE_ACTION;
     const that = this;
-    this.loading.show();
+    this._baseService.loading.show();
     if (isNew) {
 
       this._baseService.add(data).subscribe(
         d => {
           that._baseService.operationHandling(d, (r) => {
-            that.notify.showSuccess();
+            that._baseService.notify.showSuccess();
             that.readGrid();
-            that.loading.hide();
+            that._baseService.loading.hide();
           });
         },
         err => {
-          that.notify.showError(err);
+          that._baseService.notify.showError(err);
           console.log('error: ', err);
-          that.loading.hide();
+          that._baseService.loading.hide();
         });
 
     } else {
       this._baseService.edit(data).subscribe(
         d => {
           that._baseService.operationHandling(d, (r) => {
-            that.notify.showSuccess();
+            that._baseService.notify.showSuccess();
             that.readGrid();
-            that.loading.hide();
+            that._baseService.loading.hide();
           });
         },
         err => {
-          that.notify.showError(err);
+          that._baseService.notify.showError(err);
           console.log('error: ', err);
-          that.loading.hide();
+          that._baseService.loading.hide();
         });
     }
     // this.reset();
@@ -108,14 +114,14 @@ export class WeBaseKendoGridService extends BehaviorSubject<GridDataResult> {
     this._baseService.delete(id).subscribe(
       d => {
         that._baseService.operationHandling(d, (r) => {
-          that.notify.showSuccess();
+          that._baseService.notify.showSuccess();
           that.readGrid();
         });
         // that.loading.hide();
       },
       err => {
         // console.log('error: ', err)
-        that.notify.showError(err);
+        that._baseService.notify.showError(err);
         // that.loading.hide();
       }
     );
@@ -127,14 +133,14 @@ export class WeBaseKendoGridService extends BehaviorSubject<GridDataResult> {
     this._baseService.deleteRange(id).subscribe(
       d => {
         that._baseService.operationHandling(d, (r) => {
-          that.notify.showSuccess();
+          that._baseService.notify.showSuccess();
           that.readGrid();
         });
         // that.loading.hide();
       },
       err => {
         // console.log('error: ', err)
-        that.notify.showError(err);
+        that._baseService.notify.showError(err);
         // that.loading.hide();
       }
     );
@@ -146,14 +152,14 @@ export class WeBaseKendoGridService extends BehaviorSubject<GridDataResult> {
     this._baseService.deleteAll().subscribe(
       d => {
         that._baseService.operationHandling(d, (r) => {
-          that.notify.showSuccess();
+          that._baseService.notify.showSuccess();
           that.readGrid();
         });
         // that.loading.hide();
       },
       err => {
         // console.log('error: ', err)
-        that.notify.showError(err);
+        that._baseService.notify.showError(err);
         // that.loading.hide();
       }
     );

@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "we"
+    "name": "سیستم مدیریت املاک و مستقلات"
   },
   "apps": [
     {
@@ -56,9 +56,13 @@
   },
   "defaults": {
     "styleExt": "scss",
+    "serve": {
+      "port": 4200
+    },
     "class": {
       "spec": false
     },
     "component": {}
   }
+  
 }

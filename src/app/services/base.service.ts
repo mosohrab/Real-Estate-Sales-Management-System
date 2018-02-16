@@ -10,7 +10,7 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/share';
 
 
-import { NotifyManager } from '../infrastructure/notify-manager';
+import { NotifyManager } from '../core/utils/notify-manager';
 import { LoadingManager } from '../infrastructure/loading-manager';
 import { UrlHelper } from '../infrastructure/url-helper';
 import { OperationResultModel } from '../model/operation-result.model';
@@ -21,7 +21,7 @@ import { AppConfigService } from '../core/services/app-config.service';
 
 
 @Injectable()
-export class BaseService {
+export class BaseService   {
   configService: AppConfigService;
   loading: LoadingManager;
   notify: NotifyManager;

@@ -1,13 +1,43 @@
 <kendo-splitter style="height: 100%;">
   <kendo-splitter-pane size="50%">
     <fieldset>
-      <legend>دسترسی مجاز</legend>
+      <legend>
+        دسترسی مجاز  | 
+
+
+          <label class="k-form-field" style="margin-right: 10px;">
+              <input type="checkbox" id="isSelectAll" 
+              name="isSelectAll"
+              [(ngModel)]="isSelectAll" 
+              class="k-checkbox">
+              <label class="k-checkbox-label" 
+              for="isSelectAll">
+                شامل همه</label>
+            </label>
+          
+
+      </legend>
       <div>
+
+          <button kendoButton 
+          class="k-button save-access-all" 
+          primary="true"
+          (click)="onSaveAccessAll()" 
+          *ngIf="isSelectAll"
+          >ذخیره</button>
+
+          
         <app-buyer-range-partial 
         [salePlanId]="salePlanId" 
-        [hasPermission]="true" >
+        [fillterType]="fillterType" 
+        [hasPermission]="true" 
+        [ngClass]="{'disabled':isSelectAll}" >
 
         </app-buyer-range-partial>
+
+       
+
+
       </div>
     </fieldset>
   </kendo-splitter-pane>
@@ -20,6 +50,7 @@
         <app-buyer-range-partial 
         [salePlanId]="salePlanId" 
         [hasPermission]="false" 
+        [fillterType]="fillterType" 
    >
 
         </app-buyer-range-partial>

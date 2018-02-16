@@ -20,7 +20,8 @@ import {
 
 } from '@progress/kendo-angular-grid';
 
-import { NotifyManager } from '../infrastructure/notify-manager';
+//import { NotifyManager } from '../infrastructure/notify-manager';
+import { NotifyManager } from '../core/utils/notify-manager';
 import { WeBaseKendoGridService } from '../services/base-kendo-grid.service';
 import { WeBaseComponent } from './we-base.component';
 // @Component({
@@ -66,9 +67,10 @@ export abstract class WeBaseKendoGridComponent extends WeBaseComponent {
     constructor(service: WeBaseKendoGridService) {
         super();
         this._service = service;
-        this.gridDataResult =
-            this.gridDataResult = service;
-        this.notify = NotifyManager.createInstance();
+        this.gridDataResult =this.gridDataResult = service;
+        
+        this.notify = this._service._baseService.notify;
+        //  this.notify = NotifyManager.createInstance();
 
 
     }
@@ -123,7 +125,7 @@ export abstract class WeBaseKendoGridComponent extends WeBaseComponent {
 
     private onRemove(id) {
         const that = this;
-        this._service.notify.showDeleteConfirm(() => {
+        this._service._baseService.notify.showDeleteConfirm(() => {
             that._service.remove(id);
         });
     }
@@ -177,11 +179,11 @@ export abstract class WeBaseKendoGridComponent extends WeBaseComponent {
     protected editClickedHandler() { }
     private onEditClicked() {
         if (this.dataItemSelected.length < 1) {
-            this.notify.showError('هیچ رکوردی انتخاب نشده');
+            this._service._baseService.notify.showError('هیچ رکوردی انتخاب نشده');
             return;
         }
         if (this.dataItemSelected.length > 1) {
-            this.notify.showError('امکان ویرایش چندین رکورد وجود ندارد. ');
+            this._service._baseService.notify.showError('امکان ویرایش چندین رکورد وجود ندارد. ');
             return;
         }
         this.editClickedHandler();
@@ -190,12 +192,12 @@ export abstract class WeBaseKendoGridComponent extends WeBaseComponent {
     protected deleteClickedHandler() { }
     private onDeleteClicked() {
         if (this.dataItemSelected.length < 1) {
-            this._service.notify.showWarning('هیچ رکوردی انتخاب نشده');
+            this._service._baseService.notify.showWarning('هیچ رکوردی انتخاب نشده');
             return;
         }
 
         const that = this;
-        this._service.notify.showDeleteConfirm(() => {
+        this._service._baseService.notify.showDeleteConfirm(() => {
             that.deleteClickedHandler();
 
         });
@@ -204,7 +206,7 @@ export abstract class WeBaseKendoGridComponent extends WeBaseComponent {
     protected deleteAllClickedHandler() { }
     private onDeleteAllClicked() {
         const that = this;
-        this._service.notify.showDeleteConfirm(() => {
+        this._service._baseService.notify.showDeleteConfirm(() => {
             that.deleteAllClickedHandler();
 
         }, 'آیا از حذف تمامی رکوردهای جدول اطمینان دارید؟');

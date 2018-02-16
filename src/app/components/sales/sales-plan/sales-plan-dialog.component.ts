@@ -1,13 +1,13 @@
 import {
   Component, OnInit, EventEmitter,
-  Input, Output, ViewEncapsulation
+  Input, Output, ViewEncapsulation, ViewChild
 } from '@angular/core';
 import { SalesPlanService } from '../../../services/sales.service';
 import { SalesPlanModel } from '../../../model/sales.model';
 import { WeBaseComponent } from '../../we-base.component';
 import { OperationResultModel } from '../../../model/operation-result.model';
 import * as moment from 'jalali-moment';
-
+import { SalesPlanDetailComponent } from './sales-plan-detail.component';
 
 @Component({
   selector: 'app-sales-plan-dialog',
@@ -23,7 +23,10 @@ export class SalesPlanDialogComponent extends WeBaseComponent {
   service: SalesPlanService;
   model = <SalesPlanModel>{};
   public isOpenedDialog = false;
+
   @Output() closedDialog = new EventEmitter<boolean>();
+  @ViewChild('planDetail') planDetail: SalesPlanDetailComponent;
+
   startDate: any;
   endDate: any;
 
@@ -50,6 +53,10 @@ export class SalesPlanDialogComponent extends WeBaseComponent {
       .subscribe(x => {
         that.service.operationHandling(x, (r) => {
           that.model = <SalesPlanModel>r;
+          debugger;
+          if (that.planDetail !== undefined) {
+            that.planDetail.setPlanModel(that.model);
+          }
 
           if (that.model.startDate !== undefined) {
             this.startDate = moment(this.model.startDate);

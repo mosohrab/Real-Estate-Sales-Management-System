@@ -31,7 +31,7 @@ import { DialogModule } from '@progress/kendo-angular-dialog';
 import { RippleModule } from '@progress/kendo-angular-ripple';
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { CalendarModule } from '@progress/kendo-angular-dateinputs';
-import { PanelBarModule,TabStripModule,SplitterModule } from '@progress/kendo-angular-layout';
+import { PanelBarModule, TabStripModule, SplitterModule } from '@progress/kendo-angular-layout';
 import { TreeViewModule } from '@progress/kendo-angular-treeview';
 /* Loading CLDR data */
 import { load } from '@progress/kendo-angular-intl';
@@ -166,7 +166,6 @@ import { SalesPlanStatusDialogComponent } from './components/sales/sales-plan-st
 import { SalesPlanStatusComboComponent } from './components/sales/sales-plan-status/sales-plan-status-combo.component';
 import { PersonBundlingComponent } from './components/Sales/person-bundling/person-bundling.component';
 import { PersonBundlingDialogComponent } from './components/Sales/person-bundling/person-bundling-dialog.component';
-import { PersonResultComponent } from './components/Sales/person-bundling/person-result.component';
 import { BuyerRangeComponent } from './components/Sales/person-bundling/buyer-range.component';
 import { BuyerRangePartialComponent } from './components/Sales/person-bundling/buyer-range-partial.component';
 import { UnitBundlingComponent } from './components/Sales/unit-bundling/unit-bundling.component';
@@ -261,12 +260,12 @@ import { SelectiveBundlingComponent } from './components/Sales/selective-bundlin
     SalesPlanStatusComboComponent,
     PersonBundlingComponent,
     PersonBundlingDialogComponent,
-    PersonResultComponent,
     BuyerRangeComponent,
     BuyerRangePartialComponent,
     UnitBundlingComponent,
     BundlingComponent,
-    SelectiveBundlingComponent
+    SelectiveBundlingComponent,
+
   ],
   imports: [
     AryaNetCoreModule,

@@ -10,14 +10,14 @@ import { process, State } from '@progress/kendo-data-query';
 
 import { BaseService } from './base.service';
 import { NotifyManager } from '../utils/notify-manager';
-import { LoadingManager } from '../utils/loading-manager';
+// import { LoadingManager } from '../infrastructure/loading-manager';
 import { OperationResultModel } from '../model/operation-result.model';
 import { retry } from 'rxjs/operator/retry';
 
 @Injectable()
 export class BaseKendoGridService extends BehaviorSubject<GridDataResult> {
   readId: number;
-  loading: LoadingManager;
+  // loading: LoadingManager;
   notify: NotifyManager;
   protected _baseService: BaseService;
 
@@ -36,7 +36,7 @@ export class BaseKendoGridService extends BehaviorSubject<GridDataResult> {
     this.readId = readId;
     this._baseService = new BaseService(http, apiUrl);
     this.notify = this._baseService.notify;
-    this.loading = this._baseService.loading;
+    // this.loading = this._baseService.loading;
 
 
   }
@@ -56,7 +56,7 @@ export class BaseKendoGridService extends BehaviorSubject<GridDataResult> {
   public save(data: any, isNew?: boolean) {
     const action = isNew ? this.CREATE_ACTION : this.UPDATE_ACTION;
     const that = this;
-    this.loading.show();
+    // this.loading.show();
     if (isNew) {
 
       this._baseService.add(data).subscribe(
@@ -64,13 +64,13 @@ export class BaseKendoGridService extends BehaviorSubject<GridDataResult> {
           that._baseService.operationHandling(d, (r) => {
             that.notify.showSuccess();
             that.readGrid();
-            that.loading.hide();
+            // that.loading.hide();
           });
         },
         err => {
           that.notify.showError(err);
           console.log('error: ', err);
-          that.loading.hide();
+          // that.loading.hide();
         });
 
     } else {
@@ -79,13 +79,13 @@ export class BaseKendoGridService extends BehaviorSubject<GridDataResult> {
           that._baseService.operationHandling(d, (r) => {
             that.notify.showSuccess();
             that.readGrid();
-            that.loading.hide();
+            // that.loading.hide();
           });
         },
         err => {
           that.notify.showError(err);
           console.log('error: ', err);
-          that.loading.hide();
+          // that.loading.hide();
         });
     }
     // this.reset();

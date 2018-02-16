@@ -6,8 +6,8 @@ import {
 import { WeBaseComponent } from '../../we-base.component';
 import { WeBaseKendoGridComponent } from '../../we-base-kendo-grid.component';
 import { BuyerRangeValueService, BuyerRangeValueKendoGridService } from '../../../services/sales.service';
-
-import { PersonBundlingDialogComponent } from './person-bundling-dialog.component';
+import { PersonBundlingType } from '../../../model/sales.model'
+ import { PersonBundlingDialogComponent } from './person-bundling-dialog.component';
 
 @Component({
   selector: 'app-buyer-range-partial',
@@ -24,7 +24,8 @@ export class BuyerRangePartialComponent extends WeBaseKendoGridComponent {
   @ViewChild('dialogUpsert') dialogUpsert: PersonBundlingDialogComponent;
   @Input() salePlanId: number;
   @Input() hasPermission = true;
-
+  @Input() fillterType : PersonBundlingType;
+  
   constructor(service: BuyerRangeValueKendoGridService) {
     super(service);
   }

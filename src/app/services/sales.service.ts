@@ -7,7 +7,7 @@ import {
   SalesPlanModel, SalesPlanStatusModel,
   BuyerRangeModel, BuyerRangeValueModel,
   BuyerRangeBulkModel,
-
+  BuyerRangeAggregateModel,
   PersonBundlingModel, PersonBundlingType
 } from '../model/sales.model';
 import { BaseService } from './base.service';

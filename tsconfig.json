@@ -16,6 +16,10 @@
       "dom"
     ]
   },
+  "include": [
+    "**/*.ts",
+    "*.ts",
+  ],
   "exclude": [
     "src/app/ng2-tree",
     "node_modules",

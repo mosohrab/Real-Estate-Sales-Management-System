@@ -1,8 +1,5 @@
-import { Component, OnInit, ViewEncapsulation, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation, ViewChild } from '@angular/core';
 import { WeBaseComponent } from '../../we-base.component';
-import { BuyerRangeService } from '../../../services/sales.service';
-import { SpecialStatuTreeComponent } from '../../buyer/special-status/special-status-tree.component';
-
 
 @Component({
   selector: 'app-buyer-range',
@@ -10,25 +7,48 @@ import { SpecialStatuTreeComponent } from '../../buyer/special-status/special-st
   styleUrls: ['./buyer-range.component.scss'],
   encapsulation: ViewEncapsulation.None,
   providers: [
-    BuyerRangeService
+     // BuyerRangeService
   ]
 })
 export class BuyerRangeComponent extends WeBaseComponent {
 
   @Input() salePlanId: number;
-  @ViewChild('statusTree') statusTree: SpecialStatuTreeComponent;
+  // @Input() fillterType: PersonBundlingType;
 
-  constructor(private buyerRangeService: BuyerRangeService) {
+  isSelectAll = false;
+  
+  constructor(
+    // buyerRangeService: BuyerRangeService
+  ) {
     super();
   }
 
-  ngOnInitHandler() {
-    this.buyerRangeService.initBusyConfig(this.busyConfig);
-  }
+  // ngOnInitHandler() {
+  // //  this.buyerRangeService.initBusyConfig(this.busyConfig);
+  // }
 
 
+  // setSalesPlanId(id: number) {
+  //    this.salePlanId = id;
+  // }
 
-  onSaveStatus() {
+  // onSaveAccessAll() {
+  //   // const that = this;
 
-  }
+  //   // const m = <BuyerRangeBulkModel>{};
+  //   // m.buyerRange = <BuyerRangeModel>{
+  //   //   salesPlanId: this.salePlanId,
+  //   //   fillterType: this.fillterType,
+  //   //   isSelectAll: true
+  //   // };
+
+  //   // this.buyerRangeService.Sync(m)
+  //   //   .subscribe((r: boolean) => {
+
+  //   //   });
+
+
+  // }
+
+
 }

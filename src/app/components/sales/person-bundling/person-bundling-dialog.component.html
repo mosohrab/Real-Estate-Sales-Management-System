@@ -1,6 +1,6 @@
 
 
-<kendo-dialog [width]="950" [height]="500" 
+<kendo-dialog [width]="700" [height]="500" 
 [title]="Status" 
 (close)="onClose()"
  *ngIf="isOpenedDialog"
@@ -18,7 +18,8 @@
 <kendo-tabstrip 
 [expandMode]="'single'" 
 [keepTabContent]="true" 
-[ngBusy]="busyConfig" >
+[ngBusy]="busyConfig"
+class="au-margin-top-10" >
 
   
 
@@ -38,11 +39,9 @@
     <kendo-tabstrip-tab [title]="'اشخاص حقیقی'">
       <ng-template kendoTabContent>
   
-        <div >
           <app-person-search 
           #personSearch >
           </app-person-search>
-        </div>
   
       </ng-template>
     </kendo-tabstrip-tab>
@@ -50,6 +49,7 @@
   
     <kendo-tabstrip-tab [title]="'اشخاص حقوقی'">
       <ng-template kendoTabContent>
+
         <app-company-search
         #companySearch >
         </app-company-search>

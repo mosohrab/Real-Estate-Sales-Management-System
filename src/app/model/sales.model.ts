@@ -43,6 +43,11 @@ export interface BuyerRangeBulkModel {
 
 }
 
+export interface BuyerRangeAggregateModel {
+    buyerRangeBulks: BuyerRangeBulkModel[];
+
+}
+
 
 export interface BuyerRangeModel {
     buyerRangeId: number;

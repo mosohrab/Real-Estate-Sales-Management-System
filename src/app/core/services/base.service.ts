@@ -21,7 +21,7 @@ import 'rxjs/add/operator/share';
 
 
 import { NotifyManager } from '../utils/notify-manager';
-import { LoadingManager } from '../utils/loading-manager';
+// import { LoadingManager } from '../utils/loading-manager';
 import { OperationResultModel } from '../model/operation-result.model';
 import { AppConfigService } from '../services/app-config.service';
 import { AppModule } from '../../app.module';
@@ -31,7 +31,7 @@ import { error } from 'selenium-webdriver';
 @Injectable()
 export class BaseService {
   configService: AppConfigService;
-  loading: LoadingManager;
+  // loading: LoadingManager;
   notify: NotifyManager;
   private BASE_URL: string;
   public API_URL: string;
@@ -44,7 +44,7 @@ export class BaseService {
 
     this.API_URL = this.BASE_URL + apiUrl;
     this.notify = NotifyManager.createInstance();
-    this.loading = LoadingManager.createInstance();
+    // this.loading = LoadingManager.createInstance();
 
   }
 
@@ -319,7 +319,7 @@ export class BaseService {
 
   public operationHandling(operation: OperationResultModel,
     successFunc?: any, errorFunc?: any): void {
-    this.loading.hide();
+    // this.loading.hide();
     if (operation.error === true) {
 
       if (errorFunc) {

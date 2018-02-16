@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PersonBundlingComponent } from './person-bundling.component';
+import { PersonBundlingIndexComponent } from './person-bundling-index.component';
 
-describe('PersonBundlingComponent', () => {
-  let component: PersonBundlingComponent;
-  let fixture: ComponentFixture<PersonBundlingComponent>;
+describe('PersonBundlingIndexComponent', () => {
+  let component: PersonBundlingIndexComponent;
+  let fixture: ComponentFixture<PersonBundlingIndexComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PersonBundlingComponent ]
+      declarations: [ PersonBundlingIndexComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PersonBundlingComponent);
+    fixture = TestBed.createComponent(PersonBundlingIndexComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

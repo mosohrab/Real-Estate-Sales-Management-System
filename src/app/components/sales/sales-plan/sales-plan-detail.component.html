@@ -1,5 +1,6 @@
 
 
+
 <div class="au-margin-top-10">
 
     <div class="row bhoechie-tab-container au-margin-bottom-10 au-margin-top-10"
@@ -59,7 +60,9 @@
             <div class="bhoechie-tab-content"  
                 *ngIf="model.salesPlanId > 0 " 
                 >
-                <app-person-bundling [salesPlanId]="model.salesPlanId">
+                <app-person-bundling 
+                #personBundling 
+                [salesPlanId]="model.salesPlanId">
                   </app-person-bundling>
             </div>
 
@@ -100,123 +103,6 @@
     </div>
 
 
-
-
-
-
-
-
-
-
-
-<!-- 
-
-<kendo-tabstrip  style="height: 500px;"  >
-
-  <kendo-tabstrip-tab 
-  [title]="'اطلاعات پایه'"
-  [selected]='true' >
-  <ng-template kendoTabContent>
-   
-<app-sales-plan-upsert>
-  </app-sales-plan-upsert>
- 
-  </ng-template>
-  </kendo-tabstrip-tab>
-
-
-  <kendo-tabstrip-tab 
-  [title]="'محدوده افراد'"
-  >
-  <ng-template kendoTabContent>
-
-   <app-person-bundling>
-    </app-person-bundling>
-
-  </ng-template>
-  </kendo-tabstrip-tab>
- 
-
-  <kendo-tabstrip-tab 
-  [title]="'محدوده واحد ها'"
-  >
-  <ng-template kendoTabContent>
-   
-
-  </ng-template>
-  </kendo-tabstrip-tab>
-
-  
-  <kendo-tabstrip-tab 
-  [title]="'محدوده انتخاب'"
-  >
-  <ng-template kendoTabContent>
-   
-
-  </ng-template>
-  </kendo-tabstrip-tab>
-  
-  <kendo-tabstrip-tab 
-  [title]="'ارزشگذاری'"
-  >
-  <ng-template kendoTabContent>
-   
-
-  </ng-template>
-  </kendo-tabstrip-tab>
-  
-  <kendo-tabstrip-tab 
-  [title]="'مالی'"
-  >
-  <ng-template kendoTabContent>
-   
-
-  </ng-template>
-  </kendo-tabstrip-tab>
- 
-  
-  <kendo-tabstrip-tab 
-  [title]="'فرم های مرتبط'"
-  >
-  <ng-template kendoTabContent>
-   
-
-  </ng-template>
-  </kendo-tabstrip-tab>
- 
-  
-  <kendo-tabstrip-tab 
-  [title]="'پیوست ها'"
-  >
-  <ng-template kendoTabContent>
-   
-
-  </ng-template>
-  </kendo-tabstrip-tab>
- 
-  
-  <kendo-tabstrip-tab 
-  [title]="'تاریخچه تغییرات وضعیت طرح'"
-  >
-  <ng-template kendoTabContent>
-   
-
-  </ng-template>
-  </kendo-tabstrip-tab>
- 
-  
-  <kendo-tabstrip-tab 
-  [title]="'باندلینگ'"
-  >
-  <ng-template kendoTabContent>
-   
-
-  </ng-template>
-  </kendo-tabstrip-tab>
- 
-</kendo-tabstrip>
-
- -->
 
 
 </div>
