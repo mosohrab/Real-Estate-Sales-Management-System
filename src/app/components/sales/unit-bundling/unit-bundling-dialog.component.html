@@ -1,0 +1,88 @@
+<kendo-dialog [width]="500" 
+[height]="600" [title]="Status" 
+(close)="onClose()"  
+*ngIf="isOpenedDialog" 
+ class="au-custome-dialog" 
+ style="text-align:right;" >
+
+  <kendo-dialog-titlebar>
+    <div style="font-size: 18px; line-height: 1.3em;">
+      <span class="k-icon k-i-warning"></span> مشخصات
+    </div>
+  </kendo-dialog-titlebar>
+
+<form class="k-form" *ngIf="showSearch==false" >
+  
+  <div>
+    <label class="k-form-field">
+      <span>کاربری</span>
+      <app-usage-item-combo-single
+       name="usageItemId" 
+       [(ngModel)]="model.usageItemId" >
+     </app-usage-item-combo-single>
+  </label>
+  </div>
+
+
+  <div class="au-margin-top-10">
+    <label class="k-form-field">
+      <span>ویژگی</span>
+      <app-feature-value-combo-single 
+      name="featureValueId" 
+      [(ngModel)]="model.featureValueId" >
+     </app-feature-value-combo-single>
+  </label>
+  </div>
+
+  <div class="au-margin-top-10">
+    <label class="k-form-field">
+      <span>متراژ</span>
+      <kendo-numerictextbox
+      name="area" 
+      [(ngModel)]="model.area" 
+       [min]="0" [max]="999999" 
+       [format]="N0" 
+       style="width:100%;"
+       >
+     </kendo-numerictextbox>
+  </label>
+  </div>
+
+  <div class="au-margin-top-10">
+    <label class="k-form-field">
+      <span>ساختار</span>
+      <app-wbs-active-tree 
+
+      name="wbsUnitId" 
+      [(ngModel)]="model.wbsUnitId"  
+          #wbsTree >
+        </app-wbs-active-tree>
+  </label>
+  </div>
+
+
+</form>
+
+<app-unit-bundling-search 
+*ngIf="showSearch" 
+#searchForm  
+[salePlanId]="salePlanId"
+[filterModel]="model" >
+</app-unit-bundling-search>
+
+
+  <kendo-dialog-actions>
+
+    <button kendoButton 
+    *ngIf="showSearch==false"  class="k-button " primary="true" 
+    (click)="onSearch()">جستجو</button>
+ 
+    <button kendoButton 
+    *ngIf="showSearch"  class="k-button " primary="true" 
+    (click)="onOk()">تایید</button>
+
+
+    <button kendoButton class="k-button " (click)="onClose()">انصراف</button>
+  </kendo-dialog-actions>
+
+</kendo-dialog>

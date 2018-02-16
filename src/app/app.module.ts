@@ -24,6 +24,7 @@ import { BusyModule } from 'angular2-busy';
 
 // Kendo
 import { RTL } from '@progress/kendo-angular-l10n';
+import { InputsModule } from '@progress/kendo-angular-inputs';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
@@ -169,6 +170,8 @@ import { PersonBundlingDialogComponent } from './components/Sales/person-bundlin
 import { BuyerRangeComponent } from './components/Sales/person-bundling/buyer-range.component';
 import { BuyerRangePartialComponent } from './components/Sales/person-bundling/buyer-range-partial.component';
 import { UnitBundlingComponent } from './components/Sales/unit-bundling/unit-bundling.component';
+import { UnitBundlingDialogComponent } from './components/Sales/unit-bundling/unit-bundling-dialog.component';
+import { UnitBundlingSearchComponent } from './components/Sales/unit-bundling/unit-bundling-search.component';
 import { BundlingComponent } from './components/Sales/bundling/bundling.component';
 import { SelectiveBundlingComponent } from './components/Sales/selective-bundling/selective-bundling.component';
 
@@ -263,6 +266,8 @@ import { SelectiveBundlingComponent } from './components/Sales/selective-bundlin
     BuyerRangeComponent,
     BuyerRangePartialComponent,
     UnitBundlingComponent,
+    UnitBundlingDialogComponent,
+    UnitBundlingSearchComponent,
     BundlingComponent,
     SelectiveBundlingComponent,
 
@@ -283,6 +288,7 @@ import { SelectiveBundlingComponent } from './components/Sales/selective-bundlin
 
     // Register the kendo modules
     BrowserAnimationsModule,
+    InputsModule,
     ButtonsModule,
     GridModule,
     DropDownsModule,

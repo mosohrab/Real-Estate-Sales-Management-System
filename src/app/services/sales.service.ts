@@ -8,7 +8,9 @@ import {
   BuyerRangeModel, BuyerRangeValueModel,
   BuyerRangeBulkModel,
   BuyerRangeAggregateModel,
-  PersonBundlingModel, PersonBundlingType
+  PersonBundlingModel, PersonBundlingType,
+  UnitRangeFilterModel,UnitRangeModel,
+  UnitRangeBulkModel
 } from '../model/sales.model';
 import { BaseService } from './base.service';
 import { WeBaseKendoGridService } from './base-kendo-grid.service';
@@ -107,6 +109,65 @@ export class SalesPlanStatusComboService extends BehaviorSubject<SalesPlanModel[
 
 }
 
+
+
+//
+//
+
+@Injectable()
+export class UnitRangeService extends BaseService {
+
+  constructor(http: Http) {
+    super(http, UrlHelper.UnitRange_API);
+  }
+
+
+  public Sync(model: UnitRangeBulkModel): Observable<boolean> {
+    return this.post(model, '/Sync')
+      .map((res: OperationResultModel) => {
+        let r = false;
+        this.operationHandling(res, (b: boolean) => {
+
+          r = b;
+        })
+        return r;
+      });
+  }
+}
+
+
+@Injectable()
+export class UnitRangeKendoGridService extends WeBaseKendoGridService {
+  _cityService: UnitRangeService;
+
+  constructor(http: Http, cityService: UnitRangeService) {
+    super(http, UrlHelper.UnitRange_API);
+    this._cityService = cityService;
+  }
+
+
+
+
+}
+
+
+@Injectable()
+export class UnitRangeComboService extends BehaviorSubject<UnitRangeModel[]> {
+
+  baseService: UnitRangeService;
+  constructor(http: Http, service: UnitRangeService) {
+    super(null);
+    this.baseService = service;
+    this.baseService.API_URL += '/';
+  }
+
+  public readAll(): void {
+    this.baseService.get('getAllItems')
+      .subscribe(x => super.next(x));
+
+  }
+
+}
 
 
 //

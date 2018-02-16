@@ -90,3 +90,27 @@ export interface PersonBundlingModel {
 
 
 
+
+
+
+export interface UnitRangeFilterModel {
+    usageItemId: number;
+    featureValueId: number;
+    area: number;
+    wbsUnitId: number[];
+
+}
+
+export interface UnitRangeModel {
+    unitRangeId: number;
+    salesPlanId: number;
+    unitId: number;
+    unitTitle: string;
+    salesPlanTitle: string;
+}
+
+export interface UnitRangeBulkModel {
+    salesPlanId: number;
+    unitId: number[];
+}
+

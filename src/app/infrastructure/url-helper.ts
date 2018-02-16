@@ -34,5 +34,6 @@ export class UrlHelper {
     static BuyerRange_API= 'BuyerRange';
     static BuyerRangeValue_API= 'BuyerRange';
     static PersonBundling_API= 'PersonBundling';
+    static UnitRange_API= 'UnitRange';
 
 }

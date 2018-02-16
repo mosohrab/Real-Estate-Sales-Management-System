@@ -1,21 +1,25 @@
 
 
-  <form novalidate #myForm="ngForm" >
+   <div id="custom-search-input">
+    <div class="input-group col-md-12">
+        <input type="text"
+         name="search" [(ngModel)]="search"
+         class="search-query form-control"
+          placeholder="جستجو" />
+        <span class="input-group-btn">
+            <button class="btn btn-danger" type="button"
+             (click)="refresh()" >
+                <span class="fa fa-search"></span>
+            </button>
+        </span>
+    </div>
+</div>
+
+  
+   <form novalidate #myForm="ngForm"  class="au-margin-top-10">
     <div class="au-panel">
      <div class="au-panel-header au-bg-gray">
-       <app-toolbar-button
-       [showAddButton]="true"
-       [showEditButton]="true"           
-       [showDeleteButton]="true"
-       [showDeletAlleButton]="true"
-       (addClicked)="onAddClicked()"
-       (editClicked)="onEditClicked()"
-       (deleteClicked)="onDeleteClicked()"
-       (deleteAllClicked)="onDeleteAllClicked()"
        
-       >
-           
-           </app-toolbar-button>
          </div>
      <kendo-grid
       [data]="gridDataResult | async" 
@@ -36,10 +40,10 @@
        [kendoGridSelectBy]="'unitRangeId'"
        [selectedKeys]="dataItemSelected"
        (selectedKeysChange)="onSelectedKeysChange($event)"
-       (selectionChange)="valueGrid.setValueItem($event)"
+       
       [height]="500"
        >
-
+       <!-- (selectionChange)="valueGrid.setValueItem($event)" -->
        <kendo-grid-checkbox-column
        width="40"
        >
@@ -56,21 +60,15 @@
          
        <kendo-grid-column
         field="unitTitle"
-         title="واحد">
+         title="نام">
          </kendo-grid-column>
- 
- 
-      
+       
  
      </kendo-grid>
    </div>
    </form>
  
  
- <app-unit-bundling-dialog 
- #dialogUpsert
- (closedDialog)="closedDialog($event)">
- 
- </app-unit-bundling-dialog>
+
  
  

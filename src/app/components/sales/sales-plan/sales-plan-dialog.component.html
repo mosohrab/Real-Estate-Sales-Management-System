@@ -1,12 +1,12 @@
-<kendo-dialog [width]="950" [height]="700" [title]="Status" (close)="onClose()" *ngIf="isOpenedDialog" style="text-align:right;">
+<kendo-dialog [width]="950" [height]="700" [title]="Status" 
+(close)="onClose()" *ngIf="isOpenedDialog" 
+ style="text-align:right;">
 
   <kendo-dialog-titlebar>
     <div style="font-size: 18px; line-height: 1.3em;">
       <span class="k-icon k-i-warning"></span> مشخصات
     </div>
   </kendo-dialog-titlebar>
-  ddd
-  {{model.salePlanId}}
 
   <app-sales-plan-detail #planDetail [model]="model">
   </app-sales-plan-detail>

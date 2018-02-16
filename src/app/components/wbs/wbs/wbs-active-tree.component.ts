@@ -69,7 +69,6 @@ export class WbsActiveTreeComponent extends WeBaseKendoTreeComponent {
   }
 
   public getCheckedKeys() {
-    debugger;
     const r = this.checkedKeys;
   }
   public hasChildren = (item: TreeModel) => {

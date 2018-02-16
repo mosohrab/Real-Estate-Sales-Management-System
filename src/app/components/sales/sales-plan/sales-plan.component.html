@@ -1,5 +1,4 @@
 
-
   <form novalidate #myForm="ngForm" >
     <div class="au-panel">
      <div class="au-panel-header au-bg-gray">
@@ -36,10 +35,10 @@
        [kendoGridSelectBy]="'salesPlanId'"
        [selectedKeys]="dataItemSelected"
        (selectedKeysChange)="onSelectedKeysChange($event)"
-       (selectionChange)="valueGrid.setValueItem($event)"
+       
       [height]="500"
        >
-
+       <!-- (selectionChange)="valueGrid.setValueItem($event)" -->
        <kendo-grid-checkbox-column
        width="40"
        >

@@ -11,8 +11,8 @@ import { process, State } from '@progress/kendo-data-query';
 import { BaseService } from './base.service';
 // import { NotifyManager } from '../infrastructure/notify-manager';
 // import { LoadingManager } from '../infrastructure/loading-manager';
- import { NotifyManager } from '../core/utils/notify-manager';
- import { LoadingManager } from '../infrastructure/loading-manager';
+import { NotifyManager } from '../core/utils/notify-manager';
+import { LoadingManager } from '../infrastructure/loading-manager';
 
 @Injectable()
 export class WeBaseKendoGridService extends BehaviorSubject<GridDataResult> {
@@ -40,7 +40,7 @@ export class WeBaseKendoGridService extends BehaviorSubject<GridDataResult> {
     this._baseService = new BaseService(http, apiUrl);
     // this.notify = this._baseService.notify;
     // this.loading = this._baseService.loading;
-    
+
     this.notify = this._baseService.notify;
     this.loading = this._baseService.loading;
 
@@ -52,11 +52,59 @@ export class WeBaseKendoGridService extends BehaviorSubject<GridDataResult> {
     this._baseService.initBusyConfig(busyConfig);
   }
 
-  public readGrid(search?: string): Subscription {
+
+
+  protected _generateQuery(obj: any): string {
+
+    let r = "";
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        r += `&${key}=${obj[key]}`;
+      }
+    }
+    return r;
+  }
+  private _readGrid(state: any, search?: string, model?: any): Observable<GridDataResult> {
+    const queryStr = `${toDataSourceRequestString(state)}`;
+
+    //  url = url || 'read';
+    // var httpUrl=`${this._baseService.API_URL}${url}?${queryStr}`;
+
+    let httpUrl = `${this._baseService.API_URL}`;
+    if (this.readId > 0) {
+      httpUrl += `?id=${this.readId}&${queryStr}`;
+    } else {
+      httpUrl += `?${queryStr}`;
+    }
+
+    if (search !== undefined && search !==null) {
+      httpUrl += `&search=${search}`;
+    }
+
+
+    if (model !== undefined && model !==null) {
+      const queryStrModel = this._generateQuery(model);
+      if (queryStrModel !== '' && queryStrModel !== '&') {
+        httpUrl += `${queryStrModel}`;
+      }
+    }
+
+    return this._http
+      .get(httpUrl)
+      .share()
+      .map(response => response.json())
+      .map(response => (<GridDataResult>{
+        data: response.data,
+        total: response.total
+      }));
+  }
+
+
+  public readGrid(search?: string, model?: any): Subscription {
     const that = this;
 
     this._baseService.loading.show();
-    return this._readGrid(this.state, search)
+    return this._readGrid(this.state, search, model)
       .subscribe(x => {
         super.next(x);
       })
@@ -165,30 +213,5 @@ export class WeBaseKendoGridService extends BehaviorSubject<GridDataResult> {
     );
   }
 
-
-  private _readGrid(state: any, search?: string): Observable<GridDataResult> {
-    const queryStr = `${toDataSourceRequestString(state)}`;
-    //  url = url || 'read';
-    // var httpUrl=`${this._baseService.API_URL}${url}?${queryStr}`;
-
-    let httpUrl = `${this._baseService.API_URL}`;
-    if (this.readId > 0) {
-      httpUrl += `?id=${this.readId}&${queryStr}`;
-    } else {
-      httpUrl += `?${queryStr}`;
-    }
-
-    if (search !== undefined) {
-      httpUrl += `&search=${search}`;
-    }
-    return this._http
-      .get(httpUrl)
-      .share()
-      .map(response => response.json())
-      .map(response => (<GridDataResult>{
-        data: response.data,
-        total: response.total
-      }));
-  }
 
 }
