@@ -49,15 +49,13 @@ export class SalesPlanDialogComponent extends WeBaseComponent {
 
   public openDialogById(id: number) {
     const that = this;
+    this.model = <SalesPlanModel>{};
+    this.model.salesPlanId = id;
     this.service.find(id)
       .subscribe(x => {
         that.service.operationHandling(x, (r) => {
           that.model = <SalesPlanModel>r;
-          debugger;
-          if (that.planDetail !== undefined) {
-            that.planDetail.setPlanModel(that.model);
-          }
-
+         
           if (that.model.startDate !== undefined) {
             this.startDate = moment(this.model.startDate);
           }

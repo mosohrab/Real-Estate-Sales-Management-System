@@ -1,5 +1,8 @@
 import { Component, OnInit, Input, ViewEncapsulation, ViewChild } from '@angular/core';
 import { WeBaseComponent } from '../../we-base.component';
+import{ BuyerRangeBulkModel,BuyerRangeModel,
+BuyerRangeAggregateModel,PersonBundlingType} from '../../../model/sales.model';
+import {BuyerRangeService} from '../../../services/sales.service';
 
 @Component({
   selector: 'app-buyer-range',
@@ -7,19 +10,17 @@ import { WeBaseComponent } from '../../we-base.component';
   styleUrls: ['./buyer-range.component.scss'],
   encapsulation: ViewEncapsulation.None,
   providers: [
-     // BuyerRangeService
+     BuyerRangeService
   ]
 })
 export class BuyerRangeComponent extends WeBaseComponent {
 
   @Input() salePlanId: number;
-  // @Input() fillterType: PersonBundlingType;
+  @Input() fillterType: PersonBundlingType;
 
   isSelectAll = false;
   
-  constructor(
-    // buyerRangeService: BuyerRangeService
-  ) {
+  constructor(private buyerRangeService: BuyerRangeService) {
     super();
   }
 
@@ -32,23 +33,23 @@ export class BuyerRangeComponent extends WeBaseComponent {
   //    this.salePlanId = id;
   // }
 
-  // onSaveAccessAll() {
-  //   // const that = this;
+  onSaveAccessAll() {
+    const that = this;
 
-  //   // const m = <BuyerRangeBulkModel>{};
-  //   // m.buyerRange = <BuyerRangeModel>{
-  //   //   salesPlanId: this.salePlanId,
-  //   //   fillterType: this.fillterType,
-  //   //   isSelectAll: true
-  //   // };
+    const m = <BuyerRangeBulkModel>{};
+    m.buyerRange = <BuyerRangeModel>{
+      salesPlanId: this.salePlanId,
+      fillterType: this.fillterType,
+      isSelectAll: true
+    };
 
-  //   // this.buyerRangeService.Sync(m)
-  //   //   .subscribe((r: boolean) => {
+    this.buyerRangeService.Sync(m)
+      .subscribe((r: boolean) => {
 
-  //   //   });
+      });
 
 
-  // }
+  }
 
 
 }

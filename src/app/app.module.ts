@@ -28,7 +28,7 @@ import { InputsModule } from '@progress/kendo-angular-inputs';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
-import { DialogModule } from '@progress/kendo-angular-dialog';
+import { DialogModule, WindowModule } from '@progress/kendo-angular-dialog';
 import { RippleModule } from '@progress/kendo-angular-ripple';
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { CalendarModule } from '@progress/kendo-angular-dateinputs';
@@ -73,6 +73,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Components
 import { AppComponent, RootComponent } from './app.component';
+import { LoginComponent } from './login.component';
 
 import { CountryComboComponent } from './components/shared/country-combo/country-combo.component';
 import { CountryUpsertComponent } from './components/base/country/country-upsert.component';
@@ -182,7 +183,8 @@ import { SelectiveBundlingComponent } from './components/Sales/selective-bundlin
     // JalaliPipe,
     AppComponent,
     RootComponent,
-
+    LoginComponent,
+    
     CountryComboComponent,
     CityComponent,
     CountryComponent,
@@ -293,6 +295,7 @@ import { SelectiveBundlingComponent } from './components/Sales/selective-bundlin
     GridModule,
     DropDownsModule,
     DialogModule,
+    WindowModule,
     RippleModule,
     DateInputsModule,
     CalendarModule,

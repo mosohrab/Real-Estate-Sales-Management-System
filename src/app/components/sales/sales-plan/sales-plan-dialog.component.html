@@ -1,20 +1,21 @@
-<kendo-dialog [width]="950" [height]="700" [title]="Status" 
+<kendo-window   [height]="700" title="مشخصات" 
 (close)="onClose()" *ngIf="isOpenedDialog" 
- style="text-align:right;">
+ class="plan-dialog"
+ style="text-align:right;width: 100%;" >
 
-  <kendo-dialog-titlebar>
+  <!-- <kendo-window-titlebar>
     <div style="font-size: 18px; line-height: 1.3em;">
       <span class="k-icon k-i-warning"></span> مشخصات
     </div>
-  </kendo-dialog-titlebar>
+  </kendo-window-titlebar> -->
 
   <app-sales-plan-detail #planDetail [model]="model">
   </app-sales-plan-detail>
 
 
-  <!-- <kendo-dialog-actions>
+  <!-- <kendo-window-actions>
 
     <button kendoButton class="k-button " (click)="onClose()">انصراف</button>
-  </kendo-dialog-actions> -->
+  </kendo-window-actions> -->
 
-</kendo-dialog>
+</kendo-window>

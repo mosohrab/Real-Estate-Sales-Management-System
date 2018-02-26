@@ -34,6 +34,9 @@ export class PersonBundlingDialogComponent extends WeBaseComponent {
   @Input() hasPermission = true;
   @Input() fillterType : PersonBundlingType;
 
+  fillterTypePersonAndCompany=PersonBundlingType.PersonAndCompany;
+  fillterTypePerson=PersonBundlingType.Person;
+  fillterTypeCompany=PersonBundlingType.Company;
 
   @Output() closedDialog = new EventEmitter<boolean>();
   @ViewChild('statusTree') statusTree: SpecialStatuTreeComponent;

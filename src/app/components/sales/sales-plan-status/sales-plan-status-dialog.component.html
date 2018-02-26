@@ -1,6 +1,6 @@
 
 
-<kendo-dialog [width]="500" [height]="400" 
+<kendo-dialog [width]="500" [height]="350" 
 [title]="Status" 
 (close)="onClose()"
  *ngIf="isOpenedDialog"
@@ -34,10 +34,10 @@
 <div class="au-margin-top-10">
    <label class="k-form-field">
     <span>شرح</span>
-    <input class="k-textarea"
+    <textarea class="k-textarea"
      name="description"
     [(ngModel)]="model.description" 
-    required />
+     style="width:100%;" ></textarea>
   </label>
 </div>
 

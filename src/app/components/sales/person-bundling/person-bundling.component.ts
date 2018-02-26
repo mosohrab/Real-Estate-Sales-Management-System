@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { WeBaseComponent } from '../../we-base.component';
 
 import { PersonBundlingType } from '../../../model/sales.model';
@@ -10,6 +10,7 @@ import { PersonBundlingType } from '../../../model/sales.model';
 })
 export class PersonBundlingComponent extends WeBaseComponent {
 
+  @Input() salePlanId:number;
   fillterByPersonAndCompany:PersonBundlingType;
   fillterByPerson:PersonBundlingType;
   fillterByCompany:PersonBundlingType;

@@ -36,7 +36,8 @@
   </kendo-tabstrip-tab>
 
 
-    <kendo-tabstrip-tab [title]="'اشخاص حقیقی'">
+    <kendo-tabstrip-tab [title]="'اشخاص حقیقی'" 
+    *ngIf="fillterType===fillterTypePerson">
       <ng-template kendoTabContent>
   
           <app-person-search 
@@ -47,7 +48,8 @@
     </kendo-tabstrip-tab>
   
   
-    <kendo-tabstrip-tab [title]="'اشخاص حقوقی'">
+    <kendo-tabstrip-tab [title]="'اشخاص حقوقی'" 
+     *ngIf="fillterType===fillterTypeCompany">
       <ng-template kendoTabContent>
 
         <app-company-search

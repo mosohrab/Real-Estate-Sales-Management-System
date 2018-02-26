@@ -1,0 +1,47 @@
+
+
+<kendo-dialog [width]="400" 
+[height]="200" 
+[title]="Status" 
+(close)="onClose()"
+ *ngIf="isLogin == false"
+  style="text-align:right;">
+    
+  <kendo-dialog-titlebar>
+    <div style="font-size: 18px; line-height: 1.3em;">
+      <span class="k-icon k-i-warning"></span> ورود به سیستم
+    </div>
+  </kendo-dialog-titlebar>
+
+
+
+
+<!-- <div class="k-form au-panel" 
+ style="margin: auto;width: 400px;" >
+  <div class="au-panel-header au-bg-gray">
+    <h3>ورود به سیستم</h3>
+  </div> -->
+
+<div class="k-form">
+
+  <div class="au-margin-top-10">
+    <label class="k-form-field">
+      <span>رمز عبور</span>
+      <input class="k-password" type="password" name="password" [(ngModel)]="password" style="width: 100%;" />
+
+    </label>
+  </div>
+<br>
+
+
+
+</div>
+
+
+<kendo-dialog-actions> 
+  <button kendoButton class="k-botton" primary="true" (click)="login()">ورود</button>
+
+</kendo-dialog-actions>
+    
+
+</kendo-dialog>

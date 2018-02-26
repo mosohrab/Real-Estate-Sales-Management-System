@@ -45,18 +45,18 @@
          >
                  <ng-template kendoGridHeaderTemplate>
                      <input class="k-checkbox" 
-                     id="selectAllValCheckboxId"
+                     id="{{checkeBoxId}}"
                       kendoGridSelectAllCheckbox
                       [state]="selectAllState"
                      (selectAllChange)="onSelectAllChange($event)">
                      <label class="k-checkbox-label"
-                      for="selectAllValCheckboxId"></label>
+                      for="{{checkeBoxId}}"></label>
                  </ng-template>
              </kendo-grid-checkbox-column>
            
          <kendo-grid-column
-          field="hasPermission"
-          title="hasPermission">
+          field="personName"
+          title="personName">
            </kendo-grid-column>
    
    
