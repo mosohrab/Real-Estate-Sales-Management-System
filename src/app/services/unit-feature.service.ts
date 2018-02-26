@@ -88,6 +88,11 @@ export class UnitFeatureTitleService extends BaseService {
     constructor(http: Http) {
         super(http, UrlHelper.UNITFEATURETITLE_API);
     }
+    
+    public getTree(): Observable<TreeModel[]> {
+        return this.get('/GetTree');
+      }
+    
 
 }
 
@@ -100,6 +105,8 @@ export class UnitFeatureTitleKendoGridService extends WeBaseKendoGridService {
 
         this.statusService = service;
     }
+
+ 
 
 }
 
@@ -148,6 +155,10 @@ export class UnitFeatureValueService extends BaseService {
         super(http, UrlHelper.UNITFEATUREVALUE_API);
     }
 
+
+    public getTree(id: number): Observable<TreeModel[]> {
+        return this.get('/GetTree/' + id);
+      }
 }
 
 @Injectable()

@@ -142,6 +142,7 @@ import { UnitFeatureAssignedUpsertComponent } from './components/unit/unit/unit-
 
 import { FeatureComponent } from './components/unit/feature/feature.component';
 import { FeatureComboComponent } from './components/unit/feature/feature-combo.component';
+import { FeatureTreeComponent } from './components/unit/feature/feature-tree.component';
 import { FeatureTitleUpsertComponent } from './components/unit/feature/feature-title-upsert.component';
 import { FeatureTitleComboSingleComponent } from './components/unit/feature/feature-title-combo-single.component';
 import { FeatureValueGridComponent } from './components/unit/feature/feature-value-grid.component';
@@ -154,10 +155,10 @@ import { MeasuringUnitComboComponent } from './components/unit/measuring-unit/me
 import { UsageComboComponent } from './components/unit/usage/usage-combo.component';
 import { UsageComponent } from './components/unit/usage/usage.component';
 import { UsageDialogComponent } from './components/unit/usage/usage-dialog.component';
+import { UsageTreeComponent } from './components/unit/usage/usage-tree.component';
 import { UsageItemComboSingleComponent } from './components/unit/usage-item/usage-item-combo-single.component';
 import { UsageItemComponent } from './components/unit/usage-item/usage-item.component';
 import { UsageItemDialogComponent } from './components/unit/usage-item/usage-item-dialog.component';
-import { UsageItemKendoGridService } from './services/usage.service';
 
 import { SalesPlanComponent } from './components/sales/sales-plan/sales-plan.component';
 import { SalesPlanDetailComponent } from './components/sales/sales-plan/sales-plan-detail.component';
@@ -173,6 +174,7 @@ import { BuyerRangePartialComponent } from './components/Sales/person-bundling/b
 import { UnitBundlingComponent } from './components/Sales/unit-bundling/unit-bundling.component';
 import { UnitBundlingDialogComponent } from './components/Sales/unit-bundling/unit-bundling-dialog.component';
 import { UnitBundlingSearchComponent } from './components/Sales/unit-bundling/unit-bundling-search.component';
+import { UnitBundlingFilterComponent } from './components/Sales/unit-bundling/unit-bundling-filter.component';
 import { BundlingComponent } from './components/Sales/bundling/bundling.component';
 import { SelectiveBundlingComponent } from './components/Sales/selective-bundling/selective-bundling.component';
 
@@ -244,6 +246,7 @@ import { SelectiveBundlingComponent } from './components/Sales/selective-bundlin
     UsageItemComboSingleComponent,
     FeatureComponent,
     FeatureComboComponent,
+    FeatureTreeComponent,
     FeatureTitleUpsertComponent,
     FeatureTitleComboSingleComponent,
     FeatureValueGridComponent,
@@ -254,6 +257,7 @@ import { SelectiveBundlingComponent } from './components/Sales/selective-bundlin
     MeasuringUnitDialogComponent,
     MeasuringUnitComboComponent,
     UsageDialogComponent,
+    UsageTreeComponent,
     UsageItemComponent,
     UsageItemDialogComponent,
     SalesPlanComponent,
@@ -270,6 +274,7 @@ import { SelectiveBundlingComponent } from './components/Sales/selective-bundlin
     UnitBundlingComponent,
     UnitBundlingDialogComponent,
     UnitBundlingSearchComponent,
+    UnitBundlingFilterComponent,
     BundlingComponent,
     SelectiveBundlingComponent,
 

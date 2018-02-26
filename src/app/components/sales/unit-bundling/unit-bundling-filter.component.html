@@ -1,0 +1,49 @@
+<kendo-dialog [width]="700" [height]="350" 
+   [title]="Status" (close)="onClose()" *ngIf="isOpenedDialog" style="text-align:right;">
+
+    <kendo-dialog-titlebar>
+        <div style="font-size: 18px; line-height: 1.3em;">
+            <span class="k-icon k-i-warning"></span> مشخصات
+        </div>
+    </kendo-dialog-titlebar>
+
+
+    <kendo-tabstrip [expandMode]="'single'" [keepTabContent]="true" 
+      class="au-margin-top-10">
+
+        <kendo-tabstrip-tab [title]="'کاربری'" [expanded]='true' [selected]="true">
+            <ng-template kendoTabContent>
+
+                <app-usage-tree></app-usage-tree>
+            
+
+            </ng-template>
+        </kendo-tabstrip-tab>
+
+
+        <kendo-tabstrip-tab [title]="'متراژ'" >
+            <ng-template kendoTabContent>
+
+            </ng-template>
+        </kendo-tabstrip-tab>
+
+
+        <kendo-tabstrip-tab [title]="'ویژگیهای عمومی و انتخابی'" >
+            <ng-template kendoTabContent>
+             
+                <app-feature-tree></app-feature-tree>
+         
+            </ng-template>
+        </kendo-tabstrip-tab>
+
+
+
+    </kendo-tabstrip>
+
+
+    <kendo-dialog-actions>
+        <button kendoButton class="k-button " (click)="onOk()" primary="true" type="submit">تایید</button>
+        <button kendoButton class="k-button " (click)="onClose()">انصراف</button>
+    </kendo-dialog-actions>
+
+</kendo-dialog>

@@ -8,6 +8,9 @@ import { UsageModel, UsageItemModel } from '../model/usage.model';
 import { BaseService } from './base.service';
 import { WeBaseKendoGridService } from './base-kendo-grid.service';
 import { UrlHelper } from '../infrastructure/url-helper';
+import { TreeModel } from '../core/model/tree.model';
+
+
 
 @Injectable()
 export class UsageService extends BaseService {
@@ -15,6 +18,12 @@ export class UsageService extends BaseService {
     constructor(http: Http) {
         super(http, UrlHelper.USAGE_API);
     }
+
+    public getTree(): Observable<TreeModel[]> {
+        return this.get('/GetTree');
+      }
+
+      
 }
 
 @Injectable()
@@ -58,6 +67,11 @@ export class UsageItemService extends BaseService {
     constructor(http: Http) {
         super(http, UrlHelper.USAGEITEM_API);
     }
+
+    public getTree(id: number): Observable<TreeModel[]> {
+        return this.get('/GetTree/' + id);
+      }
+    
 
 }
 

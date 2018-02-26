@@ -6,12 +6,18 @@
          name="search" [(ngModel)]="search"
          class="search-query form-control"
           placeholder="جستجو" />
+
         <span class="input-group-btn">
             <button class="btn btn-danger" type="button"
-             (click)="refresh()" >
+              (click)="openFilterDialog()" >
+                <span class="fa fa-filter"></span>
+            </button>
+            <button class="btn btn-danger" type="button"
+              (click)="refresh()" >
                 <span class="fa fa-search"></span>
             </button>
         </span>
+
     </div>
 </div>
 
@@ -45,7 +51,7 @@
        >
        <!-- (selectionChange)="valueGrid.setValueItem($event)" -->
        <kendo-grid-checkbox-column
-       width="40"
+       width="60"
        >
                <ng-template kendoGridHeaderTemplate>
                    <input class="k-checkbox" 
@@ -71,4 +77,10 @@
  
 
  
- 
+ <app-unit-bundling-filter 
+    #filterDialog
+  (closedDialog)="closedFilterDialog($event)"
+ >
+
+ </app-unit-bundling-filter>
+

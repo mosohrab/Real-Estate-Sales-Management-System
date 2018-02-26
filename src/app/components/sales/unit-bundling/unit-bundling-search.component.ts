@@ -3,6 +3,8 @@ import { Route, RouterLink } from '@angular/router';
 import { WeBaseKendoGridComponent } from '../../we-base-kendo-grid.component';
 import { UnitRangeService, UnitRangeKendoGridService } from '../../../services/sales.service';
 import { UnitRangeFilterModel } from '../../../model/sales.model'
+import{ UnitBundlingFilterComponent} from './unit-bundling-filter.component';
+
 
 @Component({
   selector: 'app-unit-bundling-search',
@@ -18,7 +20,8 @@ export class UnitBundlingSearchComponent extends WeBaseKendoGridComponent {
 
   @Input() filterModel = <UnitRangeFilterModel>{};
   @Input() salePlanId: number;
-
+  @ViewChild('filterDialog') filterDialog: UnitBundlingFilterComponent;
+  
   search: string;
 
   constructor(service: UnitRangeKendoGridService) {
@@ -33,12 +36,7 @@ export class UnitBundlingSearchComponent extends WeBaseKendoGridComponent {
   }
 
 
-  private closedDialog(event: boolean) {
-    if (event) {
-      this.refresh();
-    }
 
-  }
 
   private refresh(): void {
     const that = this;
@@ -49,6 +47,20 @@ export class UnitBundlingSearchComponent extends WeBaseKendoGridComponent {
 
     return <number[]>this.dataItemSelected;
   }
+
+
+  private openFilterDialog(event: boolean) {
+   this.filterDialog.openDialog();;
+
+  }
+  private closedFilterDialog(event: boolean) {
+    if (event) {
+      this.refresh();
+    }
+
+  }
+
+
 
 }
 
