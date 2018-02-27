@@ -26,6 +26,7 @@ export class WbsActiveTreeComponent extends WeBaseKendoTreeComponent {
   service: WbsService;
   public data: Observable<TreeModel[]>;
 
+
   constructor(service: WbsService) {
     super();
     this.service = service;

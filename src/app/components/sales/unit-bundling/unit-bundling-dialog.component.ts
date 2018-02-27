@@ -3,15 +3,18 @@ import {
   Input, Output, ViewEncapsulation,
   ViewChild
 } from '@angular/core';
+import { WeBaseComponent } from '../../we-base.component';
+import {OperationResultModel} from '../../../model/operation-result.model';
+import { WbsActiveTreeComponent } from '../../wbs/wbs/wbs-active-tree.component';
+
+
 import { UnitRangeService } from '../../../services/sales.service';
 import {
   UnitRangeFilterModel, UnitRangeModel,
-  UnitRangeBulkModel
+  UnitRangeBulkModel,UnitBundlingFilterModel
 } from '../../../model/sales.model';
-import { WeBaseComponent } from '../../we-base.component';
-import { OperationResultModel } from '../../../model/operation-result.model';
-import { WbsActiveTreeComponent } from '../../wbs/wbs/wbs-active-tree.component';
 import { UnitBundlingSearchComponent } from './unit-bundling-search.component';
+
 
 @Component({
   selector: 'app-unit-bundling-dialog',
@@ -29,6 +32,10 @@ export class UnitBundlingDialogComponent extends WeBaseComponent {
 
   showSearch = false;
   model = <UnitRangeFilterModel>{};
+  filterModel = <UnitBundlingFilterModel>{};
+  wbsHid: number[];
+
+
   @Output() closedDialog = new EventEmitter<boolean>();
   @ViewChild('wbsTree') wbsTree: WbsActiveTreeComponent;
   @ViewChild('searchForm') searchForm: UnitBundlingSearchComponent;
@@ -39,7 +46,7 @@ export class UnitBundlingDialogComponent extends WeBaseComponent {
     super();
     this.service = service;
 
-// TODO
+    // TODO
     this.salePlanId = 1;
   }
 
@@ -47,7 +54,19 @@ export class UnitBundlingDialogComponent extends WeBaseComponent {
   }
 
 
+  showChecked(evt: any[]) {
+    this.wbsHid = new Array<number>();
+    const that = this;
 
+    evt.forEach(element => {
+      if (element != undefined && element > 0) {
+        that.wbsHid.push(<number>element);
+      }
+    });
+
+    this.searchForm.reload(this.wbsHid);
+
+  }
   public openDialog() {
     this.model = <UnitRangeFilterModel>{};
     this.showSearch = false;
@@ -87,7 +106,7 @@ export class UnitBundlingDialogComponent extends WeBaseComponent {
 
 
   public onSearch() {
-    const wbs = <number[]>this.wbsTree.checkedKeys;
+    const wbs = this.wbsHid = <number[]>this.wbsTree.checkedKeys;
     this.model.wbsUnitId = wbs;
     this.showSearch = true;
   }

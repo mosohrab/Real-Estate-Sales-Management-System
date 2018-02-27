@@ -6,7 +6,10 @@ import {
 import { Route, RouterLink } from '@angular/router';
 import { WeBaseKendoGridComponent } from '../../we-base-kendo-grid.component';
 import { UnitRangeService, UnitRangeKendoGridService } from '../../../services/sales.service';
-import { UnitRangeFilterModel } from '../../../model/sales.model'
+import {
+  UnitRangeFilterModel, UnitBundlingFilterAreaModel,
+  UnitBundlingFilterModel
+} from '../../../model/sales.model'
 
 @Component({
   selector: 'app-unit-bundling-filter',
@@ -21,11 +24,23 @@ import { UnitRangeFilterModel } from '../../../model/sales.model'
 export class UnitBundlingFilterComponent extends WeBaseKendoGridComponent {
 
   public isOpenedDialog = false;
-  @Output() closedDialog = new EventEmitter<boolean>();
+  @Output() closedDialog = new EventEmitter<UnitBundlingFilterModel>();
+  // @Input() filterModel: UnitBundlingFilterModel[];
 
+  filterAreaModel: UnitBundlingFilterAreaModel[];
+  filterUsageItemsId: number[];
+  filterFeatureId: number[];
+  filterSelectiveFeatureId: number[];
 
   constructor(service: UnitRangeKendoGridService) {
     super(service);
+
+    this.filterAreaModel = new Array<UnitBundlingFilterAreaModel>();
+    this.filterAreaModel.push(<UnitBundlingFilterAreaModel>{
+
+    })
+
+
   }
 
   ngOnInitHandler() {
@@ -51,7 +66,7 @@ export class UnitBundlingFilterComponent extends WeBaseKendoGridComponent {
     //   .subscribe(x => {
     //     that.service.operationHandling(x, (r) => {
     //       that.model = <SalesPlanStatusModel>r;
-          that.isOpenedDialog = true;
+    that.isOpenedDialog = true;
     //     });
 
     //   });
@@ -59,9 +74,37 @@ export class UnitBundlingFilterComponent extends WeBaseKendoGridComponent {
 
 
 
+
+  onOk() {
+
+    this.onClose();
+
+  }
+
+
+
   onClose() {
+
+    let filterModel = <UnitBundlingFilterModel>{};
+    
+    filterModel.filterAreaModel =new Array<UnitBundlingFilterAreaModel>();
+     this.filterAreaModel.forEach((element: UnitBundlingFilterAreaModel) => {
+      if (element.fromArea > 0 ||
+        element.toArea > 0 ||
+        element.usageItemId > 0) {
+
+        filterModel.filterAreaModel.push(element);
+      }
+    });
+    
+    
+    filterModel.filterUsageItemsId = this.filterUsageItemsId;
+    filterModel.filterFeatureId = this.filterFeatureId;
+    filterModel.filterSelectiveFeatureId = this.filterSelectiveFeatureId;
+
+
     this.isOpenedDialog = false;
-    this.closedDialog.emit(true);
+    this.closedDialog.emit(filterModel);
   }
 
 

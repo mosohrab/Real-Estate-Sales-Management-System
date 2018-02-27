@@ -175,6 +175,7 @@ import { UnitBundlingComponent } from './components/Sales/unit-bundling/unit-bun
 import { UnitBundlingDialogComponent } from './components/Sales/unit-bundling/unit-bundling-dialog.component';
 import { UnitBundlingSearchComponent } from './components/Sales/unit-bundling/unit-bundling-search.component';
 import { UnitBundlingFilterComponent } from './components/Sales/unit-bundling/unit-bundling-filter.component';
+import { UnitBundlingFilterAreaComponent } from './components/Sales/unit-bundling/unit-bundling-filter-area.component';
 import { BundlingComponent } from './components/Sales/bundling/bundling.component';
 import { SelectiveBundlingComponent } from './components/Sales/selective-bundling/selective-bundling.component';
 
@@ -275,6 +276,7 @@ import { SelectiveBundlingComponent } from './components/Sales/selective-bundlin
     UnitBundlingDialogComponent,
     UnitBundlingSearchComponent,
     UnitBundlingFilterComponent,
+    UnitBundlingFilterAreaComponent,
     BundlingComponent,
     SelectiveBundlingComponent,
 

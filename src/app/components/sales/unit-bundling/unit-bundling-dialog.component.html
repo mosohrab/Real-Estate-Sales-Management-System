@@ -9,14 +9,14 @@
 
 
 
-  <!-- <div class="row k-form"> -->
-
     <kendo-splitter>
 
       <kendo-splitter-pane [collapsible]="true" size="30%">
         <div class="pane-content">
           <!-- [(ngModel)]="model.wbsUnitId"  -->
-          <app-wbs-active-tree name="wbsUnitId" #wbsTree>
+          <app-wbs-active-tree name="wbsHid" 
+          (checkedKeysChange)="showChecked($event)"
+           #wbsTree>
           </app-wbs-active-tree>
 
         </div>
@@ -24,7 +24,11 @@
 
       <kendo-splitter-pane>
         <div class="pane-content">
-          <app-unit-bundling-search [salePlanId]="salePlanId" [filterModel]="model">
+          <app-unit-bundling-search 
+          #searchForm
+          [salePlanId]="salePlanId" 
+          [filterModel]="filterModel" 
+          [(wbsHid)]="wbsHid" >
           </app-unit-bundling-search>
         </div>
       </kendo-splitter-pane>
@@ -34,70 +38,10 @@
 
 
 
-
-  <!-- </div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- 
-
-  <form class="k-form" *ngIf="showSearch==false">
-
-    <div>
-      <label class="k-form-field">
-        <span>کاربری</span>
-        <app-usage-item-combo-single name="usageItemId" [(ngModel)]="model.usageItemId">
-        </app-usage-item-combo-single>
-      </label>
-    </div>
-
-
-    <div class="au-margin-top-10">
-      <label class="k-form-field">
-        <span>ویژگی</span>
-        <app-feature-value-combo-single name="featureValueId" [(ngModel)]="model.featureValueId">
-        </app-feature-value-combo-single>
-      </label>
-    </div>
-
-    <div class="au-margin-top-10">
-      <label class="k-form-field">
-        <span>متراژ</span>
-        <kendo-numerictextbox name="area" [(ngModel)]="model.area" [min]="0" [max]="999999" [format]="N0" style="width:100%;">
-        </kendo-numerictextbox>
-      </label>
-    </div>
-
-    <div class="au-margin-top-10">
-      <label class="k-form-field">
-        <span>ساختار</span>
-
-      </label>
-    </div>
-
-
-  </form>
-
-  <app-unit-bundling-search *ngIf="showSearch" #searchForm [salePlanId]="salePlanId" [filterModel]="model">
-  </app-unit-bundling-search>
- -->
-
   <kendo-dialog-actions>
 
     <button kendoButton *ngIf="showSearch==false" class="k-button " primary="true" (click)="onSearch()">جستجو</button>
-
     <button kendoButton *ngIf="showSearch" class="k-button " primary="true" (click)="onOk()">تایید</button>
-
-
     <button kendoButton class="k-button " (click)="onClose()">انصراف</button>
   </kendo-dialog-actions>
 

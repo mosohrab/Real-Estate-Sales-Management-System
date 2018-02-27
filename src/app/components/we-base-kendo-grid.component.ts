@@ -131,11 +131,29 @@ export abstract class WeBaseKendoGridComponent extends WeBaseComponent {
     }
 
 
-    private onDataStateChange(state: DataStateChangeEvent): void {
+    public setDataState(state){
         this.state = state;
         this._service.state = state;
         this._service.readGrid();
     }
+
+    
+    private onDataStateChange(state: DataStateChangeEvent): void {
+      
+       this.setDataState(state);
+    }
+
+    private filterChange(filter: CompositeFilterDescriptor): void {
+     
+        // this.filter = filter;
+        // this.gridData = filterBy(sampleProducts, filter);
+    }
+
+
+
+
+
+
     private onSelectedKeysChange(e) {
 
         const len = this.dataItemSelected.length;

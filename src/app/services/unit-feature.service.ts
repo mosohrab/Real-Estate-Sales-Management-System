@@ -88,9 +88,9 @@ export class UnitFeatureTitleService extends BaseService {
     constructor(http: Http) {
         super(http, UrlHelper.UNITFEATURETITLE_API);
     }
-    
-    public getTree(): Observable<TreeModel[]> {
-        return this.get('/GetTree');
+
+    public getTree(id: number): Observable<TreeModel[]> {
+        return this.get('/GetTree/' + id);
       }
     
 

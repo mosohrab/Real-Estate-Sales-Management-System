@@ -1,9 +1,13 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation, Input } from '@angular/core';
 import { Route, RouterLink } from '@angular/router';
 import { WeBaseKendoGridComponent } from '../../we-base-kendo-grid.component';
-import { UnitRangeService, UnitRangeKendoGridService } from '../../../services/sales.service';
-import { UnitRangeFilterModel } from '../../../model/sales.model'
-import{ UnitBundlingFilterComponent} from './unit-bundling-filter.component';
+import { UnitService, UnitKendoGridService } from '../../../services/unit.service';
+import {
+  UnitBundlingFilterModel,
+  UnitBundlingFilterAreaModel
+} from '../../../model/sales.model';
+
+import { UnitBundlingFilterComponent } from './unit-bundling-filter.component';
 
 
 @Component({
@@ -12,35 +16,48 @@ import{ UnitBundlingFilterComponent} from './unit-bundling-filter.component';
   styleUrls: ['./unit-bundling-search.component.scss'],
   encapsulation: ViewEncapsulation.None,
   providers: [
-    UnitRangeService,
-    UnitRangeKendoGridService
+    UnitService,
+    UnitKendoGridService
   ]
 })
 export class UnitBundlingSearchComponent extends WeBaseKendoGridComponent {
 
-  @Input() filterModel = <UnitRangeFilterModel>{};
+  @Input() filterModel = <UnitBundlingFilterModel>{};
   @Input() salePlanId: number;
+  @Input() wbsHid: number[];
   @ViewChild('filterDialog') filterDialog: UnitBundlingFilterComponent;
-  
-  search: string;
 
-  constructor(service: UnitRangeKendoGridService) {
+  search: string;
+  filtered = false;
+
+  constructor(service: UnitKendoGridService) {
     super(service);
   }
 
   ngOnInitHandler() {
 
     this._service.initBusyConfig(this.busyConfig);
-    this._service.readId = this.salePlanId;
+
+    if (this.wbsHid !== undefined && this.wbsHid.length > 0) {
+      this._service.readIds = this.wbsHid;
+    }
     this.refresh();
   }
 
 
 
 
-  private refresh(): void {
+  refresh(): void {
+
     const that = this;
-    this._service.readGrid(this.search, this.filterModel);
+    this._service.readGrid(this.search);
+  }
+
+  public reload(wbsHid: number[]): void {
+    if (wbsHid !== undefined && wbsHid.length > 0) {
+      this._service.readIds = this.wbsHid;
+    }
+    this.refresh();
   }
 
   public getSelectedIds(): number[] {
@@ -50,13 +67,82 @@ export class UnitBundlingSearchComponent extends WeBaseKendoGridComponent {
 
 
   private openFilterDialog(event: boolean) {
-   this.filterDialog.openDialog();;
+    this.filterDialog.openDialog();;
 
   }
-  private closedFilterDialog(event: boolean) {
-    if (event) {
-      this.refresh();
+
+
+
+  private clearFilter() {
+    this.filterModel = <UnitBundlingFilterModel>{};
+    this.state.filter.filters = [];
+    this.filtered = false;
+    this.setDataState(this.state);
+  }
+
+  private closedFilterDialog(event: UnitBundlingFilterModel) {
+
+    this.filterModel = event;
+    this.state.filter.filters = [];
+    this.filtered = false;
+
+    if (this.filterModel !== undefined) {
+      if (this.filterModel.filterAreaModel !== undefined &&
+        this.filterModel.filterAreaModel.length > 0) {
+        this.filtered = true;
+      }
+
+      if (this.filterModel.filterUsageItemsId !== undefined &&
+        this.filterModel.filterUsageItemsId.length > 0) {
+        this.filtered = true;
+      }
+
+      if (this.filterModel.filterFeatureId !== undefined &&
+        this.filterModel.filterFeatureId.length > 0) {
+        this.filtered = true;
+      }
+
+      if (this.filterModel.filterSelectiveFeatureId !== undefined &&
+        this.filterModel.filterSelectiveFeatureId.length > 0) {
+        this.filtered = true;
+      }
     }
+
+
+    this.filterModel.filterAreaModel.forEach((element: UnitBundlingFilterAreaModel) => {
+
+      if (element.fromArea !== undefined && element.fromArea > 0) {
+        this.state.filter.filters.push({
+          field: 'nominalArea',
+          operator: 'gte',
+          value: element.fromArea
+        });
+      }
+
+
+      if (element.toArea !== undefined && element.toArea > 0) {
+        this.state.filter.filters.push({
+          field: 'nominalArea',
+          operator: 'lte',
+          value: element.toArea
+        });
+      }
+
+      if (element.usageItemId !== undefined && element.usageItemId > 0) {
+        this.state.filter.filters.push({
+          field: 'usageItemId',
+          operator: 'eq',
+          value: element.usageItemId
+        });
+      }
+
+
+    });
+
+    this.setDataState(this.state);
+    //
+
+    this.refresh();
 
   }
 

@@ -17,6 +17,7 @@ import { LoadingManager } from '../infrastructure/loading-manager';
 @Injectable()
 export class WeBaseKendoGridService extends BehaviorSubject<GridDataResult> {
   readId: number;
+  readIds: number[];
   loading: LoadingManager;
   notify: NotifyManager;
   public _baseService: BaseService;
@@ -25,7 +26,11 @@ export class WeBaseKendoGridService extends BehaviorSubject<GridDataResult> {
   protected dataItems: any[] = [];
   public state: State = {
     skip: 0,
-    take: 10
+    take: 10,
+    filter: {
+      logic: 'and',
+      filters: []
+    }
   };
 
   protected CREATE_ACTION = 'create';
@@ -65,24 +70,28 @@ export class WeBaseKendoGridService extends BehaviorSubject<GridDataResult> {
     return r;
   }
   private _readGrid(state: any, search?: string, model?: any): Observable<GridDataResult> {
+
     const queryStr = `${toDataSourceRequestString(state)}`;
 
     //  url = url || 'read';
     // var httpUrl=`${this._baseService.API_URL}${url}?${queryStr}`;
 
     let httpUrl = `${this._baseService.API_URL}`;
-    if (this.readId > 0) {
+
+    if (this.readIds !== undefined && this.readIds.length > 0) {
+      httpUrl += `?id=${this.readIds.join(',')}&${queryStr}`;
+    } else if (this.readId !== undefined && this.readId > 0) {
       httpUrl += `?id=${this.readId}&${queryStr}`;
     } else {
       httpUrl += `?${queryStr}`;
     }
 
-    if (search !== undefined && search !==null) {
+    if (search !== undefined && search !== null) {
       httpUrl += `&search=${search}`;
     }
 
 
-    if (model !== undefined && model !==null) {
+    if (model !== undefined && model !== null) {
       const queryStrModel = this._generateQuery(model);
       if (queryStrModel !== '' && queryStrModel !== '&') {
         httpUrl += `${queryStrModel}`;

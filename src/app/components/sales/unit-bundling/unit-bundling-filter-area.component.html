@@ -1,0 +1,56 @@
+<div class="k-form-inline">
+
+
+    <div class="row au-margin-top-10" *ngFor="let m of model;let i = index; let last=last;">
+
+        <div class="col-md-5">
+            <label class="k-form-field">
+                <span>کاربری</span>
+
+                <app-usage-item-combo-single 
+                name="usageItemId" 
+                [(ngModel)]="m.usageItemId"                 
+                style="width: 100%;"
+                ></app-usage-item-combo-single>
+                
+            </label>
+
+        </div>
+        <div class="col-md-3">
+            <label class="k-form-field">
+                <span>از متراژ</span>
+                <kendo-numerictextbox 
+                name="fromArea" [(ngModel)]="m.fromArea" 
+                [min]="0" [max]="999999"
+                 [format]="N2">
+                </kendo-numerictextbox>
+            </label>
+        </div>
+        <div class="col-md-3">
+            <label class="k-form-field">
+                <span>تا متراژ</span>
+                <kendo-numerictextbox name="toArea" [(ngModel)]="m.toArea" 
+                [min]="0" [max]="999999" [format]="N2">
+                </kendo-numerictextbox>
+            </label>
+        </div>
+        <div class="col-md-1">
+            <button kendoButton class="k-button " primary="true" 
+            (click)="addItem()" 
+            *ngIf="last" >
+                <span class="fa fa-plus"></span>
+            </button>
+        </div>
+        <div class="col-md-1">
+            <button kendoButton class="k-button " primary="true" (click)="removeItem(i)"
+                        *ngIf="last === false" >
+                <span class="fa fa-trash"></span>
+            </button>
+        </div>
+
+    </div>
+
+
+
+
+</div>

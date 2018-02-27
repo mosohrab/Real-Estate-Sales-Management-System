@@ -10,7 +10,9 @@ export interface UnitModel {
     nominalArea: number; // متراژ اسمی واحد
     isEnable: boolean;
     usageItemId: number;
+    usageItemName: string;
     usageId: number;
+    usageName: string;
 }
 
 

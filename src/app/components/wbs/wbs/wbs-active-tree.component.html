@@ -11,7 +11,7 @@
         [checkBy]="'id'" 
         [(checkedKeys)]="checkedKeys"
         [(expandedKeys)]="expandedKeys"
-        
+        (checkedKeysChange)="onCheckedKeysChange($event)"
        
 
       [ngBusy]="busyConfig" 

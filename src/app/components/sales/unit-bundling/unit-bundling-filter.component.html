@@ -1,4 +1,4 @@
-<kendo-dialog [width]="700" [height]="350" 
+<kendo-dialog [width]="950" [height]="700" 
    [title]="Status" (close)="onClose()" *ngIf="isOpenedDialog" style="text-align:right;">
 
     <kendo-dialog-titlebar>
@@ -14,7 +14,9 @@
         <kendo-tabstrip-tab [title]="'کاربری'" [expanded]='true' [selected]="true">
             <ng-template kendoTabContent>
 
-                <app-usage-tree></app-usage-tree>
+                <app-usage-tree 
+                [selectedKeys]="filterUsageItemsId" 
+                ></app-usage-tree>
             
 
             </ng-template>
@@ -22,16 +24,28 @@
 
 
         <kendo-tabstrip-tab [title]="'متراژ'" >
-            <ng-template kendoTabContent>
-
+            <ng-template kendoTabContent> 
+                <app-unit-bundling-filter-area 
+                 [model]="filterAreaModel"
+                 ></app-unit-bundling-filter-area>
             </ng-template>
         </kendo-tabstrip-tab>
 
 
-        <kendo-tabstrip-tab [title]="'ویژگیهای عمومی و انتخابی'" >
+        <kendo-tabstrip-tab [title]="'ویژگیهای عمومی'" >
             <ng-template kendoTabContent>
              
-                <app-feature-tree></app-feature-tree>
+                <app-feature-tree [featureId]="1" 
+                [checkedKeys]="filterFeatureId" ></app-feature-tree>
+         
+            </ng-template>
+        </kendo-tabstrip-tab>
+
+        <kendo-tabstrip-tab [title]="'ویژگیهای انتخابی'" >
+            <ng-template kendoTabContent>
+             
+                <app-feature-tree [featureId]="2" 
+                [checkedKeys]="filterSelectiveFeatureId" ></app-feature-tree>
          
             </ng-template>
         </kendo-tabstrip-tab>

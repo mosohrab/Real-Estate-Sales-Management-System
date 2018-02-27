@@ -56,6 +56,7 @@ export abstract class WeBaseKendoTreeComponent extends WeBaseComponent {
   public selectBy = 'id';
   public selectedKeys: any[] = [0];
 
+  @Output() checkedKeysChange = new EventEmitter<any[]>();
 
   public get checkableSettings(): CheckableSettings {
     return {
@@ -65,6 +66,10 @@ export abstract class WeBaseKendoTreeComponent extends WeBaseComponent {
     };
   }
 
+
+  onCheckedKeysChange(evt) {
+    this.checkedKeysChange.emit(<any[]>evt);
+  }
 }
 
 

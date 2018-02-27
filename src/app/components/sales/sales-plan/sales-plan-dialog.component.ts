@@ -7,6 +7,7 @@ import { SalesPlanModel } from '../../../model/sales.model';
 import { WeBaseComponent } from '../../we-base.component';
 import { OperationResultModel } from '../../../model/operation-result.model';
 import * as moment from 'jalali-moment';
+
 import { SalesPlanDetailComponent } from './sales-plan-detail.component';
 
 @Component({
@@ -36,6 +37,7 @@ export class SalesPlanDialogComponent extends WeBaseComponent {
   }
 
   ngOnInitHandler() {
+  
   }
 
 
@@ -55,7 +57,7 @@ export class SalesPlanDialogComponent extends WeBaseComponent {
       .subscribe(x => {
         that.service.operationHandling(x, (r) => {
           that.model = <SalesPlanModel>r;
-         
+
           if (that.model.startDate !== undefined) {
             this.startDate = moment(this.model.startDate);
           }

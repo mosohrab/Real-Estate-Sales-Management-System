@@ -1,19 +1,19 @@
-
-
-   <div id="custom-search-input">
+<div id="custom-search-input">
     <div class="input-group col-md-12">
-        <input type="text"
-         name="search" [(ngModel)]="search"
-         class="search-query form-control"
-          placeholder="جستجو" />
+        <input type="text" name="search" [(ngModel)]="search" class="search-query form-control" placeholder="جستجو" />
 
         <span class="input-group-btn">
-            <button class="btn btn-danger" type="button"
-              (click)="openFilterDialog()" >
+            <button class="btn  btn-danger" type="button" 
+            *ngIf="filtered" (click)="clearFilter()">
+                <span class="fa fa-ban"></span>
+            </button>
+
+            <button class="btn  btn-default" type="button" 
+            [ngClass]="{'btn-danger':filtered,'btn-default':filtered==false}" 
+            (click)="openFilterDialog()">
                 <span class="fa fa-filter"></span>
             </button>
-            <button class="btn btn-danger" type="button"
-              (click)="refresh()" >
+            <button class="btn btn-default" type="button" (click)="refresh()">
                 <span class="fa fa-search"></span>
             </button>
         </span>
@@ -21,66 +21,49 @@
     </div>
 </div>
 
-  
-   <form novalidate #myForm="ngForm"  class="au-margin-top-10">
+
+<form novalidate #myForm="ngForm" class="au-margin-top-10">
     <div class="au-panel">
-     <div class="au-panel-header au-bg-gray">
-       
-         </div>
-     <kendo-grid
-      [data]="gridDataResult | async" 
-     [pageSize]="state.take"
-      [skip]="state.skip"
-       [sort]="state.sort"
-        [sortable]="true"
-       [pageable]="true" 
-       [selectable]="true"  
-       (dataStateChange)="onDataStateChange($event)"
-       (pageChange)="onPageChange($event)"
-       [filter]="state.filter" 
-        filterable="menu" 
-       [resizable]="true"
-           
-      
-       [selectable]="selectableSettings" 
-       [kendoGridSelectBy]="'unitRangeId'"
-       [selectedKeys]="dataItemSelected"
-       (selectedKeysChange)="onSelectedKeysChange($event)"
-       
-      [height]="500"
-       >
-       <!-- (selectionChange)="valueGrid.setValueItem($event)" -->
-       <kendo-grid-checkbox-column
-       width="60"
-       >
-               <ng-template kendoGridHeaderTemplate>
-                   <input class="k-checkbox" 
-                   id="selectAllCheckboxId"
-                    kendoGridSelectAllCheckbox
-                    [state]="selectAllState"
-                   (selectAllChange)="onSelectAllChange($event)">
-                   <label class="k-checkbox-label"
-                    for="selectAllCheckboxId"></label>
-               </ng-template>
-           </kendo-grid-checkbox-column>
-         
-       <kendo-grid-column
-        field="unitTitle"
-         title="نام">
-         </kendo-grid-column>
-       
- 
-     </kendo-grid>
-   </div>
-   </form>
- 
- 
+        <div class="au-panel-header au-bg-gray">
 
- 
- <app-unit-bundling-filter 
-    #filterDialog
-  (closedDialog)="closedFilterDialog($event)"
- >
+        </div>
 
- </app-unit-bundling-filter>
 
+        <kendo-grid [data]="gridDataResult | async" [pageSize]="state.take" [skip]="state.skip" [sort]="state.sort" [sortable]="true"
+            [pageable]="true" [selectable]="true" (dataStateChange)="onDataStateChange($event)" (pageChange)="onPageChange($event)"
+            [filter]="state.filter" [resizable]="true" [selectable]="selectableSettings" [kendoGridSelectBy]="'unitId'" [selectedKeys]="dataItemSelected"
+            (selectedKeysChange)="onSelectedKeysChange($event)" [height]="500">
+            <kendo-grid-checkbox-column width="40">
+                <ng-template kendoGridHeaderTemplate>
+                    <input class="k-checkbox" id="selectAllCheckboxId" kendoGridSelectAllCheckbox [state]="selectAllState" (selectAllChange)="onSelectAllChange($event)">
+                    <label class="k-checkbox-label" for="selectAllCheckboxId"></label>
+                </ng-template>
+            </kendo-grid-checkbox-column>
+
+
+            <kendo-grid-column field="unitTitle" title="عنوان واحد">
+            </kendo-grid-column>
+
+            <kendo-grid-column field="unitNumber" title="شماره واحد">
+            </kendo-grid-column>
+
+            <kendo-grid-column field="usageItemName" title="کاربری">
+            </kendo-grid-column>
+
+            <kendo-grid-column field="nominalArea" title="متراژ اسمی واحد">
+            </kendo-grid-column>
+
+
+
+        </kendo-grid>
+
+
+    </div>
+</form>
+
+
+
+
+<app-unit-bundling-filter #filterDialog (closedDialog)="closedFilterDialog($event)">
+
+</app-unit-bundling-filter>
