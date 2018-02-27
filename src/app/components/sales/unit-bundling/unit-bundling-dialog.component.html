@@ -7,15 +7,14 @@
     </div>
   </kendo-dialog-titlebar>
 
-
-
-    <kendo-splitter>
+    <kendo-splitter [height]="600">
 
       <kendo-splitter-pane [collapsible]="true" size="30%">
         <div class="pane-content">
           <!-- [(ngModel)]="model.wbsUnitId"  -->
           <app-wbs-active-tree name="wbsHid" 
-          (checkedKeysChange)="showChecked($event)"
+          (checkedKeysChange)="showChecked($event)" 
+           [ngClass]="{'au-disabled':isFiltered}" >
            #wbsTree>
           </app-wbs-active-tree>
 
@@ -28,7 +27,9 @@
           #searchForm
           [salePlanId]="salePlanId" 
           [filterModel]="filterModel" 
-          [(wbsHid)]="wbsHid" >
+          [(wbsHid)]="wbsHid" 
+          (fiterChanged)="onfiterChanged($event)"
+          >
           </app-unit-bundling-search>
         </div>
       </kendo-splitter-pane>
@@ -40,8 +41,8 @@
 
   <kendo-dialog-actions>
 
-    <button kendoButton *ngIf="showSearch==false" class="k-button " primary="true" (click)="onSearch()">جستجو</button>
-    <button kendoButton *ngIf="showSearch" class="k-button " primary="true" (click)="onOk()">تایید</button>
+    <!-- <button kendoButton *ngIf="showSearch==false" class="k-button " primary="true" (click)="onSearch()">جستجو</button> -->
+    <button kendoButton  class="k-button " primary="true" (click)="onOk()">تایید</button>
     <button kendoButton class="k-button " (click)="onClose()">انصراف</button>
   </kendo-dialog-actions>
 

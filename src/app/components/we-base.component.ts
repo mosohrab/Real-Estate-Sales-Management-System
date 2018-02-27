@@ -52,9 +52,9 @@ export abstract class WeBaseKendoTreeComponent extends WeBaseComponent {
   public checkParents = true;
   public checkMode: any = 'multiple';
   public selectionMode: any = 'single';
-  public expandedKeys: any[] = ['0'];
+  public expandedKeys: any[] = [''];
   public selectBy = 'id';
-  public selectedKeys: any[] = [0];
+  public selectedKeys: any[] = [''];
 
   @Output() checkedKeysChange = new EventEmitter<any[]>();
 

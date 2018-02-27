@@ -68,8 +68,8 @@ export class UsageItemService extends BaseService {
         super(http, UrlHelper.USAGEITEM_API);
     }
 
-    public getTree(id: number): Observable<TreeModel[]> {
-        return this.get('/GetTree/' + id);
+    public getTree(code: string): Observable<TreeModel[]> {
+        return this.get('/GetTree/' + code);
       }
     
 

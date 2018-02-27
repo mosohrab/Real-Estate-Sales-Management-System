@@ -79,6 +79,16 @@ h3 {
 
 
 
+.au-disabled{
+  opacity: 0.5;
+  pointer-events: none;
+
+  > * {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
 // Arya Admin
 
 // replace

@@ -1,8 +1,8 @@
 
 export interface TreeModel {
     value: string;
-    id: number;
-    parentId?: number;
+    id: any;
+    parentId?: any;
     children: TreeModel[];
     hasChildren: boolean;
     level: number;

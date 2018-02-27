@@ -115,20 +115,22 @@ export interface UnitRangeBulkModel {
 }
 
 
-export interface UnitBundlingFilterAreaModel{
+export interface UnitBundlingFilterAreaModel {
 
-    fromArea:number;
-    toArea:number;
-    usageItemId:number;
+    fromArea: number;
+    toArea: number;
+    usageItemId: number;
 }
 
 
-export interface UnitBundlingFilterModel{
+export interface UnitBundlingFilterModel {
 
-    filterAreaModel:UnitBundlingFilterAreaModel[];
-    filterUsageItemsId:number[];
-    filterFeatureId:number[];
-    filterSelectiveFeatureId:number[];
+    areaModel: UnitBundlingFilterAreaModel[];
+    usageItemsIds: number[];
+    featureIds: number[];
+    selectiveFeatureIds: number[];
 }
+
+
 
 

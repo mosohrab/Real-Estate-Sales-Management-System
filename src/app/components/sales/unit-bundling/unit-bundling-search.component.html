@@ -5,13 +5,13 @@
         <span class="input-group-btn">
             <button class="btn  btn-danger" type="button" 
             *ngIf="filtered" (click)="clearFilter()">
-                <span class="fa fa-ban"></span>
+                <span class="k-icon k-i-filter-clear"></span>
             </button>
 
             <button class="btn  btn-default" type="button" 
             [ngClass]="{'btn-danger':filtered,'btn-default':filtered==false}" 
             (click)="openFilterDialog()">
-                <span class="fa fa-filter"></span>
+                <span class="k-icon k-i-filter"></span>
             </button>
             <button class="btn btn-default" type="button" (click)="refresh()">
                 <span class="fa fa-search"></span>

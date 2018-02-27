@@ -72,7 +72,8 @@
             <div class="bhoechie-tab-content"  
             *ngIf="model.salesPlanId > 0 " 
             >
-              <app-unit-bundling>
+              <app-unit-bundling 
+              [salePlanId]="model.salesPlanId">
                 
               </app-unit-bundling>
             </div>

@@ -4,14 +4,14 @@ import {
   ViewChild
 } from '@angular/core';
 import { WeBaseComponent } from '../../we-base.component';
-import {OperationResultModel} from '../../../model/operation-result.model';
+import { OperationResultModel } from '../../../model/operation-result.model';
 import { WbsActiveTreeComponent } from '../../wbs/wbs/wbs-active-tree.component';
 
 
 import { UnitRangeService } from '../../../services/sales.service';
 import {
   UnitRangeFilterModel, UnitRangeModel,
-  UnitRangeBulkModel,UnitBundlingFilterModel
+  UnitRangeBulkModel, UnitBundlingFilterModel
 } from '../../../model/sales.model';
 import { UnitBundlingSearchComponent } from './unit-bundling-search.component';
 
@@ -30,6 +30,7 @@ export class UnitBundlingDialogComponent extends WeBaseComponent {
   service: UnitRangeService;
   public isOpenedDialog = false;
 
+  isFiltered = false;
   showSearch = false;
   model = <UnitRangeFilterModel>{};
   filterModel = <UnitBundlingFilterModel>{};
@@ -46,8 +47,6 @@ export class UnitBundlingDialogComponent extends WeBaseComponent {
     super();
     this.service = service;
 
-    // TODO
-    this.salePlanId = 1;
   }
 
   ngOnInitHandler() {
@@ -67,6 +66,19 @@ export class UnitBundlingDialogComponent extends WeBaseComponent {
     this.searchForm.reload(this.wbsHid);
 
   }
+
+
+  onfiterChanged(filter: UnitBundlingFilterModel) {
+   
+    if (filter !== undefined) {
+      this.isFiltered = true;
+    }
+    else {
+      this.isFiltered = false;
+    }
+  }
+
+
   public openDialog() {
     this.model = <UnitRangeFilterModel>{};
     this.showSearch = false;

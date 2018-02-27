@@ -293,6 +293,25 @@ export class PersonBundlingKendoGridService extends WeBaseKendoGridService {
 
 
 
+//
+@Injectable()
+export class UnitBundlingService extends BaseService {
+
+  constructor(http: Http) {
+    super(http, UrlHelper.UnitBundling_API);
+  }
+}
+
+@Injectable()
+export class UnitBundlingKendoGridService extends WeBaseKendoGridService {
+    usageService: UnitBundlingService;
+
+    constructor(http: Http, service: UnitBundlingService) {
+        super(http, UrlHelper.UnitBundling_API);
+        this.usageService = service;
+    }
+
+}
 
 
 

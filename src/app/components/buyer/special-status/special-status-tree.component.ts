@@ -96,7 +96,7 @@ export class SpecialStatuTreeComponent extends WeBaseKendoTreeComponent {
       return this.specialStatusService.getTree();
 
     } else {
-      return this.specialStatusValueService.getTree(item.id);
+      return this.specialStatusValueService.getTree( item.id) ;
     }
   }
 

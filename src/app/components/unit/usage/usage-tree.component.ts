@@ -6,11 +6,11 @@ import {
   EventEmitter, ViewEncapsulation
 } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-
+import { of } from 'rxjs/observable/of';
 import { TreeModel } from '../../../core/model/tree.model';
 import { WeBaseKendoTreeComponent } from '../../we-base.component';
 import { UsageModel } from '../../../model/usage.model';
-import { UsageService,UsageItemService } from '../../../services/usage.service';
+import { UsageService, UsageItemService } from '../../../services/usage.service';
 
 
 @Component({
@@ -27,7 +27,7 @@ export class UsageTreeComponent extends WeBaseKendoTreeComponent {
   UsageService: UsageService;
   UsageItemService: UsageItemService;
   public data: Observable<TreeModel[]>;
-  // public data: Array<TreeModel[]>();
+  //  public data=new  Array<TreeModel>();
 
   constructor(UsageService: UsageService,
     UsageItemService: UsageItemService) {
@@ -40,13 +40,16 @@ export class UsageTreeComponent extends WeBaseKendoTreeComponent {
       const r = new Array<TreeModel>();
       r.push(<TreeModel>{
         hasChildren: true,
-        value: 'کاربری'
+        value: 'کاربری',
       });
-
-
 
       o.next(r);
     });
+
+    // this.data.push(<TreeModel>{
+    //   hasChildren: true,
+    //   value: 'کاربری',
+    // });
 
 
   }
@@ -62,8 +65,9 @@ export class UsageTreeComponent extends WeBaseKendoTreeComponent {
     return item.hasChildren;
   }
   public fetchChildren = (item: TreeModel) => {
+   
     if (item.id === undefined) {
-      return this.UsageService.getTree();
+     return this.UsageService.getTree();
 
     } else {
       return this.UsageItemService.getTree(item.id);

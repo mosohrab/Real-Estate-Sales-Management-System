@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild, ViewEncapsulation, Input } from '@angular/core';
-import { Route, RouterLink } from '@angular/router';
+import { Component, OnInit, ViewChild, ViewEncapsulation, Input, Output,EventEmitter } from '@angular/core';
+
 import { WeBaseKendoGridComponent } from '../../we-base-kendo-grid.component';
-import { UnitService, UnitKendoGridService } from '../../../services/unit.service';
+import { UnitBundlingService, UnitBundlingKendoGridService } from '../../../services/sales.service';
 import {
   UnitBundlingFilterModel,
   UnitBundlingFilterAreaModel
@@ -16,8 +16,8 @@ import { UnitBundlingFilterComponent } from './unit-bundling-filter.component';
   styleUrls: ['./unit-bundling-search.component.scss'],
   encapsulation: ViewEncapsulation.None,
   providers: [
-    UnitService,
-    UnitKendoGridService
+    UnitBundlingService,
+    UnitBundlingKendoGridService
   ]
 })
 export class UnitBundlingSearchComponent extends WeBaseKendoGridComponent {
@@ -25,12 +25,14 @@ export class UnitBundlingSearchComponent extends WeBaseKendoGridComponent {
   @Input() filterModel = <UnitBundlingFilterModel>{};
   @Input() salePlanId: number;
   @Input() wbsHid: number[];
+  @Output() fiterChanged=new EventEmitter<UnitBundlingFilterModel>();
+  
   @ViewChild('filterDialog') filterDialog: UnitBundlingFilterComponent;
 
   search: string;
   filtered = false;
 
-  constructor(service: UnitKendoGridService) {
+  constructor(service: UnitBundlingKendoGridService) {
     super(service);
   }
 
@@ -49,8 +51,12 @@ export class UnitBundlingSearchComponent extends WeBaseKendoGridComponent {
 
   refresh(): void {
 
+    if (this.search) {
+      this.filtered = true;
+    }
+
     const that = this;
-    this._service.readGrid(this.search);
+    this._service.readGrid(this.search, this.filterModel);
   }
 
   public reload(wbsHid: number[]): void {
@@ -76,40 +82,20 @@ export class UnitBundlingSearchComponent extends WeBaseKendoGridComponent {
   private clearFilter() {
     this.filterModel = <UnitBundlingFilterModel>{};
     this.state.filter.filters = [];
+    this.search = '';
     this.filtered = false;
     this.setDataState(this.state);
+    this.fiterChanged.emit(undefined);
+    this.refresh();
   }
 
   private closedFilterDialog(event: UnitBundlingFilterModel) {
 
     this.filterModel = event;
     this.state.filter.filters = [];
-    this.filtered = false;
+    this.setFiltered();
 
-    if (this.filterModel !== undefined) {
-      if (this.filterModel.filterAreaModel !== undefined &&
-        this.filterModel.filterAreaModel.length > 0) {
-        this.filtered = true;
-      }
-
-      if (this.filterModel.filterUsageItemsId !== undefined &&
-        this.filterModel.filterUsageItemsId.length > 0) {
-        this.filtered = true;
-      }
-
-      if (this.filterModel.filterFeatureId !== undefined &&
-        this.filterModel.filterFeatureId.length > 0) {
-        this.filtered = true;
-      }
-
-      if (this.filterModel.filterSelectiveFeatureId !== undefined &&
-        this.filterModel.filterSelectiveFeatureId.length > 0) {
-        this.filtered = true;
-      }
-    }
-
-
-    this.filterModel.filterAreaModel.forEach((element: UnitBundlingFilterAreaModel) => {
+    this.filterModel.areaModel.forEach((element: UnitBundlingFilterAreaModel) => {
 
       if (element.fromArea !== undefined && element.fromArea > 0) {
         this.state.filter.filters.push({
@@ -139,14 +125,54 @@ export class UnitBundlingSearchComponent extends WeBaseKendoGridComponent {
 
     });
 
+    //
+    this.filterModel.usageItemsIds.forEach((element: number) => {
+
+      // if (element) {
+      //   this.state.filter.filters.push({
+      //     field: 'usageItemId',
+      //     operator: 'eq',
+      //     value: element
+      //   });
+      // }
+
+    });
     this.setDataState(this.state);
     //
+    //
 
+    this.fiterChanged.emit(this.filterModel);
     this.refresh();
 
   }
 
 
+
+  setFiltered() {
+    this.filtered = false;
+
+    if (this.filterModel !== undefined) {
+      if (this.filterModel.areaModel !== undefined &&
+        this.filterModel.areaModel.length > 0) {
+        this.filtered = true;
+      }
+
+      if (this.filterModel.usageItemsIds !== undefined &&
+        this.filterModel.usageItemsIds.length > 0) {
+        this.filtered = true;
+      }
+
+      if (this.filterModel.featureIds !== undefined &&
+        this.filterModel.featureIds.length > 0) {
+        this.filtered = true;
+      }
+
+      if (this.filterModel.selectiveFeatureIds !== undefined &&
+        this.filterModel.selectiveFeatureIds.length > 0) {
+        this.filtered = true;
+      }
+    }
+  }
 
 }
 

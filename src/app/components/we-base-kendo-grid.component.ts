@@ -67,8 +67,8 @@ export abstract class WeBaseKendoGridComponent extends WeBaseComponent {
     constructor(service: WeBaseKendoGridService) {
         super();
         this._service = service;
-        this.gridDataResult =this.gridDataResult = service;
-        
+        this.gridDataResult = this.gridDataResult = service;
+
         this.notify = this._service._baseService.notify;
         //  this.notify = NotifyManager.createInstance();
 
@@ -131,20 +131,19 @@ export abstract class WeBaseKendoGridComponent extends WeBaseComponent {
     }
 
 
-    public setDataState(state){
+    public setDataState(state) {
         this.state = state;
         this._service.state = state;
+    }
+
+
+    private onDataStateChange(state: DataStateChangeEvent): void {
+        this.setDataState(state);
         this._service.readGrid();
     }
 
-    
-    private onDataStateChange(state: DataStateChangeEvent): void {
-      
-       this.setDataState(state);
-    }
-
     private filterChange(filter: CompositeFilterDescriptor): void {
-     
+
         // this.filter = filter;
         // this.gridData = filterBy(sampleProducts, filter);
     }

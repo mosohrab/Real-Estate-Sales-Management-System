@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation ,
+Input} from '@angular/core';
 import { Route, RouterLink } from '@angular/router';
 import { WeBaseKendoGridComponent } from '../../we-base-kendo-grid.component';
 import { WeBaseKendoGridService } from '../../../services/base-kendo-grid.service';
@@ -17,7 +18,9 @@ import { UnitBundlingDialogComponent } from './unit-bundling-dialog.component';
 })
 export class UnitBundlingComponent extends WeBaseKendoGridComponent {
 
+  @Input() salePlanId: number;
   @ViewChild('dialogUpsert') dialogUpsert: UnitBundlingDialogComponent;
+
   constructor(service: UnitRangeKendoGridService) {
     super(service);
   }
@@ -38,6 +41,7 @@ export class UnitBundlingComponent extends WeBaseKendoGridComponent {
 
   private refresh(): void {
     const that = this;
+    this._service.readId=this.salePlanId;
     this._service.readGrid();
   }
 
